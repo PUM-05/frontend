@@ -1,2 +1,2 @@
 # frontend
-Frontend repository for candidate project.
+Frontend part for candidate project.
