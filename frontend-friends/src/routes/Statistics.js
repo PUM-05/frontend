@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/sidebar/SideBar";
 
-export default function Example() {
+export default function Statistics() {
   return (
     <>
       <div>
-        <h1>Ett exempel</h1>
+        <h1>Statistics</h1>
         <SideBar />
       </div>
     </>
