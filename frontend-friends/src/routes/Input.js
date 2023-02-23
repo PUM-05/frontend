@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import TextField  from "../components/textfield/TextField";
+import Toggle from "../components/toggle/Toggle";
 
 export default function Input() {
   return (
@@ -9,6 +10,7 @@ export default function Input() {
       <form>
         <TextField />
       </form>
+      <Toggle/>
     </>
   );
 }
