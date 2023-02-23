@@ -13,7 +13,7 @@ export default function SideBar() {
         <li>
           <Link
             to="/"
-            className={`navigation-link ${path == "/" ? "active" : ""}`}
+            className={`navigation-link ${path === "/" ? "active" : ""}`}
           >
             <span>Inmatning</span>
           </Link>
@@ -22,7 +22,7 @@ export default function SideBar() {
           <Link
             to="/dashboard"
             className={`navigation-link ${
-              path == "/dashboard" ? "active" : ""
+              path === "/dashboard" ? "active" : ""
             }`}
           >
             <DashboardIcon /> <span>Dashboard</span>
@@ -32,7 +32,7 @@ export default function SideBar() {
           <Link
             to="/statistik"
             className={`navigation-link ${
-              path == "/statistik" ? "active" : ""
+              path === "/statistik" ? "active" : ""
             }`}
           >
             <StatisticsIcon />
@@ -40,7 +40,7 @@ export default function SideBar() {
           </Link>
           <Link
             to="/lista"
-            className={`navigation-link ${path == "/lista" ? "active" : ""}`}
+            className={`navigation-link ${path === "/lista" ? "active" : ""}`}
           >
             <ListIcon />
             Ärendelista
