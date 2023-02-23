@@ -1,0 +1,49 @@
+@use '../../style/colors';
+li {
+    list-style-type: none;
+}
+
+
+
+.sidebar-container{
+    background-color: #fff;
+    width: 250px;
+    height: 100vh;
+    padding: 1em;
+    position: fixed;
+
+    .st0{
+        fill: colors.$primary-color;
+    }
+
+    .logo-wrapper{
+        padding: 20px 40px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li, .navigation-link{
+        color: colors.$grey-text;
+        font-size: 20px;
+    }
+
+    .navigation-link{
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        padding: 1em 1em;
+        border-radius: 1em;
+        margin: 0.2em 0;
+    }
+
+    .navigation-link:hover{
+        background-color: colors.$light-grey;
+    }
+
+    .active{
+        color: colors.$primary-color;
+    }
+}
