@@ -6,7 +6,7 @@ export default function PageWrapper(props) {
   return (
     <div className="page-container">
       <SideBar />
-      {props.children}
+      <div className="content-container">{props.children}</div>
     </div>
   );
 }

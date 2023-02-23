@@ -3,12 +3,16 @@ import "./sidebar.scss";
 import DashboardIcon from "./icons/DashboardIcon";
 import StatisticsIcon from "./icons/StatisticsIcon";
 import ListIcon from "./icons/ListIcon";
+import Logo from "./logo/Logo";
 
 export default function SideBar() {
   const location = useLocation();
   const path = location.pathname;
   return (
     <div className="sidebar-container">
+      <div className="logo-wrapper">
+        <Logo />
+      </div>
       <ul>
         <li>
           <Link

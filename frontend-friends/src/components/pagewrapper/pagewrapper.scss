@@ -1,3 +1,9 @@
 .page-container{
     display: flex;
 }
+
+.content-container{
+    margin-left: 282px;
+    flex-grow: 1;
+    overflow: hidden;
+}

@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import SideBar from "../components/sidebar/SideBar";
+import PageWrapper from "../components/pagewrapper/PageWrapper";
 
 export default function Statistics() {
   return (
     <>
-      <div>
+      <PageWrapper>
         <h1>Statistics</h1>
-        <SideBar />
-      </div>
+      </PageWrapper>
     </>
   );
 }
