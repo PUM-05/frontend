@@ -1,0 +1,17 @@
+@use "../../style/colors.scss";
+
+.text-field {
+    all: unset;
+    border-radius: 6px;
+    width: 100%;
+    height: 50px;
+    background-color: colors.$text-field-background;
+    border: 1px solid colors.$text-field-stroke;
+    box-sizing: border-box;
+    padding: 0 20px;
+    
+    ::placeholder {
+        color: colors.$placeholder-text;
+        opacity: 1;
+    }
+}
