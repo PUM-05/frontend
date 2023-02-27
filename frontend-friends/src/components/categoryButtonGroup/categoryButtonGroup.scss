@@ -1,12 +1,27 @@
+@use '../../style/colors';
+
 .button-group-wrapper{
     max-width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 200px);
     flex-wrap: wrap;
     gap: 10px;
-    
 }
 
 .button-group-wrapper > *{
     flex: 1;
+}
+
+.top-button-group-wrapper{
+    height: 100px;
+}
+
+.subcategory-popup-1{
+    background-color: colors.$light-grey;
+    max-width: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    flex-wrap: wrap;
+    gap: 10px;
 }
