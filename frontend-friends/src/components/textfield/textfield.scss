@@ -3,7 +3,6 @@
 .text-field {
     all: unset;
     border-radius: 6px;
-    width: 100%;
     height: 50px;
     background-color: colors.$text-field-background;
     border: 1px solid colors.$text-field-stroke;
@@ -14,4 +13,8 @@
         color: colors.$placeholder-text;
         opacity: 1;
     }
+}
+
+input:required {
+    color: red;
 }
