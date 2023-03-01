@@ -1,29 +1,59 @@
 @use '../../style/colors';
-li {
-    list-style-type: none;
-}
+
 
 
 
 .sidebar-container{
+    overflow: hidden;
     background-color: #fff;
-    width: 250px;
+    width: 80px;
     height: 100vh;
     padding: 1em;
     position: fixed;
+    z-index: 100;
+    transition: width 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    box-sizing: border-box;
 
     .st0{
         fill: colors.$primary-color;
     }
 
     .logo-wrapper{
-        padding: 20px 40px;
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+        width: auto;
+        overflow: hidden;
+        svg{
+            height: 24px;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .default-logo{
+            display: none;
+        }
+    
+        .small-logo{
+            display: block;
+        }
     }
 
     ul {
-        margin: 0;
+        margin: 20px 0;
         padding: 0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        li{
+            flex-grow: 1;
+            list-style-type: none;
+        }
     }
+
+
 
     li, .navigation-link{
         color: colors.$grey-text;
@@ -33,17 +63,81 @@ li {
     .navigation-link{
         display: flex;
         align-items: center;
-        gap: 1em;
-        padding: 1em 1em;
+        justify-content: center;
+        padding: 0.5em 0.5em;
         border-radius: 1em;
-        margin: 0.2em 0;
+        margin: 0.2em auto;
+
+
+        svg{
+            width: 100%;
+        }
     }
 
     .navigation-link:hover{
         background-color: colors.$light-grey;
     }
 
+    .navigation-link svg{
+        flex-shrink: 0;
+        transition: none;
+        height: 20px;
+        width: 20px;
+    }
+
+    .input-link{
+        .navigation-link{
+            background-color: colors.$primary-color;
+            color: white;
+        }
+
+        .navigation-link:hover{
+            background-color: colors.$primary-dark;
+        }
+        
+    }
+
     .active{
         color: colors.$primary-color;
     }
+
+    .nav-text{
+        width: 0;
+        overflow: hidden;
+        height: 0;
+    }
+
+
+
+    
 }
+
+.sidebar-container:hover{
+    width: 280px;
+    transition: width 0.1s ease-in-out;
+
+    ul{
+        align-items: stretch;
+    }
+
+    .navigation-link{
+        justify-content: start;
+        padding: 0.5em 1em;
+        font-size: 20px;
+        gap: 1em;
+    }
+    .nav-text{
+        height: auto;
+        width: fit-content;
+        display: inline;
+    }
+
+    .default-logo{
+        display: block;
+    }
+
+    .small-logo{
+        display: none;
+    }
+}
+
