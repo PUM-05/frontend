@@ -9,4 +9,4 @@ export default function CategoryButton (props){
             <label for={props.id} name={props.name} value={props.value} className={`${props.color}`}>{props.children}</label>
         </div>
     )
-}
+} 
