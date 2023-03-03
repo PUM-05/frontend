@@ -15,6 +15,40 @@
     }
 }
 
-input:required {
-    color: red;
+.input-text-field {
+    position: relative;
+
+    input {
+        all: unset;
+        border-radius: 6px;
+        height: 50px;
+        background-color: colors.$text-field-background;
+        border: 1px solid colors.$text-field-stroke;
+        box-sizing: border-box;
+        padding: 0 20px;
+        //padding: 10px;
+        font-size: 25px;
+    }
+    input:valid + .placeholder {
+        display: none;
+    }
+  }
+ 
+  
+.placeholder {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    height: 25px;
+    font-size: 25px;
+    left: 10px;
+    margin: auto;
+    color: colors.$placeholder-text;
+
+    span {
+        color:red;
+    }
 }
+
+

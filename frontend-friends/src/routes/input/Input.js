@@ -18,11 +18,11 @@ export default function Input() {
         <div className="form-container">
           <form>
             <Toggle/>
-            <TextField placeholder="Ärendenr" isRequired={false} />
+            <TextField placeholder="Ärendenr" isRequired={true} />
             <CategoryButtonGroup name="category"></CategoryButtonGroup>
             <div className="text-field-container">
-              <TextField placeholder="Tidsåtgång *" isRequired={true} />
-              <TextField placeholder="Efterarbete" />
+              <TextField placeholder="Tidsåtgång" isRequired={true} />
+              <TextField placeholder="Efterarbete" isRequired={false} />
             </div>
           </form>
           <SubmitButton name="submit" value="1" color="yellow">Spara</SubmitButton>
