@@ -20,12 +20,10 @@ export default function Input() {
             <Toggle/>
             <TextField placeholder="Ärendenr" isRequired={false} />
             <CategoryButtonGroup name="category"></CategoryButtonGroup>
-            {/*
             <div className="text-field-container">
               <TextField placeholder="Tidsåtgång *" isRequired={true} />
               <TextField placeholder="Efterarbete" />
             </div>
-            */}
           </form>
           <SubmitButton name="submit" value="1" color="yellow">Spara</SubmitButton>
         </div>
