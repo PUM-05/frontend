@@ -2,7 +2,6 @@ import "./textfield.scss"
 
 export default function TextField(props) {
     const isRequired = props.isRequired || false;
-    // const isRequired = props.isRequired;
     if (isRequired) {
         return (
             <div className="mandatory-text-field">
