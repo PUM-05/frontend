@@ -4,6 +4,8 @@ import DashboardIcon from "./icons/DashboardIcon";
 import StatisticsIcon from "./icons/StatisticsIcon";
 import ListIcon from "./icons/ListIcon";
 import Logo from "./logo/Logo";
+import SmallLogo from "./logo/SmallLogo";
+import InputIcon from "./icons/InputIcon";
 
 export default function SideBar() {
   const location = useLocation();
@@ -11,15 +13,22 @@ export default function SideBar() {
   return (
     <div className="sidebar-container">
       <div className="logo-wrapper">
-        <Logo />
+        <div class="default-logo">
+          <Logo />
+        </div>
+        <div className="small-logo">
+          <SmallLogo />
+        </div>
       </div>
+
       <ul>
-        <li>
+        <li className="input-link">
           <Link
             to="/"
             className={`navigation-link ${path === "/" ? "active" : ""}`}
           >
-            <span>Inmatning</span>
+            <InputIcon />
+            <span className="nav-text">Inmatning</span>
           </Link>
         </li>
         <li>
@@ -29,7 +38,8 @@ export default function SideBar() {
               path === "/dashboard" ? "active" : ""
             }`}
           >
-            <DashboardIcon /> <span>Dashboard</span>
+            <DashboardIcon />
+            <span className="nav-text">Dashboard</span>
           </Link>
         </li>
         <li>
@@ -40,14 +50,16 @@ export default function SideBar() {
             }`}
           >
             <StatisticsIcon />
-            Statistik
+            <span className="nav-text">Statistik</span>
           </Link>
+        </li>
+        <li>
           <Link
             to="/lista"
             className={`navigation-link ${path === "/lista" ? "active" : ""}`}
           >
             <ListIcon />
-            Ärendelista
+            <span className="nav-text">Ärendelista</span>
           </Link>
         </li>
       </ul>
