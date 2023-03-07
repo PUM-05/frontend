@@ -1,10 +1,12 @@
 @use '../../style/colors';
-.category-button-wrapper{
+.subcategory-button-wrapper{
     label {
         all: unset;
         box-sizing: border-box;
-        height: 80px;
+        height: 70px;
         padding: 20px 30px;
+        width: 170px;
+        //margin-left: 10%;
         text-transform: uppercase;
         font-weight: 600;
         user-select: none;
@@ -92,7 +94,7 @@
         color: colors.$green;
         box-shadow: inset 0 0 0 4px colors.$green;
     }
- 
+
 
     //Orange
     input[type="radio"]:checked+label.orange{
@@ -104,5 +106,4 @@
         color: colors.$orange;
         box-shadow: inset 0 0 0 4px colors.$orange;
     }
-
 }

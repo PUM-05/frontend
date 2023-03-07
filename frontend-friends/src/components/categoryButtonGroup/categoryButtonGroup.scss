@@ -1,12 +1,32 @@
+@use '../../style/colors';
+
 .button-group-wrapper{
     max-width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 200px);
     flex-wrap: wrap;
     gap: 10px;
-    
 }
 
 .button-group-wrapper > *{
     flex: 1;
+} 
+
+.top-button-group-wrapper{
+    height: 100px;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+  }
+
+.subcategory-popup-1{
+    background-color: colors.$light-grey;
+    display:flex;
+    justify-content: center;
+    flex-grow: 4;
+    flex-shrink: 0;
+    gap: 10px;
+    grid-column: span 4;
 }
