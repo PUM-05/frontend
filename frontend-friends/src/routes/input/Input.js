@@ -5,8 +5,27 @@ import Toggle from "../../components/toggle/Toggle";
 import CategoryButtonGroup from "../../components/categoryButtonGroup/CategoryButtonGroup";
 import PageWrapper from "../../components/pagewrapper/PageWrapper";
 import "./input.scss";
+import { useState } from "react";
 
 export default function Input() {
+  const [comMode, setComMode] = useState(true);
+  const [caseId, setCaseId] = useState("");
+  const [timeSpend, setTimeSpend] = useState("");
+  const [afterWorkTime, setAfterWorkTime] = useState("");
+  const [caseCategory, setCaseCategory] = useState("");
+
+  function submitData() {
+    const data = {
+      id: caseId,
+      category: caseCategory,
+      time: timeSpend,
+      afterwork: afterWorkTime,
+      mode: comMode,
+    };
+
+    console.log(data);
+  }
+
   return (
     <>
       <PageWrapper>
@@ -18,15 +37,39 @@ export default function Input() {
 
           <div className="form-container">
             <form>
-              <Toggle/>
-              <TextField placeholder="Ärendenr" isRequired={false} />
-              <CategoryButtonGroup name="category"></CategoryButtonGroup>
+              <Toggle onChange={(val) => setComMode(val)} value={comMode} />
+              <TextField
+                placeholder="Ärendenr"
+                isRequired={false}
+                onChange={(e) => {
+                  setCaseId(e.target.value);
+                }}
+              />
+              <CategoryButtonGroup
+                name="category"
+                onChange={(value) => {
+                  setCaseCategory(value);
+                }}
+              ></CategoryButtonGroup>
               <div className="text-field-container">
-                <TextField placeholder="Tidsåtgång" isRequired={true} />
-                <TextField placeholder="Efterarbete" />
+                <TextField
+                  placeholder="Tidsåtgång"
+                  isRequired={true}
+                  onChange={(e) => {
+                    setTimeSpend(e.target.value);
+                  }}
+                />
+                <TextField
+                  placeholder="Efterarbete"
+                  onChange={(e) => {
+                    setAfterWorkTime(e.target.value);
+                  }}
+                />
               </div>
             </form>
-            <SubmitButton name="submit">SKICKA</SubmitButton>
+            <SubmitButton name="submit" onClick={submitData}>
+              SKICKA
+            </SubmitButton>
           </div>
         </div>
       </PageWrapper>
