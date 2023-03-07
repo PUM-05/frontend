@@ -9,9 +9,9 @@ export default function Input() {
   return (
     <>
       <div className="contain-all">
+        <Link to="/dashboard">Gå till överblickssida</Link>
         <div className="header-container">
-          <h1>Inmatning</h1>
-          <Link to="/dashboard">Gå till överblickssida</Link>
+          <h1>Kommunikationsmedie</h1>
         </div>
 
         
@@ -25,7 +25,7 @@ export default function Input() {
               <TextField placeholder="Efterarbete" />
             </div>
           </form>
-          <SubmitButton name="submit" value="1" color="yellow">Spara</SubmitButton>
+          <SubmitButton name="submit">SKICKA</SubmitButton>
         </div>
       </div>
     </>
