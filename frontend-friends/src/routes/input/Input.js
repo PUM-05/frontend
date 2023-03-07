@@ -16,14 +16,13 @@ export default function Input() {
             <h1>Kommunikationsmedie</h1>
           </div>
 
-
           <div className="form-container">
             <form>
               <Toggle/>
               <TextField placeholder="Ärendenr" isRequired={false} />
               <CategoryButtonGroup name="category"></CategoryButtonGroup>
               <div className="text-field-container">
-                <TextField placeholder="Tidsåtgång *" isRequired={true} />
+                <TextField placeholder="Tidsåtgång" isRequired={true} />
                 <TextField placeholder="Efterarbete" />
               </div>
             </form>
