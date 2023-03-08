@@ -9,17 +9,16 @@ import "./input.scss";
 export default function Input() {
   return (
     <>
-      <PageWrapper>
+      <PageWrapper className="collapsed-sidebar">
         <div className="contain-all">
           <Link to="/dashboard">Gå till överblickssida</Link>
           <div className="header-container">
             <h1>Kommunikationsmedie</h1>
           </div>
 
-
           <div className="form-container">
             <form>
-              <Toggle/>
+              <Toggle />
               <TextField placeholder="Ärendenr" isRequired={false} />
               <CategoryButtonGroup name="category"></CategoryButtonGroup>
               <div className="text-field-container">
