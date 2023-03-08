@@ -3,7 +3,16 @@
 }
 
 .content-container{
-    margin-left: 80px;
+    margin-left: 260px;
     flex-grow: 1;
     overflow: hidden;
+}
+
+.collapsed-sidebar .content-container{
+    margin-left: 80px;
+}
+@media screen and (max-width: 992px){
+    .content-container{
+        margin-left: 80px;
+    }
 }
