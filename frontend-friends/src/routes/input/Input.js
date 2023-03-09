@@ -19,11 +19,11 @@ export default function Input() {
           <div className="form-container">
             <form>
               <Toggle/>
-              <TextField placeholder="Ärendenr" isRequired={false} />
+              <TextField placeholder="Ärendenr" id="errandnr" isRequired={false} />
               <CategoryButtonGroup name="category"></CategoryButtonGroup>
               <div className="text-field-container">
-                <TextField placeholder="Tidsåtgång" isRequired={true} />
-                <TextField placeholder="Efterarbete" />
+                <TextField id="time" placeholder="Tidsåtgång" isRequired={true}/>
+                <TextField id="afterwork" placeholder="Efterarbete" />
               </div>
             </form>
             <SubmitButton name="submit">SKICKA</SubmitButton>
