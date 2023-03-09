@@ -1,47 +1,5 @@
 @use "../../style/colors.scss";
 
-.mandatory-text-field {
-
-    /*all: unset;
-    // position: relative;
-
-    input:valid + .placeholder {
-        display: none;
-    }
-    .placeholder {
-        position: absolute;
-        // pointer-events: none;
-        top: 0;
-        bottom: 0;
-        height: 25px;
-        font-size: 25px;
-        left: 10px;
-        margin: auto;
-        color: colors.$placeholder-text;
-    
-        span {
-            color:red;
-        }
-    }*/
-    input {
-        all: unset;
-        border-radius: 6px;
-        height: 50px;
-        background-color: colors.$text-field-background;
-        border: 1px solid colors.$text-field-stroke;
-        box-sizing: border-box;
-        padding: 0 20px;
-        font-size: 18px;
-        transition: border-color 0.3s;
-
-        &:focus {
-            border-color: colors.$primary-color;
-            border-width: 2px;
-        }
-    }
-  }
-
-
 .text-field {
 
     position: relative;
@@ -83,7 +41,7 @@
         color: red;
     }
 
-    input:valid + label{
+    input:focus + label{
         display: none;
     }
 }
