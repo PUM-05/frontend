@@ -5,6 +5,7 @@ import "./index.scss";
 import Statistics from "./routes/Statistics";
 import Root from "./routes/root";
 import Input from "./routes/input/Input";
+import Login from "./routes/login/Login";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/lista",
     element: <div />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 

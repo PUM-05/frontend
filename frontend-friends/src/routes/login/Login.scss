@@ -1,0 +1,70 @@
+@use "../../style/colors.scss";
+
+.contain-all {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .default-logo{
+        display:block;
+        width: 300px;
+        margin-bottom: 8%;
+        fill: #579CFB;
+        .login-logo{
+            width: 100px;
+        }
+    }
+}
+
+.form-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 45px;
+    }
+
+    .text-field {
+        width: 55%;
+        transition: border-color 0.3s;
+
+        &:focus {
+            border-color: colors.$primary-color;
+            border-width: 2px;
+        }
+    }
+
+    button {
+        all: unset;
+        background-color: colors.$primary-color;
+        font-weight: 600;
+        color: white;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.4s;
+        
+        &:hover {
+            background-color: #4984D3;
+        }
+    }
+}
+
+.text-field-container {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+
+    .text-field {
+        width: 50%;
+    }
+}
