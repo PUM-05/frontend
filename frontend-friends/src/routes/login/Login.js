@@ -8,7 +8,6 @@ import Logo from "../../components/sidebar/logo/Logo"
 export default function Input() {
   return (
     <>
-      <PageWrapper>
         <div className="contain-all">
           <div class="default-logo">
             <Logo  className="login-logo"/>
@@ -25,7 +24,6 @@ export default function Input() {
             }
           </div>
         </div>
-      </PageWrapper>
     </>
   );
 }
