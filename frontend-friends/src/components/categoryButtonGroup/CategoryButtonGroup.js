@@ -60,7 +60,7 @@ export default function CategoryButtonGroup(props) {
 
     return (
         <div className="button-group-wrapper">
-            {buttonData.map((item) => (
+            {buttonData.map((item, i) => (
                 <>
                     <CategoryButton
                         id={'button-' + item.value}
@@ -70,6 +70,8 @@ export default function CategoryButtonGroup(props) {
                         subcategories={item.subcategories}
                         value={item.value}
                         currentValue={props.value}
+                        key={i}
+                        index={i}
                     >
                         {item.title}
                     </CategoryButton>

@@ -58,8 +58,8 @@ export default function CategoryButton(props) {
             </div>
 
             {props.subcategories && showSubcategories && (
-                <div className="subcategory-popup-1">
-                    {props.subcategories.map((category) => (
+                <div className="subcategory-popup" style={{ gridRowStart: Math.ceil(props.index / 4) + 1 }}>
+                    {props.subcategories.map((category, i) => (
                         <SubcategoryButton
                             id={'button-' + category.value}
                             parentTitle={category.parentTitle}
@@ -68,6 +68,7 @@ export default function CategoryButton(props) {
                             color={category.color}
                             onClick={handleSubcategoryClick}
                             checked={props.currentValue === category.value}
+                            key={i}
                         >
                             {category.title}
                         </SubcategoryButton>
