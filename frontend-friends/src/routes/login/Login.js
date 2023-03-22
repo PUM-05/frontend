@@ -4,6 +4,7 @@ import TextField from "../../components/textfield/TextField";
 import PageWrapper from "../../components/pagewrapper/PageWrapper";
 import "./Login.scss";
 import Logo from "../../components/sidebar/logo/Logo"
+import { useState } from "react";
 
 export default function Input() {
   return (
@@ -14,7 +15,7 @@ export default function Input() {
           </div>
           <div className="form-container">
             <form>
-              <TextField placeholder="Användarnamn" isRequired={true} />
+              <TextField placeholder="Användarnamn" isRequired={true}/>
             </form>
             <SubmitButton name="submit">LOGGA IN</SubmitButton> 
             {
