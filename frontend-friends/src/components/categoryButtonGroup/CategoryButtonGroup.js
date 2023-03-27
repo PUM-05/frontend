@@ -1,7 +1,9 @@
 import './categoryButtonGroup.scss'
 import CategoryButton from '../categoryButton/CategoryButton'
+import { useState } from 'react'
 
 export default function CategoryButtonGroup(props) {
+    const [showSubValue, setShowSubValue] = useState()
     const buttonData = [
         {
             title: 'Justera Lön',
@@ -67,6 +69,8 @@ export default function CategoryButtonGroup(props) {
                         name={props.name}
                         color={item.color}
                         onChange={onChange}
+                        setShowSub={setShowSubValue}
+                        showSub={showSubValue === item.value}
                         subcategories={item.subcategories}
                         value={item.value}
                         currentValue={props.value}

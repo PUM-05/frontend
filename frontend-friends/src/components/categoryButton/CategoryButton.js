@@ -3,11 +3,15 @@ import SubcategoryButton from '../subcategoryButton/SubcategoryButton'
 import './button.scss'
 
 export default function CategoryButton(props) {
-    const [showSubcategories, setShowSubcategories] = useState(false)
     const [buttonTitle, setButtonTitle] = useState(props.children)
 
     function onClick(e, currentValue) {
-        setShowSubcategories(!showSubcategories)
+        if (props.showSub) {
+            props.setShowSub(null)
+        } else {
+            props.setShowSub(props.value)
+        }
+
         if (!props.subcategories && !isChecked(currentValue)) {
             props.onChange({ title: props.children, value: props.value })
         }
@@ -19,21 +23,21 @@ export default function CategoryButton(props) {
     }
 
     function isChecked(currentValue) {
-        if (props.value == currentValue) {
+        if (props.value === currentValue) {
             return true
         }
 
         let value = false
         if (props.subcategories) {
             for (const category of props.subcategories) {
-                if (category.value == currentValue) {
+                if (category.value === currentValue) {
                     value = true
                 }
             }
         }
 
         if (!value) {
-            if (buttonTitle != props.children) {
+            if (buttonTitle !== props.children) {
                 setButtonTitle(props.children)
             }
         }
@@ -57,7 +61,7 @@ export default function CategoryButton(props) {
                 </label>
             </div>
 
-            {props.subcategories && showSubcategories && (
+            {props.subcategories && props.showSub && (
                 <div className="subcategory-popup" style={{ gridRowStart: Math.ceil(props.index / 4) + 1 }}>
                     {props.subcategories.map((category, i) => (
                         <SubcategoryButton

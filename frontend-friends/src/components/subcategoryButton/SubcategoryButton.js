@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './subcategoryButton.scss'
 
 export default function CategoryButton(props) {
