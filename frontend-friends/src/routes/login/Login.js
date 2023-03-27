@@ -15,7 +15,7 @@ export default function Input() {
             <form>
               <TextField placeholder="Användarnamn" isRequired={true}/>
             </form>
-            <SubmitButton className="login-btn" name="submit">LOGGA IN</SubmitButton> 
+            <SubmitButton name="submit">LOGGA IN</SubmitButton> 
             {
                 //TODO: Om användare är admin, skickas till 
                 //ny sida, där man kan skriva in lösenord, när man har klickat på login-knapp?
