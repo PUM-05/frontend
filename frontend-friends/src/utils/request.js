@@ -6,7 +6,6 @@ export async function postData(path, data) {
         mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
-            ''
         },
         body: JSON.stringify(data),
     }
