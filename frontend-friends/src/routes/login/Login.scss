@@ -9,7 +9,7 @@
     .default-logo{
         display:block;
         width: 300px;
-        margin-bottom: 8%;
+        margin-bottom: 5%;
         fill: #579CFB;
         .login-logo{
             width: 100px;
@@ -17,7 +17,8 @@
     }
 }
 
-.form-container {
+.login-form-container {
+
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -29,16 +30,6 @@
         flex-direction: column;
         align-items: center;
         gap: 45px;
-    }
-
-    .text-field {
-        width: 55%;
-        transition: border-color 0.3s;
-
-        &:focus {
-            border-color: colors.$primary-color;
-            border-width: 2px;
-        }
     }
 
     button {
@@ -56,15 +47,5 @@
         &:hover {
             background-color: #4984D3;
         }
-    }
-}
-
-.text-field-container {
-    display: flex;
-    width: 100%;
-    gap: 10px;
-
-    .text-field {
-        width: 50%;
     }
 }

@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import SubmitButton from "../../components/submitButton/SubmitButton";
 import TextField from "../../components/textfield/TextField";
-import PageWrapper from "../../components/pagewrapper/PageWrapper";
 import "./Login.scss";
 import Logo from "../../components/sidebar/logo/Logo"
-import { useState } from "react";
 
 export default function Input() {
   return (
@@ -13,11 +11,11 @@ export default function Input() {
           <div class="default-logo">
             <Logo  className="login-logo"/>
           </div>
-          <div className="form-container">
+          <div className="login-form-container">
             <form>
               <TextField placeholder="Användarnamn" isRequired={true}/>
             </form>
-            <SubmitButton name="submit">LOGGA IN</SubmitButton> 
+            <SubmitButton className="login-btn" name="submit">LOGGA IN</SubmitButton> 
             {
                 //TODO: Om användare är admin, skickas till 
                 //ny sida, där man kan skriva in lösenord, när man har klickat på login-knapp?
