@@ -5,14 +5,14 @@ export default function TextField(props) {
     if (isRequired) {
         return (
             <div className="text-field">
-                <input type="text" id={props.id} name="mandatory-text-field" required />
+                <input type="text" id={props.id} name="mandatory-text-field" required onChange={props.onChange} />
                 <label htmlFor={props.id}>{props.placeholder}</label>
             </div>
         )
     }
     return (
         <div className="text-field">
-            <input type="text" id={props.id} name="text-field" />
+            <input type="text" id={props.id} name="text-field" onChange={props.onChange} />
             <label htmlFor={props.id}>{props.placeholder}</label>
         </div>
     )
