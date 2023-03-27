@@ -72,7 +72,7 @@ export default function CategoryButton(props) {
                             color={category.color}
                             onClick={handleSubcategoryClick}
                             checked={props.currentValue === category.value}
-                            key={i}
+                            key={category.value}
                         >
                             {category.title}
                         </SubcategoryButton>

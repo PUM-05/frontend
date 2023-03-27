@@ -74,7 +74,7 @@ export default function CategoryButtonGroup(props) {
                         subcategories={item.subcategories}
                         value={item.value}
                         currentValue={props.value}
-                        key={i}
+                        key={item.value}
                         index={i}
                     >
                         {item.title}
