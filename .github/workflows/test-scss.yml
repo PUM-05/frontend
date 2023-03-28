@@ -1,4 +1,4 @@
--name : Test Syntax of Scss files
+name : Test Syntax of Scss files
   on: push
   runs-on: ubuntu-latest 
   run: |
