@@ -2,12 +2,8 @@ import './textfield.scss'
 import React, { useState } from 'react';
 
 export default function TextField(props) {
-    const [value, setValue] = useState("");
-
-    function handleChange(e) {
-        setValue(e.target.value);
-    }
     const isRequired = props.isRequired || false
+    
     if (isRequired) {
         return (
             <div className="text-field">
