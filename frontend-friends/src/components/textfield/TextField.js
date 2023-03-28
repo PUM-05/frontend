@@ -1,9 +1,8 @@
 import './textfield.scss'
-import React, { useState } from 'react';
 
 export default function TextField(props) {
     const isRequired = props.isRequired || false
-    
+
     if (isRequired) {
         return (
             <div className="text-field">
