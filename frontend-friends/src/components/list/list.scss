@@ -1,0 +1,27 @@
+@use '../../style/colors';
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+tr, th, td {
+    height: 50px;
+    border: none;
+    border-top: 1px inset #B8C4CF;
+    border-bottom: 1px inset #B8C4CF;
+    text-align: left;
+    padding: 0 30px;
+    font-weight: 400;
+    color: colors.$dark-blue;
+}
+
+.list-header {
+    background-color: colors.$light-grey;
+
+    th {
+        font-weight: 500;
+        color: colors.$table-header-text;
+    }
+}

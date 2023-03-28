@@ -5,6 +5,7 @@ import "./index.scss";
 import Statistics from "./routes/Statistics";
 import Root from "./routes/root";
 import Input from "./routes/input/Input";
+import CaseList from "./routes/caselist/CaseList"
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/lista",
-    element: <div />,
+    element: <CaseList />,
   },
 ]);
 

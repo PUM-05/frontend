@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "caseNumber": "#929292",
+        "caseDescription": "Det funkar inte, hjälp!!!!",
+        "caseTime": "15:52 01-02-2023"
+    },
+    {
+        "id": 2,
+        "caseNumber": "#929293",
+        "caseDescription": "Det funkar fortfarande inte, hjälp!!!!",
+        "caseTime": "15:53 02-02-2023"
+    },
+    {
+        "id": 3,
+        "caseNumber": "#929294",
+        "caseDescription": "Skål",
+        "caseTime": "18:00 02-02-2023"
+    }
+]
