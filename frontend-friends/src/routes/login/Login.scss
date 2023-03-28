@@ -1,0 +1,51 @@
+@use "../../style/colors.scss";
+
+.contain-all {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .default-logo{
+        display:block;
+        width: 300px;
+        margin-bottom: 5%;
+        fill: #579CFB;
+        .login-logo{
+            width: 100px;
+        }
+    }
+}
+
+.login-form-container {
+
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 45px;
+    }
+
+    button {
+        all: unset;
+        background-color: colors.$primary-color;
+        font-weight: 600;
+        color: white;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.4s;
+        
+        &:hover {
+            background-color: #4984D3;
+        }
+    }
+}

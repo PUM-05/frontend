@@ -13,7 +13,7 @@ export default function Input() {
     const [timeSpend, setTimeSpend] = useState('')
     const [afterWorkTime, setAfterWorkTime] = useState('')
     const [caseCategory, setCaseCategory] = useState('')
-
+    
     function submitData() {
         const data = {
             id: caseId,
