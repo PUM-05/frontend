@@ -1,12 +1,15 @@
-import { useState } from "react";
-import "./subcategoryButton.scss";
+import './subcategoryButton.scss'
 
-export default function CategoryButton (props){
-
+export default function CategoryButton(props) {
+    function handleChange(e) {
+        props.onClick?.({ title: props.children, value: props.value, parentTitle: props.parentTitle })
+    }
     return (
-        <div className="subcategory-button-wrapper">
-            <input id={props.id} name={props.name} value={props.value} type="radio" className="red active" onClick={(clicked) => props.onClick?.(clicked)}/>
-            <label for={props.id} name={props.name} value={props.value} className={`${props.color}`}>{props.children}</label>
+        <div className="subcategory-button-wrapper" style={props.style}>
+            <input id={props.id} name={props.name} value={props.value} type="radio" className="red active" onChange={handleChange} checked={props.checked} />
+            <label for={props.id} name={props.name} value={props.value} className={`${props.color ?? 'darkblue'}`}>
+                {props.children}
+            </label>
         </div>
     )
 }

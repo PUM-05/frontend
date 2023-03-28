@@ -6,6 +6,7 @@ import Statistics from "./routes/Statistics";
 import Root from "./routes/root";
 import Input from "./routes/input/Input";
 import CaseList from "./routes/caselist/CaseList"
+import Login from "./routes/login/Login";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/lista",
     element: <CaseList />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
