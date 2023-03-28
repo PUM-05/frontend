@@ -1,20 +1,51 @@
 @use "../../style/colors.scss";
 
 .text-field {
-    all: unset;
-    border-radius: 6px;
-    height: 50px;
-    background-color: colors.$text-field-background;
-    border: 1px solid colors.$text-field-stroke;
-    box-sizing: border-box;
-    padding: 0 20px;
-    
-    ::placeholder {
+
+    position: relative;
+
+    ::placeholder{
         color: colors.$placeholder-text;
-        opacity: 1;
+    }
+
+    input {
+        all: unset;
+        border-radius: 6px;
+        width: 100%;
+        height: 50px;
+        background-color: colors.$text-field-background;
+        border: 1px solid colors.$text-field-stroke;
+        box-sizing: border-box;
+        padding: 0 20px;
+        font-size: 18px;
+        transition: border-color 0.3s;
+
+        &:focus {
+            border-color: colors.$primary-color;
+            border-width: 2px;
+        }
+    }
+
+    label {
+        position: absolute;
+        left: 0;
+        color: colors.$placeholder-text;
+        font-size: 18px;
+        left: 22px;
+        line-height: 50px;
+        cursor:text;
+    }
+
+    input[required] + label:after {
+        content:'*';
+        color: red;
+    }
+
+    input:focus + label{
+        display: none;
     }
 }
 
-input:required {
-    color: red;
-}
+  
+
+
