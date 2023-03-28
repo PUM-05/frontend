@@ -44,6 +44,7 @@ export default function Input() {
                                 onChange={(e) => {
                                     setCaseId(e.target.value)
                                 }}
+                                value={caseId}
                             />
                             <CategoryButtonGroup
                                 name="category"
@@ -59,12 +60,14 @@ export default function Input() {
                                     onChange={(e) => {
                                         setTimeSpend(e.target.value)
                                     }}
+                                    value={timeSpend}
                                 />
                                 <TextField
                                     placeholder="Efterarbete"
                                     onChange={(e) => {
                                         setAfterWorkTime(e.target.value)
                                     }}
+                                    value={afterWorkTime}
                                 />
                             </div>
                         </form>

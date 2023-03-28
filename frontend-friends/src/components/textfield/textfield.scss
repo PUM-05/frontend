@@ -8,6 +8,10 @@
         color: colors.$placeholder-text;
     }
 
+    .filled {
+        display: none;
+    }
+
     input {
         all: unset;
         border-radius: 6px;
@@ -24,6 +28,7 @@
             border-color: colors.$primary-color;
             border-width: 2px;
         }
+
     }
 
     label {
@@ -45,6 +50,7 @@
         display: none;
     }
 }
+
 
   
 
