@@ -1,9 +1,20 @@
-name : Test Syntax of Scss files
-  on: push
-  runs-on: ubuntu-latest 
-  run: |
-    npm install --save-dev stylelint stylelint-config-standard-scss
-    npx stylelint "**/*.scss"
+name: Test Syntax of Scss files
+
+on: push
+
+jobs:
+  build:
+    name: Test 1
+    runs-on: ubuntu-latest 
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check SCSS
+        run: |
+          npm install --save-dev stylelint stylelint-config-standard-scss
+          npx stylelint "**/*.scss"
+    
+
 
 
 
