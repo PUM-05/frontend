@@ -28,7 +28,7 @@ export default function Input() {
 
     return (
         <>
-            <PageWrapper>
+            <PageWrapper className="collapsed-sidebar">
                 <div className="contain-all">
                     <Link to="/dashboard">Gå till överblickssida</Link>
                     <div className="header-container">
