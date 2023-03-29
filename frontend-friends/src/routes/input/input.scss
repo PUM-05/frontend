@@ -8,15 +8,6 @@
     justify-content: center;
 }
 
-.header-container {
-    h1 {
-        all: unset;
-        font-size: 24px;
-        font-weight: 600;
-        color: colors.$dark-blue;
-    }
-}
-
 .form-container {
     width: fit-content;
     display: flex;
@@ -50,6 +41,13 @@
         &:hover {
             background-color: #4984D3;
         }
+    }
+}
+
+.header-container {
+    h1{
+        margin: 0;
+        font-size: 24px;
     }
 }
 
