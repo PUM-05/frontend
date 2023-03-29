@@ -6,6 +6,7 @@ import CategoryButtonGroup from '../../components/categoryButtonGroup/CategoryBu
 import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import './input.scss'
 import { useState } from 'react'
+import { postData } from '../../utils/request'
 
 export default function Input() {
     const [comMode, setComMode] = useState(true)
@@ -13,22 +14,21 @@ export default function Input() {
     const [timeSpend, setTimeSpend] = useState('')
     const [afterWorkTime, setAfterWorkTime] = useState('')
     const [caseCategory, setCaseCategory] = useState('')
-    
-    function submitData() {
-        const data = {
-            id: caseId,
-            category: caseCategory,
-            time: timeSpend,
-            afterwork: afterWorkTime,
-            mode: comMode,
-        }
 
-        console.log(data)
+    async function submitData(e) {
+        e.preventDefault()
+        const data = {
+            medium: comMode ? 'phone' : 'email',
+            category_id: caseCategory,
+            customer_time: parseInt(timeSpend),
+            additional_time: parseInt(afterWorkTime),
+        }
+        let res = await postData('/case', data)
     }
 
     return (
         <>
-            <PageWrapper>
+            <PageWrapper className="collapsed-sidebar">
                 <div className="contain-all">
                     <Link to="/dashboard">Gå till överblickssida</Link>
                     <div className="header-container">
