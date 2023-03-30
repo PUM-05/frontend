@@ -3,7 +3,7 @@ name: Check style
 on: [push, pull_request]
 
 jobs:
-  build:
+  style:
     runs-on: ubuntu-latest
 
     steps:
