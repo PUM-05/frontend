@@ -1,6 +1,6 @@
 import './categoryButtonGroup.scss'
 import CategoryButton from '../categoryButton/CategoryButton'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 export default function CategoryButtonGroup (props) {
   const [showSubValue, setShowSubValue] = useState()
@@ -63,7 +63,7 @@ export default function CategoryButtonGroup (props) {
   return (
     <div className='button-group-wrapper'>
       {buttonData.map((item, i) => (
-        <>
+        <Fragment key={i}>
           <CategoryButton
             id={'button-' + item.value}
             name={props.name}
@@ -79,7 +79,7 @@ export default function CategoryButtonGroup (props) {
           >
             {item.title}
           </CategoryButton>
-        </>
+        </Fragment>
       ))}
     </div>
   )

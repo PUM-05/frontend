@@ -22,7 +22,7 @@ export default function List () {
       </thead>
       <tbody>
         {cases.map((currCase) =>
-          <tr>
+          <tr key={currCase.id}>
             <td>{currCase.caseNumber}</td>
             <td>{currCase.caseDescription}</td>
             <td>{currCase.caseTime}</td>
