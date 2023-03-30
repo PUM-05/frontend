@@ -23,7 +23,7 @@ export default function Input () {
       customer_time: parseInt(timeSpend),
       additional_time: parseInt(afterWorkTime)
     }
-    const res = await postData('/case', data)
+    await postData('/case', data)
   }
 
   return (
