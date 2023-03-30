@@ -1,0 +1,19 @@
+name: Check style
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        cd ./frontend-friends
+        npm install standard
+
+    - name: Check style
+      run: |
+        npx standard
