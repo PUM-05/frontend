@@ -3,8 +3,11 @@ import SubmitButton from "../../components/submitButton/SubmitButton";
 import TextField from "../../components/textfield/TextField";
 import "./Login.scss";
 import Logo from "../../components/sidebar/logo/Logo"
+import { useState } from 'react'
 
 export default function Input() {
+  const [username, setUsername] = useState('')
+
   return (
     <>
         <div className="contain-all">
@@ -13,7 +16,14 @@ export default function Input() {
           </div>
           <div className="login-form-container">
             <form>
-              <TextField placeholder="Användarnamn" isRequired={true}/>
+              <TextField 
+                placeholder="Användarnamn" 
+                isRequired={true} 
+                onChange={(e) => {
+                  setUsername(e.target.value)
+                }}
+                value={username}
+              />
             </form>
             <SubmitButton name="submit">LOGGA IN</SubmitButton> 
             {

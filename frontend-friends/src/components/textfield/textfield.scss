@@ -8,6 +8,10 @@
         color: colors.$placeholder-text;
     }
 
+    .filled {
+        display: none;
+    }
+
     input {
         all: unset;
         border-radius: 6px;
@@ -24,11 +28,11 @@
             border-color: colors.$primary-color;
             border-width: 2px;
         }
+
     }
 
     label {
         position: absolute;
-        left: 0;
         color: colors.$placeholder-text;
         font-size: 18px;
         left: 22px;
@@ -45,6 +49,7 @@
         display: none;
     }
 }
+
 
   
 
