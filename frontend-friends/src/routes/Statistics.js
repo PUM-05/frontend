@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import PageWrapper from '../components/pagewrapper/PageWrapper'
 
 export default function Statistics () {
