@@ -1,37 +1,35 @@
-import "./list.scss";
-import data from "./dummy-data.json";
-import { useState } from "react";
+import './list.scss'
+import data from './dummy-data.json'
+import { useState } from 'react'
 
-export default function List() {
+export default function List () {
+  const [cases] = useState(data)
 
-    const [cases] = useState(data);
+  return (
+    <table>
+      <thead>
+        <tr className='list-header'>
+          <th>
+            ÄRENDENUMMER
+          </th>
+          <th>
+            ÄRENDE
+          </th>
+          <th>
+            TID
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {cases.map((currCase) =>
+          <tr>
+            <td>{currCase.caseNumber}</td>
+            <td>{currCase.caseDescription}</td>
+            <td>{currCase.caseTime}</td>
+          </tr>
+        )}
 
-    return (
-        <table>
-            <thead>
-                <tr className="list-header">
-                    <th>
-                        ÄRENDENUMMER
-                    </th>
-                    <th>
-                        ÄRENDE
-                    </th>
-                    <th>
-                        TID
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {cases.map((currCase)=> 
-                <tr>
-                    <td>{currCase.caseNumber}</td>
-                    <td>{currCase.caseDescription}</td>
-                    <td>{currCase.caseTime}</td>
-                </tr>
-                )}
-                
-            </tbody>
-        </table>
-    )
-
+      </tbody>
+    </table>
+  )
 }
