@@ -1,9 +1,9 @@
-import "./submitButton.scss";
+import './submitButton.scss'
 
-export default function SubmitButton(props) {
+export default function SubmitButton (props) {
   return (
-    <button className="submit-button" type="submit" onClick={props.onClick}>
+    <button className='submit-button' type='submit' onClick={props.onClick}>
       {props.children}
     </button>
-  );
+  )
 }

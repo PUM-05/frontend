@@ -1,13 +1,11 @@
-import { Link } from "react-router-dom";
-import PageWrapper from "../components/pagewrapper/PageWrapper";
-import SideBar from "../components/sidebar/SideBar";
+import PageWrapper from '../components/pagewrapper/PageWrapper'
 
-export default function Root() {
+export default function Root () {
   return (
     <>
       <PageWrapper>
         <h1>Dashboard</h1>
       </PageWrapper>
     </>
-  );
+  )
 }
