@@ -2,9 +2,8 @@ import './textfield.scss'
 
 export default function TextField (props) {
   const isRequired = props.isRequired || false
-  
   // check for propsvalue
-  if (props.value == undefined) {
+  if (props.value === undefined) {
     // send error message
     return (
       <div className='text-field'>
