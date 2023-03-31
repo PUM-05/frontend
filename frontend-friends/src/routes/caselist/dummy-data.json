@@ -16,5 +16,12 @@
         "caseNumber": "#929294",
         "caseDescription": "Skål",
         "caseTime": "18:00 02-02-2023"
+    },
+    {
+        "id": 4,
+        "caseNumber": "#929295",
+        "caseDescription": "Meow",
+        "caseTime": "18:00 04-02-2023"
     }
+
 ]

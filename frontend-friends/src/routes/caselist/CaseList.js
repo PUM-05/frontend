@@ -1,6 +1,7 @@
-import PageWrapper from '../../components/pagewrapper/PageWrapper'
-import './CaseList.scss'
-import List from '../../components/list/List'
+import PageWrapper from "../../components/pagewrapper/PageWrapper";
+import "./CaseList.scss";
+import List from "../../components/list/List"
+import data from './dummy-data.json';
 
 export default function CaseList () {
   return (
@@ -8,10 +9,10 @@ export default function CaseList () {
       <PageWrapper>
         <h1>Ärendelista</h1>
         <div className='list-container'>
-          <div className='container-title'>
-            <h1>Senaste ärenden</h1>
-          </div>
-          <List />
+            <div class='container-title'>
+              <h1>Senaste ärenden</h1>
+            </div>
+            <List content={data}/>
         </div>
       </PageWrapper>
     </>

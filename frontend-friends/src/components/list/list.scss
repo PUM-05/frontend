@@ -17,6 +17,10 @@ tr, th, td {
     color: colors.$dark-blue;
 }
 
+td {
+    cursor: pointer;
+}
+
 .list-header {
     background-color: colors.$light-grey;
 

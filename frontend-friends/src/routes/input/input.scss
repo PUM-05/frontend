@@ -25,23 +25,6 @@
     .text-field {
         width: 55%;
     }
-
-    button {
-        all: unset;
-        background-color: colors.$primary-color;
-        font-weight: 600;
-        color: white;
-        text-align: center;
-        width: 55%;
-        height: 50px;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: 0.4s;
-        
-        &:hover {
-            background-color: #4984D3;
-        }
-    }
 }
 
 .header-container {
