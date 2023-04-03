@@ -7,6 +7,7 @@ import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import './input.scss'
 import { useState } from 'react'
 import { postData } from '../../utils/request'
+import TextArea from '../../components/textArea/TextArea'
 
 export default function Input () {
   const [comMode, setComMode] = useState(true)
@@ -14,6 +15,7 @@ export default function Input () {
   const [timeSpend, setTimeSpend] = useState('')
   const [afterWorkTime, setAfterWorkTime] = useState('')
   const [caseCategory, setCaseCategory] = useState('')
+  const [freeText, setFreeText] = useState('')
 
   async function submitData (e) {
     e.preventDefault()
@@ -21,7 +23,8 @@ export default function Input () {
       medium: comMode ? 'phone' : 'email',
       category_id: caseCategory,
       customer_time: parseInt(timeSpend),
-      additional_time: parseInt(afterWorkTime)
+      additional_time: parseInt(afterWorkTime),
+      notes: freeText
     }
     await postData('/case', data)
   }
@@ -30,7 +33,6 @@ export default function Input () {
     <>
       <PageWrapper className='collapsed-sidebar'>
         <div className='contain-all'>
-          <Link to='/dashboard'>Gå till överblickssida</Link>
           <div className='header-container'>
             <h1>Kommunikationsmedie</h1>
           </div>
@@ -70,6 +72,15 @@ export default function Input () {
                   value={afterWorkTime}
                 />
               </div>
+              <TextArea 
+                placeholder='Fritext..'
+                id='freetext'
+                onChange={(e) => {
+                  setFreeText(e.target.value)
+                  console.log(e.target.value)
+                }}
+                value={freeText}
+                />
             </form>
             <SubmitButton name='submit' onClick={submitData}>
               SKICKA

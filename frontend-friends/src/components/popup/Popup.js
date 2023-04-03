@@ -5,6 +5,7 @@ import CloseIcon from '../sidebar/icons/CloseIcon'
 import TextArea from '../textArea/TextArea'
 
 export default function Popup (props) {
+  console.log(props.data)
   return (
     <>
       <div className='popup-container'>
@@ -13,23 +14,29 @@ export default function Popup (props) {
           <h1>Redigera ärende</h1>
           <span onClick={props.handleClose}><CloseIcon /></span>
           <div className='text-fields-container'>
+            <p>Ärendenr</p>
             <TextField
-              placeholder='Ärendenr'
               isRequired={false}
+              value={props.data.caseNumber}
             />
+            <div className="dual-textfield-labels">
+              <p>Tidsåtgång</p>
+              <p>Efterarbete</p>
+            </div>
             <div className='dual-textfield-container'>
               <TextField
-                placeholder='Tidsåtgång'
                 isRequired={false}
+                value={props.data.spentTime}
               />
               <TextField
-                placeholder='Efterarbete'
                 isRequired={false}
+                value={props.data.additionalTime}
               />
             </div>
-            <TextArea placeholder='Fritext...' id='fritext' />
+            <p>Fritext</p>
+            <TextArea id='fritext' />
           </div>
-          <SubmitButton>SPARA</SubmitButton>
+          <SubmitButton onClick={props.handleClose}>SPARA</SubmitButton>
         </div>
       </div>
     </>

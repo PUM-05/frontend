@@ -5,9 +5,11 @@ import Popup from '../popup/Popup'
 export default function List (props) {
   const [cases] = useState(props.content)
   const [isOpen, setIsOpen] = useState(false)
+  const [popupData, setPopupData] = useState({})
 
-  const togglePopup = () => {
+  function togglePopup(popupContent) {
     setIsOpen(!isOpen)
+    setPopupData(popupContent)
   }
 
   return (
@@ -19,26 +21,29 @@ export default function List (props) {
               ÄRENDENUMMER
             </th>
             <th>
-              ÄRENDE
+              ÄRENDEKATEGORI
             </th>
             <th>
-              TID
+              SKAPAT
+            </th>
+            <th>
+              TIDSÅTGÅNG
             </th>
           </tr>
         </thead>
         <tbody>
           {cases.map((currCase) =>
-            <tr onClick={togglePopup} key={currCase.id}>
+            <tr onClick={(e) => {togglePopup(currCase)}} key={currCase.id}>
               <td>{currCase.caseNumber}</td>
-              <td>{currCase.caseDescription}</td>
+              <td>{currCase.caseCategory}</td>
               <td>{currCase.caseTime}</td>
+              <td>{currCase.spentTime}</td>
             </tr>
           )}
 
         </tbody>
       </table>
-
-      {isOpen && <Popup handleClose={togglePopup} />}
+      {isOpen && <Popup handleClose={togglePopup} data={popupData}/>}
     </>
   )
 }

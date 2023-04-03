@@ -4,8 +4,8 @@ export default function TextArea (props) {
   
   return (
     <div className='text-area'>
-      <textarea id={props.id} name='text-area' />
-      <label htmlFor={props.id}>{props.placeholder}</label>
+      <textarea id={props.id} name='text-area' onChange={props.onChange}/>
+      <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
     </div>
   )
 }

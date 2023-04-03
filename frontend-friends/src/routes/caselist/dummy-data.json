@@ -2,26 +2,34 @@
     {
         "id": 1,
         "caseNumber": "#929292",
-        "caseDescription": "Det funkar inte, hjälp!!!!",
-        "caseTime": "15:52 01-02-2023"
+        "caseCategory": "Det funkar inte, hjälp!!!!",
+        "caseTime": "15:52 01-02-2023",
+        "spentTime": "22 min",
+        "additionalTime": "2 min"
     },
     {
         "id": 2,
         "caseNumber": "#929293",
-        "caseDescription": "Det funkar fortfarande inte, hjälp!!!!",
-        "caseTime": "15:53 02-02-2023"
+        "caseCategory": "Det funkar fortfarande inte, hjälp!!!!",
+        "caseTime": "15:53 02-02-2023",
+        "spentTime": "24 min",
+        "additionalTime": "5 min"
     },
     {
         "id": 3,
         "caseNumber": "#929294",
-        "caseDescription": "Skål",
-        "caseTime": "18:00 02-02-2023"
+        "caseCategory": "Skål",
+        "caseTime": "18:00 02-02-2023",
+        "spentTime": "32 min",
+        "additionalTime": "6 min"
     },
     {
         "id": 4,
         "caseNumber": "#929295",
-        "caseDescription": "Meow",
-        "caseTime": "18:00 04-02-2023"
+        "caseCategory": "Meow",
+        "caseTime": "18:00 04-02-2023",
+        "spentTime": "33 min",
+        "additionalTime": "7 min"
     }
 
 ]
