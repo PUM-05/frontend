@@ -77,7 +77,6 @@ export default function Input () {
                 id='freetext'
                 onChange={(e) => {
                   setFreeText(e.target.value)
-                  console.log(e.target.value)
                 }}
                 value={freeText}
                 />
