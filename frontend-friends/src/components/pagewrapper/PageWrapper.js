@@ -6,10 +6,11 @@ import { Navigate } from 'react-router-dom';
 export default function PageWrapper (props) {
   const [authenticated, setauthenticated] = useState(null);
   const loggedIn = null;// = *check if token exists*
+  const temp = true;
   if (loggedIn) {
     setauthenticated(loggedIn);
   }
-  if (!authenticated){
+  if (!authenticated && !temp){
     return <Navigate replace to="/login" />;
   } else{
     return (
