@@ -5,7 +5,7 @@ import './dashboard.scss'
 export default function Dashboard () {
   return (
     <>
-      <PageWrapper className="dashboard">
+      <PageWrapper className='dashboard'>
         <h1>Dashboard</h1>
         <div className='dashboard-content graph-container'>
           <div className='container-title'>
@@ -13,7 +13,7 @@ export default function Dashboard () {
           </div>
           <div className='graphs-content'>
             <div>Graf 1</div><div>Graf 2</div>
-            {/* TODO: Lägg till graferna här och ta bort Graf 1 och Graf 2*/}
+            {/* TODO: Lägg till graferna här och ta bort Graf 1 och Graf 2 */}
           </div>
         </div>
         <div className='dashboard-content list-container'>
