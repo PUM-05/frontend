@@ -2,10 +2,11 @@ import './pagewrapper.scss';
 import SideBar from '../sidebar/SideBar';
 import { useEffect , useState} from 'react';
 import { Navigate } from 'react-router-dom';
+import { getLoggedIn } from '../../utils/request'
 
 export default function PageWrapper (props) {
   const [authenticated, setauthenticated] = useState(null);
-  const loggedIn = null;// = *check if token exists*
+  const loggedIn = null;//getLoggedIn('/check', /*sessionID */);
   const temp = true;
   if (loggedIn) {
     setauthenticated(loggedIn);
