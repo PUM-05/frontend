@@ -17,6 +17,7 @@ export default function PageWrapper (props) {
     }
     response = fetchData();
   }, [])
+  //response = true;
   if (!response){
     return <Navigate replace to="/login" />;
   } else{
