@@ -1,6 +1,7 @@
 import './list.scss'
 import { useState } from 'react'
 import Popup from '../popup/Popup'
+import SubmitButton from '../submitButton/SubmitButton'
 
 export default function List (props) {
   const [cases] = useState(props.content)
@@ -29,6 +30,9 @@ export default function List (props) {
             <th>
               TIDSÅTGÅNG
             </th>
+            <th>
+
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +42,7 @@ export default function List (props) {
               <td>{currCase.caseCategory}</td>
               <td>{currCase.caseTime}</td>
               <td>{currCase.spentTime}</td>
+              <td className="edit-field" onClick={isOpen && <Popup handleClose={togglePopup} data={popupData}/>}>Redigera</td>
             </tr>
           )}
 

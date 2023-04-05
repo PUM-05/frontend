@@ -34,7 +34,7 @@ export default function Popup (props) {
               />
             </div>
             <p>Fritext</p>
-            <TextArea id='fritext' />
+            <TextArea id='fritext' value={props.data.notes}/>
           </div>
           <SubmitButton onClick={props.handleClose}>SPARA</SubmitButton>
         </div>
