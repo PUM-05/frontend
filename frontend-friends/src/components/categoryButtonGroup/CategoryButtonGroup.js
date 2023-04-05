@@ -38,7 +38,7 @@ export default function CategoryButtonGroup (props) {
     {
       title: 'Exportera data',
       value: 9,
-      color: 'category-dark-blue'
+      color: 'category-green'
     },
     {
       title: 'Konto',

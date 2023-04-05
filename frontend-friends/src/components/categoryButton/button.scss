@@ -18,6 +18,7 @@
         overflow: hidden;
         cursor: pointer;
         position: relative;
+        transition: all 0.2s;
     }
 
     input[type="radio"]{
@@ -30,13 +31,23 @@
         color: white;
     }
 
+    input[type="radio"]:checked+label{
+        span{
+            color: white;
+            transition: all 0.2s;
+        }
+        svg {
+            opacity: 100;
+        }
+    }
+
     svg{
         position: absolute;
         left: 75.5px;
         top: 21px;
         transform: scale(1.5);
         z-index: 1;
-        display:none;
+        opacity: 0;
     }
 
     span{
@@ -46,7 +57,7 @@
         height: 100%;
         text-align: center;
         text-transform: uppercase;
-        color: white;
+        color: rgba(0,0,0,0.5);
         font-weight: 600;
         display: flex;
         justify-content: center;
@@ -60,15 +71,10 @@
     }
 
     input[type="radio"]:checked+label.category-blue{
-        background: linear-gradient(
-            to right,
-            colors.$category-blue 0% 15%,
-            colors.$category-blue-dark 15% 85%,
-            colors.$category-blue 85% 100%
-        );
+        background: colors.$category-blue-dark;
+        box-shadow: inset 0 0 0 3px colors.$category-blue;
 
         svg{
-            display:inline;
             path {
                 fill: colors.$category-blue;
                 stroke: colors.$category-blue;
@@ -82,15 +88,10 @@
     }
 
     input[type="radio"]:checked+label.category-cyan{
-        background: linear-gradient(
-            to right,
-            colors.$category-cyan 0% 15%,
-            colors.$category-cyan-dark 15% 85%,
-            colors.$category-cyan 85% 100%
-        );
+        background: colors.$category-cyan-dark;
+        box-shadow: inset 0 0 0 3px colors.$category-cyan;
 
         svg{
-            display:inline;
             path {
                 fill: colors.$category-cyan;
                 stroke: colors.$category-cyan;
@@ -105,15 +106,10 @@
     }
 
     input[type="radio"]:checked+label.category-red{
-        background: linear-gradient(
-            to right,
-            colors.$category-red 0% 15%,
-            colors.$category-red-dark 15% 85%,
-            colors.$category-red 85% 100%
-        );
+        background: colors.$category-red-dark;
+        box-shadow: inset 0 0 0 3px colors.$category-red;
 
         svg{
-            display:inline;
             path {
                 fill: colors.$category-red;
                 stroke: colors.$category-red;
@@ -127,15 +123,10 @@
     }
 
     input[type="radio"]:checked+label.category-yellow{
-        background: linear-gradient(
-            to right,
-            colors.$category-yellow 0% 15%,
-            colors.$category-yellow-dark 15% 85%,
-            colors.$category-yellow 85% 100%
-        );
+        background: colors.$category-yellow-dark;
+        box-shadow: inset 0 0 0 3px colors.$category-yellow;
 
         svg{
-            display:inline;
             path {
                 fill: colors.$category-yellow;
                 stroke: colors.$category-yellow;
@@ -150,15 +141,10 @@
     }
 
     input[type="radio"]:checked+label.category-brown{
-        background: linear-gradient(
-            to right,
-            colors.$category-brown 0% 15%,
-            colors.$category-brown-dark 15% 85%,
-            colors.$category-brown 85% 100%
-        );
+        background: colors.$category-brown-dark;
+        box-shadow: inset 0 0 0 3px colors.$category-brown;
 
         svg{
-            display:inline;
             path {
                 fill: colors.$category-brown;
                 stroke: colors.$category-brown;
@@ -167,24 +153,19 @@
     }
  
 
-    //Category-dark-blue
-    .category-dark-blue {
-        background-color: colors.$category-dark-blue;
+    //Category-green
+    .category-green {
+        background-color: colors.$category-green;
     }
 
-    input[type="radio"]:checked+label.category-dark-blue{
-        background: linear-gradient(
-            to right,
-            colors.$category-dark-blue 0% 15%,
-            colors.$category-dark-blue-dark 15% 85%,
-            colors.$category-dark-blue 85% 100%
-        );
+    input[type="radio"]:checked+label.category-green{
+        background: colors.$category-green-dark;
+        box-shadow: inset 0 0 0 3px colors.$category-green;
 
         svg{
-            display:inline;
             path {
-                fill: colors.$category-dark-blue;
-                stroke: colors.$category-dark-blue;
+                fill: colors.$category-green;
+                stroke: colors.$category-green;
             }
         }
     }
@@ -195,15 +176,10 @@
     }
 
     input[type="radio"]:checked+label.category-purple{
-        background: linear-gradient(
-            to right,
-            colors.$category-purple 0% 15%,
-            colors.$category-purple-dark 15% 85%,
-            colors.$category-purple 85% 100%
-        );
+        background: colors.$category-purple-dark;
+        box-shadow: inset 0 0 0 3px colors.$category-purple;
 
         svg{
-            display:inline;
             path {
                 fill: colors.$category-purple;
                 stroke: colors.$category-purple;
@@ -217,15 +193,10 @@
     }
 
     input[type="radio"]:checked+label.category-violet{
-        background: linear-gradient(
-            to right,
-            colors.$category-violet 0% 15%,
-            colors.$category-violet-dark 15% 85%,
-            colors.$category-violet 85% 100%
-        );
+        background: colors.$category-violet-dark;
+        box-shadow: inset 0 0 0 3px colors.$category-violet;
 
         svg{
-            display:inline;
             path {
                 fill: colors.$category-violet;
                 stroke: colors.$category-violet;
