@@ -12,14 +12,14 @@ export async function postData (path, data) {
   return await fetch(baseAPIUrl + path, options)
 }
 
-export async function getLoggedIn (path, sessionID) {
+export async function getLoggedIn (path) {
   const options = {
-    method: 'POST',
+    method: 'GET',
     mode: 'no-cors',
     headers: {
-      'Content-Type': 'text/plain',
-      'Cookie': 'sessionid=' + JSON.stringify(sessionID)
-    },
+      'Content-Type': 'text/plain'
+    }
   }
-  return await fetch(baseAPIUrl + path, options)
+  const data = await fetch(baseAPIUrl + path, options); 
+  return data;
 }
