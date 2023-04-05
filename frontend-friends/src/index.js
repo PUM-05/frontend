@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.scss";
-import Statistics from "./routes/Statistics";
+import Statistics from "./routes/statistics/Statistics";
 import Root from "./routes/root";
 import Input from "./routes/input/Input";
 

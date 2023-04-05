@@ -1,0 +1,11 @@
+@use '../../style/colors';
+.pie-chart-container{
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: white;
+}
