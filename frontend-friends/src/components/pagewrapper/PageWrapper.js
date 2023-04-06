@@ -9,7 +9,6 @@ export default function PageWrapper (props) {
   useEffect(()=>{
     async function fetchData(){
       const loggedIn = await getLoggedIn('/check');
-      console.log("Status code: " + loggedIn.status);
       if (loggedIn.status === 204) {
         return true;
       }else{
