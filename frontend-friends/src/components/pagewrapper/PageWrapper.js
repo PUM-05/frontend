@@ -1,21 +1,21 @@
-import './pagewrapper.scss';
-import SideBar from '../sidebar/SideBar';
-import { useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import './pagewrapper.scss'
+import SideBar from '../sidebar/SideBar'
+import { useEffect } from 'react'
+import { Navigate } from 'react-router-dom'
 import { getLoggedIn } from '../../utils/request'
 
 export default function PageWrapper (props) {
-  let response = false;
-  useEffect(()=>{
+  let response = false
+  useEffect(() => {
     async function fetchData(){
-      const loggedIn = await getLoggedIn('/check');
+      const loggedIn = await getLoggedIn('/check')
       if (loggedIn.status === 204) {
-        return true;
+        return true
       }else{
-        return false;
+        return false
       }
     }
-    response = fetchData();
+    response = fetchData()
   }, [])
   //response = true;
   if (!response){
