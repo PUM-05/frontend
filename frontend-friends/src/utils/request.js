@@ -14,7 +14,7 @@ export async function postData (path, data) {
 
 export async function getLoggedIn (path) {
   const options = {
-    methods: ['GET', 'OPTIONS'],
+    method: 'GET',
     mode: 'cors',
     headers: {
       'Content-Type': 'text/plain'
