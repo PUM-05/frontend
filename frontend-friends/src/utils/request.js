@@ -21,6 +21,5 @@ export async function getLoggedIn (path) {
     }
   }
   const data = await fetch(baseAPIUrl + path, options); 
-  console.log(data);
   return data;
 }
