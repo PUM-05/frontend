@@ -14,12 +14,13 @@ export async function postData (path, data) {
 
 export async function getLoggedIn (path) {
   const options = {
-    method: 'GET',
-    mode: 'no-cors',
+    methods: ['GET', 'OPTIONS'],
+    mode: 'cors',
     headers: {
       'Content-Type': 'text/plain'
     }
   }
   const data = await fetch(baseAPIUrl + path, options); 
+  console.log(data);
   return data;
 }
