@@ -4,8 +4,6 @@ import './Login.scss'
 import Logo from '../../components/sidebar/logo/Logo'
 import { useState } from 'react'
 import { postData } from '../../utils/request'
-import { json } from 'react-router-dom'
-
 
 export default function Input () {
   const [username, setUsername] = useState('')
@@ -15,20 +13,20 @@ export default function Input () {
   async function submitData (e) {
     e.preventDefault()
     const data = {
-      username: username,
-      password: password
+      username,
+      password
     }
-    const request = await postData("/login", data)
+    const request = await postData('/login', data)
     console.log(request.status)
 
-    if (request.status == 403){
-        setIsAdmin(true)
+    if (request.status === 403) {
+      setIsAdmin(true)
     }
   }
 
-  if (isAdmin){
-    return(
-    <>
+  if (isAdmin) {
+    return (
+      <>
         <div className='contain-all'>
           <div class='default-logo'>
             <Logo className='login-logo' />
@@ -43,7 +41,7 @@ export default function Input () {
                 }}
                 value={username}
               />
-              <TextField 
+              <TextField
                 placeholder='Lösenord'
                 isRequired
                 onChange={(e) => {
@@ -59,8 +57,7 @@ export default function Input () {
         </div>
       </>
     )
-  }
-  else {
+  } else {
     return (
       <>
         <div className='contain-all'>
