@@ -1,60 +1,20 @@
 import './categoryButtonGroup.scss'
 import CategoryButton from '../categoryButton/CategoryButton'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
+import { getData } from '../../utils/request'
 
 export default function CategoryButtonGroup (props) {
-  const [showSubValue, setShowSubValue] = useState()
-  const buttonData = [
-    {
-      title: 'Justera Lön',
-      value: 1,
-      color: 'darkblue'
-    },
-    {
-      title: 'Registrera frånvaro',
-      value: 2,
-      color: 'orange'
-    },
-    {
-      title: 'Registrera ny personal',
-      value: 3,
-      color: 'red'
-    },
-    {
-      title: 'Stämpelklocka',
-      value: 4,
-      color: 'green',
-      subcategories: [
-        { title: 'Problem', parentTitle: 'Problem med stämpelklocka', value: 5 },
-        { title: 'Installation', parentTitle: 'Installation av stämpelklocka', value: 6 },
-        { title: 'Synkronisering', parentTitle: 'Synkronisering av stämpelklocka', value: 7 }
-      ]
-    },
-    {
-      title: 'Ändra inställningar',
-      value: 8,
-      color: 'darkblue'
-    },
-    {
-      title: 'Exportera data',
-      value: 9,
-      color: 'darkblue'
-    },
-    {
-      title: 'Konto',
-      value: 10,
-      color: 'green',
-      subcategories: [
-        { title: 'Skapa nytt konto', parentTitle: 'Skapa nytt konto', value: 11 },
-        { title: 'Ta bort konto', parentTitle: 'Ta bort konto', value: 12 }
-      ]
-    },
-    {
-      title: 'Annat',
-      value: 13,
-      color: 'darkblue'
-    }
-  ]
+  const [showSubid, setShowSubid] = useState()
+  const [buttonData, setButtonData] = useState([])
+
+  async function loadCategories(){
+    let request = await getData('/case/categories');
+    let data = await request.json();
+    setButtonData(data)
+  }
+  useEffect(() => {
+    loadCategories()
+  }, []);
 
   function onChange (data) {
     props.onChange(data)
@@ -65,19 +25,18 @@ export default function CategoryButtonGroup (props) {
       {buttonData.map((item, i) => (
         <Fragment key={i}>
           <CategoryButton
-            id={'button-' + item.value}
+            id={'button-' + item.id}
             name={props.name}
-            color={item.color}
             onChange={onChange}
-            setShowSub={setShowSubValue}
-            showSub={showSubValue === item.value}
+            setShowSub={setShowSubid}
+            showSub={showSubid === item.id}
             subcategories={item.subcategories}
-            value={item.value}
+            value={item.id}
             currentValue={props.value}
-            key={item.value}
+            key={item.id}
             index={i}
           >
-            {item.title}
+            {item.name}
           </CategoryButton>
         </Fragment>
       ))}
