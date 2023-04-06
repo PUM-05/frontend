@@ -3,7 +3,7 @@ const baseAPIUrl = 'http://localhost:8000/api'
 export async function postData (path, data) {
   const options = {
     method: 'POST',
-    mode: 'no-cors',
+    mode: 'cors',
     headers: {
       'Content-Type': 'text/plain'
     },

@@ -4,21 +4,29 @@ import './Login.scss'
 import Logo from '../../components/sidebar/logo/Logo'
 import { useState } from 'react'
 import { postData } from '../../utils/request'
+import { json } from 'react-router-dom'
 
 
 export default function Input () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [isAdmin, setIsAdmin] = useState(false)
 
   async function submitData (e) {
     e.preventDefault()
     const data = {
-      username: username
+      username: username,
+      password: password
     }
-    await postData('/login', data)
+    const request = await postData("/login", data)
+    console.log(request.status)
+
+    if (request.status == 403){
+        setIsAdmin(true)
+    }
   }
-  const code=200
-  if (code==200){
+
+  if (isAdmin){
     return(
     <>
         <div className='contain-all'>
@@ -44,7 +52,9 @@ export default function Input () {
                 value={password}
               />
             </form>
-            <SubmitButton name='submit'>LOGGA IN</SubmitButton>
+            <SubmitButton name='submit' onClick={submitData}>
+              LOGGA IN
+            </SubmitButton>
           </div>
         </div>
       </>
@@ -68,7 +78,7 @@ export default function Input () {
                 value={username}
               />
             </form>
-            <SubmitButton name='submit'>LOGGA IN</SubmitButton>
+            <SubmitButton name='submit' onClick={submitData}>LOGGA IN</SubmitButton>
             {
                   // TODO: Om användare är admin, skickas till
                   // ny sida, där man kan skriva in lösenord, när man har klickat på login-knapp?
