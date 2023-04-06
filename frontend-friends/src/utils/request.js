@@ -20,6 +20,6 @@ export async function getLoggedIn (path) {
       'Content-Type': 'text/plain'
     }
   }
-  const data = await fetch(baseAPIUrl + path, options); 
-  return data;
+  const data = await fetch(baseAPIUrl + path, options)
+  return data
 }

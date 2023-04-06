@@ -7,20 +7,20 @@ import { getLoggedIn } from '../../utils/request'
 export default function PageWrapper (props) {
   let response = false
   useEffect(() => {
-    async function fetchData(){
+    async function fetchData () {
       const loggedIn = await getLoggedIn('/check')
       if (loggedIn.status === 204) {
         return true
-      }else{
+      } else {
         return false
       }
     }
     response = fetchData()
   }, [])
-  //response = true;
-  if (!response){
-    return <Navigate replace to="/login" />;
-  } else{
+  // response = true;
+  if (!response) {
+    return <Navigate replace to='/login' />
+  } else {
     return (
       <div className={'page-container ' + (props.className || '')}>
         <SideBar />
