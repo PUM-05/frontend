@@ -4,11 +4,14 @@ import './Login.scss'
 import Logo from '../../components/sidebar/logo/Logo'
 import { useState } from 'react'
 import { postData } from '../../utils/request'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Input () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
+  const location = useLocation()
+  const path = location.pathname
 
   async function submitData (e) {
     e.preventDefault()
@@ -21,6 +24,9 @@ export default function Input () {
 
     if (request.status === 403) {
       setIsAdmin(true)
+    }
+    else if (request.status === 204){
+      window.location.replace('http://localhost:' + window.location.port);
     }
   }
 
