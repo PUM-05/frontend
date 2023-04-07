@@ -4,14 +4,11 @@ import './Login.scss'
 import Logo from '../../components/sidebar/logo/Logo'
 import { useState } from 'react'
 import { postData } from '../../utils/request'
-import { Link, useLocation } from 'react-router-dom'
 
 export default function Input () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
-  const location = useLocation()
-  const path = location.pathname
 
   async function submitData (e) {
     e.preventDefault()
