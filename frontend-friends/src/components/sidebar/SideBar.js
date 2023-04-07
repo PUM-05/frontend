@@ -13,7 +13,7 @@ export default function SideBar () {
   return (
     <div className='sidebar-container'>
       <div className='logo-wrapper'>
-        <div class='default-logo'>
+        <div className='default-logo'>
           <Logo />
         </div>
         <div className='small-logo'>
@@ -23,41 +23,25 @@ export default function SideBar () {
 
       <ul>
         <li className='input-link'>
-          <Link
-            to='/'
-            className={`navigation-link ${path === '/' ? 'active' : ''}`}
-          >
+          <Link to='/' className={`navigation-link ${path === '/' ? 'active' : ''}`}>
             <InputIcon />
             <span className='nav-text'>Inmatning</span>
           </Link>
         </li>
         <li>
-          <Link
-            to='/dashboard'
-            className={`navigation-link ${
-              path === '/dashboard' ? 'active' : ''
-            }`}
-          >
+          <Link to='/dashboard' className={`navigation-link ${path === '/dashboard' ? 'active' : ''}`}>
             <DashboardIcon />
             <span className='nav-text'>Dashboard</span>
           </Link>
         </li>
         <li>
-          <Link
-            to='/statistik'
-            className={`navigation-link ${
-              path === '/statistik' ? 'active' : ''
-            }`}
-          >
+          <Link to='/statistik' className={`navigation-link ${path === '/statistik' ? 'active' : ''}`}>
             <StatisticsIcon />
             <span className='nav-text'>Statistik</span>
           </Link>
         </li>
         <li>
-          <Link
-            to='/lista'
-            className={`navigation-link ${path === '/lista' ? 'active' : ''}`}
-          >
+          <Link to='/lista' className={`navigation-link ${path === '/lista' ? 'active' : ''}`}>
             <ListIcon />
             <span className='nav-text'>Ärendelista</span>
           </Link>

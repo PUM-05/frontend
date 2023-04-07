@@ -55,8 +55,9 @@ export default function CategoryButton (props) {
           className='red active'
           checked={isChecked(props.currentValue)}
           onClick={onClick}
+          readOnly
         />
-        <label for={props.id} name={props.name} value={props.value} className={`${props.color ?? 'darkblue'}`}>
+        <label htmlFor={props.id} name={props.name} value={props.value} className={`${props.color ?? 'darkblue'}`}>
           {buttonTitle}
         </label>
       </div>
@@ -71,6 +72,7 @@ export default function CategoryButton (props) {
               name={'sub-' + props.name}
               color={category.color}
               onClick={handleSubcategoryClick}
+              onChange={handleSubcategoryClick}
               checked={props.currentValue === category.value}
               key={category.value}
             >

@@ -10,7 +10,7 @@ export default function Input () {
   return (
     <>
       <div className='contain-all'>
-        <div class='default-logo'>
+        <div className='default-logo'>
           <Logo className='login-logo' />
         </div>
         <div className='login-form-container'>
@@ -26,10 +26,10 @@ export default function Input () {
           </form>
           <SubmitButton name='submit'>LOGGA IN</SubmitButton>
           {
-                // TODO: Om användare är admin, skickas till
-                // ny sida, där man kan skriva in lösenord, när man har klickat på login-knapp?
-                // Eller ska det finnas ett password-field direkt? Förvirrande för "vanliga" användare?
-            }
+            // TODO: Om användare är admin, skickas till
+            // ny sida, där man kan skriva in lösenord, när man har klickat på login-knapp?
+            // Eller ska det finnas ett password-field direkt? Förvirrande för "vanliga" användare?
+          }
         </div>
       </div>
     </>
