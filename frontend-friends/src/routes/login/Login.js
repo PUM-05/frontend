@@ -21,9 +21,8 @@ export default function Input () {
 
     if (request.status === 403) {
       setIsAdmin(true)
-    }
-    else if (request.status === 204){
-      window.location.replace('http://localhost:' + window.location.port);
+    } else if (request.status === 204) {
+      window.location.replace('http://localhost:' + window.location.port)
     }
   }
 
