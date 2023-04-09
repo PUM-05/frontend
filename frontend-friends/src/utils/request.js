@@ -11,3 +11,15 @@ export async function postData (path, data) {
   }
   return await fetch(baseAPIUrl + path, options)
 }
+
+export async function getLoggedIn (path) {
+  const options = {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'text/plain'
+    }
+  }
+  const data = await fetch(baseAPIUrl + path, options)
+  return data
+}
