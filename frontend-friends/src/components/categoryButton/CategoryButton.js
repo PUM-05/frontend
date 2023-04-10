@@ -59,7 +59,7 @@ export default function CategoryButton (props) {
         />
         <label for={props.id} name={props.name} value={props.value} className={`${props.color ?? 'darkblue'}`}>
           <span>{buttonTitle}</span>
-          <CheckIcon className='check-icon'></CheckIcon>
+          <CheckIcon className='check-icon' />
         </label>
       </div>
 
