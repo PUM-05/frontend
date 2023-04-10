@@ -34,3 +34,12 @@ export async function getLoggedIn (path) {
   const response = await fetch(baseAPIUrl + path, options)
   return response.status
 }
+
+export async function getData (path) {
+  const options = {
+    method: 'GET',
+    mode: 'cors',
+    credentials: 'include'
+  }
+  return await fetch(baseAPIUrl + path, options)
+}
