@@ -19,13 +19,14 @@ export default function Input () {
 
   async function submitData (e) {
     const data = {
-      username,
-      password
+      username: username,
+      password: password
     }
     const request = await postData('/login', data)
     if (request.status === 403) {
       setIsAdmin(true)
-    } else if (request.status === 204) {
+    } else if (request.status === 204) {      
+      //console.log(request)
       window.location.replace('http://localhost:' + window.location.port)
     }
   }

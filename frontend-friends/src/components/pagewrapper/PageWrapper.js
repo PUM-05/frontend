@@ -1,24 +1,27 @@
 import './pagewrapper.scss'
 import SideBar from '../sidebar/SideBar'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { getLoggedIn } from '../../utils/request'
 
 export default function PageWrapper (props) {
-  let response = false
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+
   useEffect(() => {
-    async function fetchData () {
-      const loggedIn = await getLoggedIn('/check')
-      if (loggedIn.status === 204) {
-        return true
+    async function checkLoggedInStatus() {
+      const response = await getLoggedIn('/check');
+      if (response.status === 204) {
+        setIsLoggedIn(false);
       } else {
-        return false
+        setIsLoggedIn(true);
       }
     }
-    response = fetchData()
-  }, [])
-  // response = true;
-  if (!response) {
+    checkLoggedInStatus();
+  }, []);
+
+  if (isLoggedIn === null) {
+    return null;
+  } else if (isLoggedIn === false) {
     return <Navigate replace to='/login' />
   } else {
     return (
