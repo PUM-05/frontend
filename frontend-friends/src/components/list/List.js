@@ -7,23 +7,20 @@ export default function List (props) {
   const [isOpen, setIsOpen] = useState(false)
   const [popupData, setPopupData] = useState({})
 
-  function togglePopup(popupContent) {
+  function togglePopup (popupContent) {
     setIsOpen(!isOpen)
     setPopupData(popupContent)
   }
 
-  async function editCase(case_id, case_spent_time, case_additional_time, case_notes) {
+  async function editCase (caseId, caseSpentTime, caseAdditionalTime, caseNotes) {
     const data = {
-      customer_time: parseInt(case_spent_time),
-      additional_time: parseInt(case_additional_time),
-      notes: case_notes
+      customer_time: parseInt(caseSpentTime),
+      additional_time: parseInt(caseAdditionalTime),
+      notes: caseNotes
     }
-    const response = await postData('/case/'+String(case_id), data)
-
-    console.log(response)
+    const response = await postData('/case/' + String(caseId), data)
 
     if (response.status === 204) {
-      console.log("IM HERE")
       props.loadCases()
       setIsOpen(!isOpen)
     }
@@ -46,9 +43,7 @@ export default function List (props) {
             <th>
               TIDSÅTGÅNG
             </th>
-            <th>
-
-            </th>
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -58,13 +53,13 @@ export default function List (props) {
               <td>{currCase.category_id}</td>
               <td>{currCase.customer_time}</td>
               <td>{currCase.additional_time}</td>
-              <td className="edit-field">Redigera</td>
+              <td className='edit-field'>Redigera</td>
             </tr>
           )}
 
-          </tbody>
+        </tbody>
       </table>
-      {isOpen && <Popup handleClose={togglePopup} data={popupData} editCase={editCase}/>}
+      {isOpen && <Popup handleClose={togglePopup} data={popupData} editCase={editCase} />}
     </>
   )
 }

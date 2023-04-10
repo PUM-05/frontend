@@ -6,17 +6,9 @@ import TextArea from '../textArea/TextArea'
 import { useState } from 'react'
 
 export default function Popup (props) {
-  const [newCaseNumber, setNewCaseNumber] = useState(props.data.caseNumber)
   const [newSpentTime, setNewSpentTime] = useState(props.data.spentTime)
   const [newAdditionalTime, setNewAdditionalTime] = useState(props.data.additionalTime)
   const [newNotes, setNewNotes] = useState(props.data.notes)
-
-  const data = {
-    caseNumber: newCaseNumber,
-    spentTime: newSpentTime,
-    additionalTime: newAdditionalTime,
-    notes: newNotes
-    }
 
   return (
     <>
@@ -30,9 +22,8 @@ export default function Popup (props) {
             <TextField
               isRequired={false}
               value={props.data.id}
-              onChange={(e) => setNewCaseNumber(e.target.value)}
             />
-            <div className="dual-textfield-labels">
+            <div className='dual-textfield-labels'>
               <p>Tidsåtgång</p>
               <p>Efterarbete</p>
             </div>
@@ -40,19 +31,19 @@ export default function Popup (props) {
               <TextField
                 isRequired={false}
                 value={props.data.customer_time}
-                onChange={(e) => {setNewSpentTime(e.target.value)}}
+                onChange={(e) => { setNewSpentTime(e.target.value) }}
               />
               <TextField
                 isRequired={false}
                 value={props.data.additional_time}
-                onChange={(e) => {setNewAdditionalTime(e.target.value)}}
+                onChange={(e) => { setNewAdditionalTime(e.target.value) }}
               />
             </div>
             <p>Fritext</p>
-            <TextArea 
-              id='fritext' 
-              value={props.data.notes} 
-              onChange={(e) => {setNewNotes(e.target.value)}}
+            <TextArea
+              id='fritext'
+              value={props.data.notes}
+              onChange={(e) => { setNewNotes(e.target.value) }}
             />
           </div>
           <SubmitButton onClick={() => props.editCase(props.data.id, newSpentTime, newAdditionalTime, newNotes)}>SPARA</SubmitButton>

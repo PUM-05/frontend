@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import SubmitButton from '../../components/submitButton/SubmitButton'
 import TextField from '../../components/textfield/TextField'
 import Toggle from '../../components/toggle/Toggle'
@@ -72,14 +71,14 @@ export default function Input () {
                   value={afterWorkTime}
                 />
               </div>
-              <TextArea 
+              <TextArea
                 placeholder='Fritext..'
                 id='freetext'
                 onChange={(e) => {
                   setFreeText(e.target.value)
                 }}
                 value={freeText}
-                />
+              />
             </form>
             <SubmitButton name='submit' onClick={submitData}>
               SKICKA
