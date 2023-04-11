@@ -2,6 +2,7 @@ const baseAPIUrl = 'http://localhost:8000/api'
 
 export async function postData (path, data) {
   const options = {
+    credentials: 'same-origin',
     method: 'POST',
     mode: 'cors',
     headers: {
@@ -16,10 +17,9 @@ export async function getLoggedIn (path) {
   const options = {
     method: 'GET',
     mode: 'cors',
-    headers: {
-      'Content-Type': 'text/plain'
-    }
+    credentials: 'include'
   }
-  const data = await fetch(baseAPIUrl + path, options)
-  return data
+
+  const response = await fetch(baseAPIUrl + path, options)
+  return response.status
 }

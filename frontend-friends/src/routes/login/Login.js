@@ -9,20 +9,29 @@ export default function Input () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
+
+  async function handleKeyPress (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      submitData()
+    }
+  };
 
   async function submitData (e) {
-    e.preventDefault()
     const data = {
       username,
       password
     }
     const request = await postData('/login', data)
-    console.log(request.status)
-
     if (request.status === 403) {
       setIsAdmin(true)
+      setIsLoggedIn(true)
     } else if (request.status === 204) {
+      setIsLoggedIn(true)
       window.location.replace('http://localhost:' + window.location.port)
+    } else if (request.status === 401) {
+      setIsLoggedIn(false)
     }
   }
 
@@ -41,6 +50,9 @@ export default function Input () {
                 onChange={(e) => {
                   setUsername(e.target.value)
                 }}
+                onKeyDown={(e) => {
+                  handleKeyPress(e)
+                }}
                 value={username}
               />
               <TextField
@@ -49,8 +61,13 @@ export default function Input () {
                 onChange={(e) => {
                   setPassword(e.target.value)
                 }}
+                onKeyDown={(e) => {
+                  handleKeyPress(e)
+                }}
                 value={password}
+                type='password'
               />
+              {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn eller lösenord</p>}
             </form>
             <SubmitButton name='submit' onClick={submitData}>
               LOGGA IN
@@ -74,15 +91,14 @@ export default function Input () {
                 onChange={(e) => {
                   setUsername(e.target.value)
                 }}
+                onKeyDown={(e) => {
+                  handleKeyPress(e)
+                }}
                 value={username}
               />
+              {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn</p>}
             </form>
             <SubmitButton name='submit' onClick={submitData}>LOGGA IN</SubmitButton>
-            {
-                  // TODO: Om användare är admin, skickas till
-                  // ny sida, där man kan skriva in lösenord, när man har klickat på login-knapp?
-                  // Eller ska det finnas ett password-field direkt? Förvirrande för "vanliga" användare?
-              }
           </div>
         </div>
       </>

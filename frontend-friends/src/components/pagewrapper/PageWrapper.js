@@ -1,31 +1,29 @@
 import './pagewrapper.scss'
 import SideBar from '../sidebar/SideBar'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { getLoggedIn } from '../../utils/request'
 
 export default function PageWrapper (props) {
-  let response = false
+  const [pageContent, setPageContent] = useState(null)
+
   useEffect(() => {
-    async function fetchData () {
-      const loggedIn = await getLoggedIn('/check')
-      if (loggedIn.status === 204) {
-        return true
+    async function checkLoggedInStatus () {
+      const response = await getLoggedIn('/check')
+      console.log('response: ' + response)
+      if (response === 204) {
+        setPageContent(
+          <div className={'page-container ' + (props.className || '')}>
+            <SideBar />
+            <div className='content-container'>{props.children}</div>
+          </div>
+        )
       } else {
-        return false
+        setPageContent(<Navigate replace to='/login' />)
       }
     }
-    response = fetchData()
+    checkLoggedInStatus()
   }, [])
-  // response = true;
-  if (!response) {
-    return <Navigate replace to='/login' />
-  } else {
-    return (
-      <div className={'page-container ' + (props.className || '')}>
-        <SideBar />
-        <div className='content-container'>{props.children}</div>
-      </div>
-    )
-  }
+
+  return pageContent
 }
