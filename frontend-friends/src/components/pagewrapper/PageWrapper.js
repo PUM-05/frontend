@@ -10,13 +10,14 @@ export default function PageWrapper (props) {
   useEffect(() => {
     async function checkLoggedInStatus() {
       const response = await getLoggedIn('/check');
+      console.log("response: " + response)
       if (response === 204) {
         setPageContent(
           <div className={'page-container ' + (props.className || '')}>
             <SideBar />
             <div className='content-container'>{props.children}</div>
           </div>
-        );
+        )
       } else {
         setPageContent(<Navigate replace to='/login' />);
       }
