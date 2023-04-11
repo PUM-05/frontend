@@ -2,6 +2,7 @@ import './textfield.scss'
 
 export default function TextField (props) {
   const isRequired = props.isRequired || false
+  
   let inputType = "text"
   if (props.type != null){
     inputType = props.type
