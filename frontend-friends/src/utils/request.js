@@ -17,9 +17,9 @@ export async function getLoggedIn (path) {
   const options = {
     method: 'GET',
     mode: 'cors',
-    credentials: 'include',
+    credentials: 'include'
   }
-    
+
   const response = await fetch(baseAPIUrl + path, options)
   return response.status
 }

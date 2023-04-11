@@ -5,12 +5,12 @@ import { Navigate } from 'react-router-dom'
 import { getLoggedIn } from '../../utils/request'
 
 export default function PageWrapper (props) {
-  const [pageContent, setPageContent] = useState(null);
+  const [pageContent, setPageContent] = useState(null)
 
   useEffect(() => {
-    async function checkLoggedInStatus() {
-      const response = await getLoggedIn('/check');
-      console.log("response: " + response)
+    async function checkLoggedInStatus () {
+      const response = await getLoggedIn('/check')
+      console.log('response: ' + response)
       if (response === 204) {
         setPageContent(
           <div className={'page-container ' + (props.className || '')}>
@@ -19,11 +19,11 @@ export default function PageWrapper (props) {
           </div>
         )
       } else {
-        setPageContent(<Navigate replace to='/login' />);
+        setPageContent(<Navigate replace to='/login' />)
       }
     }
-    checkLoggedInStatus();
-  }, []);
+    checkLoggedInStatus()
+  }, [])
 
-  return pageContent;
+  return pageContent
 }
