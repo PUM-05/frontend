@@ -8,22 +8,22 @@ export default function CategoryButtonGroup (props) {
     {
       title: 'Justera Lön',
       value: 1,
-      color: 'darkblue'
+      color: 'category-blue'
     },
     {
       title: 'Registrera frånvaro',
       value: 2,
-      color: 'orange'
+      color: 'category-cyan'
     },
     {
       title: 'Registrera ny personal',
       value: 3,
-      color: 'red'
+      color: 'category-red'
     },
     {
       title: 'Stämpelklocka',
       value: 4,
-      color: 'green',
+      color: 'category-yellow',
       subcategories: [
         { title: 'Problem', parentTitle: 'Problem med stämpelklocka', value: 5 },
         { title: 'Installation', parentTitle: 'Installation av stämpelklocka', value: 6 },
@@ -33,17 +33,17 @@ export default function CategoryButtonGroup (props) {
     {
       title: 'Ändra inställningar',
       value: 8,
-      color: 'darkblue'
+      color: 'category-brown'
     },
     {
       title: 'Exportera data',
       value: 9,
-      color: 'darkblue'
+      color: 'category-green'
     },
     {
       title: 'Konto',
       value: 10,
-      color: 'green',
+      color: 'category-purple',
       subcategories: [
         { title: 'Skapa nytt konto', parentTitle: 'Skapa nytt konto', value: 11 },
         { title: 'Ta bort konto', parentTitle: 'Ta bort konto', value: 12 }
@@ -52,7 +52,7 @@ export default function CategoryButtonGroup (props) {
     {
       title: 'Annat',
       value: 13,
-      color: 'darkblue'
+      color: 'category-violet'
     }
   ]
 

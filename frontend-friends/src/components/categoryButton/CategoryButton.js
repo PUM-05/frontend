@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import SubcategoryButton from '../subcategoryButton/SubcategoryButton'
 import './button.scss'
+import CheckIcon from '../sidebar/icons/CheckIcon'
 
 export default function CategoryButton (props) {
   const [buttonTitle, setButtonTitle] = useState(props.children)
@@ -58,7 +59,8 @@ export default function CategoryButton (props) {
           readOnly
         />
         <label htmlFor={props.id} name={props.name} value={props.value} className={`${props.color ?? 'darkblue'}`}>
-          {buttonTitle}
+          <span>{buttonTitle}</span>
+          <CheckIcon className='check-icon' />
         </label>
       </div>
 
