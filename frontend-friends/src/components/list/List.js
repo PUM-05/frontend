@@ -46,9 +46,7 @@ export default function List (props) {
             <th>
               SKAPAT
             </th>
-            <th>
-
-            </th>
+            <th />
           </tr>
         </thead>
         <tbody>
