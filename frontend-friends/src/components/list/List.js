@@ -35,15 +35,20 @@ export default function List (props) {
               ÄRENDENUMMER
             </th>
             <th>
-              ÄRENDEKATEGORI
+              KATEGORI
+            </th>
+            <th>
+              TIDSÅTGÅNG
+            </th>
+            <th>
+              EFTERARBETE
             </th>
             <th>
               SKAPAT
             </th>
             <th>
-              TIDSÅTGÅNG
+
             </th>
-            <th />
           </tr>
         </thead>
         <tbody>
@@ -53,6 +58,7 @@ export default function List (props) {
               <td>{currCase.category_id}</td>
               <td>{currCase.customer_time}</td>
               <td>{currCase.additional_time}</td>
+              <td>{currCase.created_at}</td>
               <td className='edit-field'>Redigera</td>
             </tr>
           )}
