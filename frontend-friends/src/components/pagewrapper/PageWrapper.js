@@ -5,22 +5,22 @@ import { Navigate } from 'react-router-dom'
 import { getLoggedIn } from '../../utils/request'
 
 export default function PageWrapper (props) {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(null)
 
   useEffect(() => {
-    async function checkLoggedInStatus() {
-      const response = await getLoggedIn('/check');
+    async function checkLoggedInStatus () {
+      const response = await getLoggedIn('/check')
       if (response === 204) {
-        setIsLoggedIn(true);
+        setIsLoggedIn(true)
       } else {
-        setIsLoggedIn(false);
+        setIsLoggedIn(false)
       }
     }
-    checkLoggedInStatus();
-  }, []);
+    checkLoggedInStatus()
+  }, [])
 
   if (isLoggedIn === null) {
-    return null;
+    return null
   } else if (isLoggedIn === false) {
     return <Navigate replace to='/login' />
   } else {

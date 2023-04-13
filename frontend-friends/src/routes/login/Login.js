@@ -27,8 +27,8 @@ export default function Input () {
     if (request.status === 403) {
       setIsAdmin(true)
       setIsLoggedIn(true)
-    } else if (request.status === 204) { 
-      setIsLoggedIn(true)     
+    } else if (request.status === 204) {
+      setIsLoggedIn(true)
       window.location.replace('http://localhost:' + window.location.port)
     } else if (request.status === 401) {
       setIsLoggedIn(false)
@@ -96,7 +96,7 @@ export default function Input () {
                 }}
                 value={username}
               />
-            {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn</p>}
+              {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn</p>}
             </form>
             <SubmitButton name='submit' onClick={submitData}>LOGGA IN</SubmitButton>
           </div>
