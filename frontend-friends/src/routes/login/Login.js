@@ -11,8 +11,8 @@ export default function Input () {
   const [isAdmin, setIsAdmin] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(true)
 
-  async function handleKeyPress(e) {
-    if (e.key === "Enter") {
+  async function handleKeyPress (e) {
+    if (e.key === 'Enter') {
       e.preventDefault()
       submitData()
     }
@@ -20,8 +20,8 @@ export default function Input () {
 
   async function submitData (e) {
     const data = {
-      username: username,
-      password: password
+      username,
+      password
     }
     const request = await postData('/login', data)
     if (request.status === 403) {
@@ -65,7 +65,7 @@ export default function Input () {
                   handleKeyPress(e)
                 }}
                 value={password}
-                type="password"
+                type='password'
               />
               {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn eller lösenord</p>}
             </form>
