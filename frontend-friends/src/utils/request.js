@@ -2,7 +2,7 @@ const baseAPIUrl = 'http://localhost:8000/api'
 
 export async function postData (path, data) {
   const options = {
-    credentials: 'same-origin',
+    credentials: 'include',
     method: 'POST',
     mode: 'cors',
     headers: {

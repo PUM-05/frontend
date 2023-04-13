@@ -25,6 +25,10 @@
     align-items: center;
     gap: 45px;
 
+    .error-msg{
+        color:red;
+    }
+
     form {
         display: flex;
         flex-direction: column;

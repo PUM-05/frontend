@@ -9,6 +9,7 @@ export default function Input () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   async function handleKeyPress(e) {
     if (e.key === "Enter") {
@@ -25,8 +26,12 @@ export default function Input () {
     const request = await postData('/login', data)
     if (request.status === 403) {
       setIsAdmin(true)
-    } else if (request.status === 204) {      
+      setIsLoggedIn(true)
+    } else if (request.status === 204) { 
+      setIsLoggedIn(true)     
       window.location.replace('http://localhost:' + window.location.port)
+    } else if (request.status === 401) {
+      setIsLoggedIn(false)
     }
   }
 
@@ -62,6 +67,7 @@ export default function Input () {
                 value={password}
                 type="password"
               />
+              {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn eller lösenord</p>}
             </form>
             <SubmitButton name='submit' onClick={submitData}>
               LOGGA IN
@@ -90,6 +96,7 @@ export default function Input () {
                 }}
                 value={username}
               />
+            {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn</p>}
             </form>
             <SubmitButton name='submit' onClick={submitData}>LOGGA IN</SubmitButton>
           </div>
