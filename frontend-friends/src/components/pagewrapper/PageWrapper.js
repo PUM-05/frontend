@@ -10,10 +10,10 @@ export default function PageWrapper (props) {
   useEffect(() => {
     async function checkLoggedInStatus() {
       const response = await getLoggedIn('/check');
-      if (response.status === 204) {
-        setIsLoggedIn(false);
-      } else {
+      if (response === 204) {
         setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
       }
     }
     checkLoggedInStatus();
