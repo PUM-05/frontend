@@ -1,7 +1,7 @@
 import './list.scss'
 import { useState } from 'react'
 import Popup from '../popup/Popup'
-import { postData } from '../../utils/request'
+import { editData } from '../../utils/request'
 
 export default function List (props) {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,7 +18,7 @@ export default function List (props) {
       additional_time: parseInt(caseAdditionalTime),
       notes: caseNotes
     }
-    const response = await postData('/case/' + String(caseId), data)
+    const response = await editData('/case/' + String(caseId), data)
 
     if (response.status === 204) {
       props.loadCases()
@@ -54,8 +54,8 @@ export default function List (props) {
             <tr onClick={() => togglePopup(currCase)} key={currCase.id}>
               <td>{currCase.id}</td>
               <td>{currCase.category_id}</td>
-              <td>{currCase.customer_time}</td>
-              <td>{currCase.additional_time}</td>
+              <td>{currCase.customer_time} min</td>
+              <td>{currCase.additional_time} min</td>
               <td>{currCase.created_at}</td>
               <td className='edit-field'>Redigera</td>
             </tr>

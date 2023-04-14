@@ -11,6 +11,20 @@ export async function postData (path, data) {
     credentials: 'include',
     method: 'POST',
     mode: 'cors',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'text/plain'
+    },
+    body: JSON.stringify(data)
+  }
+  return await fetch(baseAPIUrl + path, options)
+}
+
+export async function editData (path, data) {
+  const options = {
+    method: 'PATCH',
+    mode: 'cors',
+    credentials: 'include',
     headers: {
       'Content-Type': 'text/plain'
     },
