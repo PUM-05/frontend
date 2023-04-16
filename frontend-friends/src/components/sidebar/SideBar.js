@@ -7,7 +7,6 @@ import Logo from './logo/Logo'
 import SmallLogo from './logo/SmallLogo'
 import InputIcon from './icons/InputIcon'
 import SubmitButton from '../submitButton/SubmitButton'
-import { Navigate } from 'react-router-dom'
 import { getLoggedIn } from '../../utils/request'
 
 export default function SideBar () {

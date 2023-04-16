@@ -23,6 +23,10 @@
     .small-logo{
         display: block;
     }
+
+    button{
+        width: 0;
+    }
 }
 
 .sidebar-container, .sidebar-container:hover{
@@ -183,10 +187,9 @@
         .small-logo{
             display: block;
         }
+        button{
+            display: none;
+        }
     }
-    .logout{
-        display: none;
-    }
-
 
 }
