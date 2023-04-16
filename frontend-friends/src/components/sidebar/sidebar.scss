@@ -26,10 +26,12 @@
 }
 
 .sidebar-container, .sidebar-container:hover{
+    display:flex;
+    flex-direction: column;
     overflow: hidden;
     background-color: #fff;
     width: 260px;
-    height: 100vh;
+    height: 100%;
     padding: 1em;
     position: fixed;
     z-index: 100;
@@ -134,6 +136,26 @@
     .small-logo{
         display: none;
     }
+    
+    button {
+        all: unset;
+        position:absolute;
+        background-color: colors.$primary-color;
+        font-weight: 600;
+        color: white;
+        text-align: center;
+        width: 70%;
+        height: 50px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.4s;
+        bottom: 2%;
+        margin-left: 9%;
+        
+        &:hover {
+            background-color: #4984D3;
+        }
+    }
 }
 
 
@@ -161,6 +183,9 @@
         .small-logo{
             display: block;
         }
+    }
+    .logout{
+        display: none;
     }
 
 

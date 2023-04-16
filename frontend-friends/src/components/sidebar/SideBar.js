@@ -6,10 +6,25 @@ import ListIcon from './icons/ListIcon'
 import Logo from './logo/Logo'
 import SmallLogo from './logo/SmallLogo'
 import InputIcon from './icons/InputIcon'
+import SubmitButton from '../submitButton/SubmitButton'
+import { Navigate } from 'react-router-dom'
+import { getLoggedIn } from '../../utils/request'
 
 export default function SideBar () {
   const location = useLocation()
   const path = location.pathname
+
+  /**
+   * Sends a GET request to the server to sign out the user.
+   * Then redirects the user to the login page
+   */
+  async function logOutUser(){
+    const request = await getLoggedIn('/logout')
+    if (request === 204) {
+      window.location.replace('http://localhost:' + window.location.port)
+    }
+  }
+
   return (
     <div className='sidebar-container'>
       <div className='logo-wrapper'>
@@ -47,6 +62,7 @@ export default function SideBar () {
           </Link>
         </li>
       </ul>
+      <SubmitButton name="submit" className="logout" onClick={logOutUser}>Logga ut</SubmitButton>
     </div>
   )
 }
