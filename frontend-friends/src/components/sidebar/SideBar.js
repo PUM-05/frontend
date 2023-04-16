@@ -9,6 +9,9 @@ import InputIcon from './icons/InputIcon'
 import SubmitButton from '../submitButton/SubmitButton'
 import { getLoggedIn } from '../../utils/request'
 
+/**
+ * @returns the sidebar that should be visible on each page, except login
+ */
 export default function SideBar () {
   const location = useLocation()
   const path = location.pathname
