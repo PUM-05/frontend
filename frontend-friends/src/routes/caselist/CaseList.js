@@ -14,7 +14,7 @@ export default function CaseList () {
   async function loadCases () {
     const request = await (getData('/case'))
     const data = await (request.json())
-    setCases(data)
+    setCases(data.cases)
   }
 
   return (
@@ -25,7 +25,7 @@ export default function CaseList () {
           <div class='container-title'>
             <h1>Senaste ärenden</h1>
           </div>
-          <List content={cases} loadCases={loadCases} />
+          <List content={cases} loadCases={loadCases}/>
         </div>
       </PageWrapper>
     </>

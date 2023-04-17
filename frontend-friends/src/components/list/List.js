@@ -63,7 +63,7 @@ export default function List (props) {
 
         </tbody>
       </table>
-      {isOpen && <Popup handleClose={togglePopup} data={popupData} editCase={editCase} />}
+      {isOpen && props.hasPopup && <Popup handleClose={togglePopup} data={popupData} editCase={editCase} />}
     </>
   )
 }
