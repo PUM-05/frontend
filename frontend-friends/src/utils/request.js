@@ -19,6 +19,19 @@ export async function postData (path, data) {
   return await fetch(baseAPIUrl + path, options)
 }
 
+export async function editData (path, data) {
+  const options = {
+    method: 'PATCH',
+    mode: 'cors',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'text/plain'
+    },
+    body: JSON.stringify(data)
+  }
+  return await fetch(baseAPIUrl + path, options)
+}
+
 /**
  * Sends a HTTP GET request to the server
  * @param {*} path specifies which url path the request should be sent to
@@ -33,4 +46,13 @@ export async function getLoggedIn (path) {
 
   const response = await fetch(baseAPIUrl + path, options)
   return response.status
+}
+
+export async function getData (path) {
+  const options = {
+    method: 'GET',
+    mode: 'cors',
+    credentials: 'include'
+  }
+  return await fetch(baseAPIUrl + path, options)
 }

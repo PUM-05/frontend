@@ -4,6 +4,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
+    overflow: scroll;
 }
 
 tr, th, td {
@@ -15,6 +16,12 @@ tr, th, td {
     padding: 0 30px;
     font-weight: 400;
     color: colors.$dark-blue;
+    max-width: 100px;
+}
+
+td {
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .list-header {
@@ -23,5 +30,15 @@ tr, th, td {
     th {
         font-weight: 500;
         color: colors.$table-header-text;
+    }
+}
+
+.edit-field{
+    text-align: center;
+    color: colors.$primary-color;
+    font-weight: 600;
+
+    &:hover{
+        color: #4984D3;
     }
 }

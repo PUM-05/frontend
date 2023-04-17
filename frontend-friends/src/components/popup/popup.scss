@@ -1,0 +1,89 @@
+@use "../../style/colors.scss";
+
+.popup-container{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0, 0.7);
+}
+
+.popup {
+    background: white;
+    width: 500px;
+    height: 85%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    align-items: center;
+    position: relative;
+    border-radius: 6px;
+
+    h1 {
+        font-weight: 600;
+        font-size: 24px;
+        margin: 0;
+        margin-bottom: 15px;
+        margin-top: 30px;
+    }
+
+    span {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+
+        path {
+            fill: colors.$danger-red;
+            transition: fill 0.3s;
+        }
+
+        &:hover {
+            path {
+                fill: #B21030;
+            } 
+        }
+    }
+
+    button {
+        width: 50%;
+    }
+
+    p {
+        color: colors.$dark-blue;
+    }
+}
+
+.text-fields-container {
+    width: 65%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.dual-textfield-container {
+    display: flex;
+    gap: 10px;
+}
+
+.dual-textfield-labels {
+    display: flex;
+    gap: 10px;
+
+    p {
+        flex-grow: 1;
+    }
+}

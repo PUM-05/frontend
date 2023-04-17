@@ -1,8 +1,22 @@
 import List from '../../components/list/List'
 import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import './dashboard.scss'
+import { getData } from '../../utils/request'
+import { useEffect, useState } from 'react'
 
 export default function Dashboard () {
+  const [cases, setCases] = useState([])
+
+  useEffect(() => {
+    loadCases()
+  }, [])
+
+  async function loadCases () {
+    const request = await (getData('/case'))
+    const data = await (request.json())
+    setCases(data.cases)
+  }
+
   return (
     <>
       <PageWrapper className='dashboard'>
@@ -20,7 +34,7 @@ export default function Dashboard () {
           <div className='container-title'>
             <h2>Senaste ärenden</h2>
           </div>
-          <List />
+          <List content={cases} loadCases={loadCases} hasPopup={false} />
         </div>
       </PageWrapper>
     </>

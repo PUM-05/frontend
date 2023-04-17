@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "caseNumber": "#929292",
+        "caseCategory": "Stämpelklocka",
+        "caseTime": "15:52 01-02-2023",
+        "spentTime": "22 min",
+        "additionalTime": "2 min",
+        "notes": ""
+    },
+    {
+        "id": 2,
+        "caseNumber": "#929293",
+        "caseCategory": "Justera lön",
+        "caseTime": "15:53 02-02-2023",
+        "spentTime": "24 min",
+        "additionalTime": "5 min",
+        "notes": "ÖKA ÖKA ÖKA"
+    },
+    {
+        "id": 3,
+        "caseNumber": "#929294",
+        "caseCategory": "Registrera frånvaro",
+        "caseTime": "18:00 02-02-2023",
+        "spentTime": "32 min",
+        "additionalTime": "6 min",
+        "notes": "Anders är fan alltid borta asså"
+    },
+    {
+        "id": 4,
+        "caseNumber": "#929295",
+        "caseCategory": "Registrera ny personal",
+        "caseTime": "18:00 04-02-2023",
+        "spentTime": "33 min",
+        "additionalTime": "7 min",
+        "notes": "*Peter joined the chat*"
+    }
+
+]
