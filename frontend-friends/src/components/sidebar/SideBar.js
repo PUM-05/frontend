@@ -7,7 +7,7 @@ import Logo from './logo/Logo'
 import SmallLogo from './logo/SmallLogo'
 import InputIcon from './icons/InputIcon'
 import SubmitButton from '../submitButton/SubmitButton'
-import { getLoggedIn } from '../../utils/request'
+import { getLoggedIn, postData } from '../../utils/request'
 
 /**
  * @returns the sidebar that should be visible on each page, except login
@@ -21,8 +21,8 @@ export default function SideBar () {
    * Then redirects the user to the login page
    */
   async function logOutUser(){
-    const request = await getLoggedIn('/logout')
-    if (request === 204) {
+    const request = await postData('/logout')
+    if (request.status === 204) {
       window.location.replace('http://localhost:' + window.location.port)
     }
   }
