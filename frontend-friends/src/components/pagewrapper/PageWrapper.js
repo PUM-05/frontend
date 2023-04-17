@@ -6,7 +6,7 @@ import { getLoggedIn } from '../../utils/request'
 
 /**
  * "
- * @param {*} props 
+ * @param {*} props
  * @returns what should be displayed on the page. Either the login page or the "correct" page
  */
 export default function PageWrapper (props) {
@@ -14,7 +14,7 @@ export default function PageWrapper (props) {
 
   useEffect(() => {
     /**
-     * Checks if the user is logged in and sets the variable isLoggedIn based on 
+     * Checks if the user is logged in and sets the variable isLoggedIn based on
      * the response of the GET request.
      */
     async function checkLoggedInStatus () {

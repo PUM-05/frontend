@@ -7,7 +7,7 @@ import Logo from './logo/Logo'
 import SmallLogo from './logo/SmallLogo'
 import InputIcon from './icons/InputIcon'
 import SubmitButton from '../submitButton/SubmitButton'
-import { getLoggedIn, postData } from '../../utils/request'
+import { postData } from '../../utils/request'
 
 /**
  * @returns the sidebar that should be visible on each page, except login
@@ -20,7 +20,7 @@ export default function SideBar () {
    * Sends a GET request to the server to sign out the user.
    * Then redirects the user to the login page
    */
-  async function logOutUser(){
+  async function logOutUser () {
     const request = await postData('/logout')
     if (request.status === 204) {
       window.location.replace('http://localhost:' + window.location.port)
@@ -64,7 +64,7 @@ export default function SideBar () {
           </Link>
         </li>
       </ul>
-      <SubmitButton name="submit" className="logout" onClick={logOutUser}>Logga ut</SubmitButton>
+      <SubmitButton name='submit' className='logout' onClick={logOutUser}>Logga ut</SubmitButton>
     </div>
   )
 }

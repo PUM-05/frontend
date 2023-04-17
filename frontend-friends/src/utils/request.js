@@ -1,6 +1,5 @@
 const baseAPIUrl = 'http://localhost:8000/api'
 
-
 /**
  * Sends a HTTP POST request to the server
  * @param {*} path specifies which url path the request should be sent to
