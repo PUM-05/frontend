@@ -25,7 +25,7 @@ export default function CaseList () {
           <div class='container-title'>
             <h1>Senaste ärenden</h1>
           </div>
-          <List content={cases} loadCases={loadCases}/>
+          <List content={cases} loadCases={loadCases} hasPopup={true}/>
         </div>
       </PageWrapper>
     </>

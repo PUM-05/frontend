@@ -6,8 +6,8 @@ import TextArea from '../textArea/TextArea'
 import { useState } from 'react'
 
 export default function Popup (props) {
-  const [newSpentTime, setNewSpentTime] = useState(props.data.spentTime)
-  const [newAdditionalTime, setNewAdditionalTime] = useState(props.data.additionalTime)
+  const [newSpentTime, setNewSpentTime] = useState(props.data.spent_time)
+  const [newAdditionalTime, setNewAdditionalTime] = useState(props.data.additional_time)
   const [newNotes, setNewNotes] = useState(props.data.notes)
 
   return (
