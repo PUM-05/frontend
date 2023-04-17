@@ -11,7 +11,6 @@ export async function postData (path, data) {
     credentials: 'include',
     method: 'POST',
     mode: 'cors',
-    credentials: 'include',
     headers: {
       'Content-Type': 'text/plain'
     },

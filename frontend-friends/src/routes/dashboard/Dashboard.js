@@ -5,7 +5,6 @@ import { getData } from '../../utils/request'
 import { useEffect, useState } from 'react'
 
 export default function Dashboard () {
-
   const [cases, setCases] = useState([])
 
   useEffect(() => {
@@ -35,7 +34,7 @@ export default function Dashboard () {
           <div className='container-title'>
             <h2>Senaste ärenden</h2>
           </div>
-          <List content={cases} loadCases={loadCases} hasPopup={false}/>
+          <List content={cases} loadCases={loadCases} hasPopup={false} />
         </div>
       </PageWrapper>
     </>
