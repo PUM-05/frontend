@@ -5,12 +5,20 @@ import Logo from '../../components/sidebar/logo/Logo'
 import { useState } from 'react'
 import { postData } from '../../utils/request'
 
+/**
+ *
+ * @returns content for login
+ */
 export default function Input () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(true)
 
+  /**
+   * Waiting for enter to be pressed, if clicked, then submitdata
+   * @param {*} e is the event from the button
+   */
   async function handleKeyPress (e) {
     if (e.key === 'Enter') {
       e.preventDefault()
@@ -18,6 +26,10 @@ export default function Input () {
     }
   };
 
+  /**
+   * SubmitData uploads. Depending on request.status sets admin and logged in to true or false
+   * @param {*} e is the event. e reacts on change.
+   */
   async function submitData (e) {
     const data = {
       username,

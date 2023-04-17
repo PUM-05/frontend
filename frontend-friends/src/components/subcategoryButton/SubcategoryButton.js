@@ -1,6 +1,15 @@
 import './subcategoryButton.scss'
 
+/**
+ * Creates a subcategorybutton component to be displayed on the input page
+ * @param {*} props should contain style and the text for each button
+ * @returns a subcategory button component
+ */
 export default function CategoryButton (props) {
+  /**
+   * Handles onclick on the button
+   * @param {*} e is the onclick event
+   */
   function handleChange (e) {
     props.onClick?.({ title: props.children, value: props.value, parentTitle: props.parentTitle })
   }

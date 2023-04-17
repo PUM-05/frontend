@@ -5,8 +5,13 @@ import CloseIcon from '../sidebar/icons/CloseIcon'
 import TextArea from '../textArea/TextArea'
 import { useState } from 'react'
 
+/**
+ * Creates and displays a propup for editing a case
+ * @param {*} props Data to pupup {data: {id, spent_time, additional_time, notes}}
+ * @returns Popup component
+ */
 export default function Popup (props) {
-  const [newSpentTime, setNewSpentTime] = useState(props.data.spent_time)
+  const [newSpentTime, setNewSpentTime] = useState(props.data.customer_time)
   const [newAdditionalTime, setNewAdditionalTime] = useState(props.data.additional_time)
   const [newNotes, setNewNotes] = useState(props.data.notes)
 

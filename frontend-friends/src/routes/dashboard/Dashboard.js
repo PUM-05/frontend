@@ -4,6 +4,10 @@ import './dashboard.scss'
 import { getData } from '../../utils/request'
 import { useEffect, useState } from 'react'
 
+/**
+ *
+ * @returns usestate, allows you to add state to a functional component.
+ */
 export default function Dashboard () {
   const [cases, setCases] = useState([])
 
@@ -11,6 +15,9 @@ export default function Dashboard () {
     loadCases()
   }, [])
 
+  /**
+   * Sends a request that fetches all cases from the database
+   */
   async function loadCases () {
     const request = await (getData('/case'))
     const data = await (request.json())

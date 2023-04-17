@@ -3,15 +3,33 @@ import { useState } from 'react'
 import Popup from '../popup/Popup'
 import { editData } from '../../utils/request'
 
+/**
+ * Creates and displays the list component of cases
+ * @param {*} props props.content - data to show,
+ * props.loadCases - function to load all cases in the list,
+ * props.hasPopup - bool to know if the list component should have a popup or not
+ * @returns a list component containing the specified props.data
+ */
 export default function List (props) {
   const [isOpen, setIsOpen] = useState(false)
   const [popupData, setPopupData] = useState({})
 
+  /**
+   * Toggles the popup for editing cases
+   * @param {*} popupContent - data content (data of the case) of the popup
+   */
   function togglePopup (popupContent) {
     setIsOpen(!isOpen)
     setPopupData(popupContent)
   }
 
+  /**
+   * Sends a PATCH request with the new edited data, if response is ok - closes the popup and updates the case list
+   * @param {*} caseId - ID of the current case
+   * @param {*} caseSpentTime - Spent time of the current case
+   * @param {*} caseAdditionalTime - Additional time spent of the current case
+   * @param {*} caseNotes - notes of the current case
+   */
   async function editCase (caseId, caseSpentTime, caseAdditionalTime, caseNotes) {
     const data = {
       customer_time: parseInt(caseSpentTime),
