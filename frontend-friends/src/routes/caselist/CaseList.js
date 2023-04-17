@@ -4,6 +4,10 @@ import List from '../../components/list/List'
 import { getData } from '../../utils/request'
 import { useEffect, useState } from 'react'
 
+/**
+ * Page containing a list of all cases.
+ * @returns CaseList page component
+ */
 export default function CaseList () {
   const [cases, setCases] = useState([])
 
@@ -11,6 +15,9 @@ export default function CaseList () {
     loadCases()
   }, [])
 
+  /**
+   * Fetching cases from the server to display in list
+   */
   async function loadCases () {
     const request = await (getData('/case'))
     const data = await (request.json())

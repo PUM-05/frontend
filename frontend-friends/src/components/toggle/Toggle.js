@@ -4,9 +4,19 @@ import './Toggle.scss'
 import PhoneIcon from '../sidebar/icons/PhoneIcon'
 import MailIcon from '../sidebar/icons/MailIcon'
 
+/**
+ * Component displaying a toggle to switch between e-mail and phone.
+ * @param {*} props 
+ * @returns Toggle component
+ */
 export default function Toggle (props) {
   const [checked, setChecked] = useState(props.value)
 
+
+/**
+ * Updates value of toggle.
+ * @param {*} val New value
+ */
   const handleChange = (val) => {
     setChecked(val)
     props.onChange(val)

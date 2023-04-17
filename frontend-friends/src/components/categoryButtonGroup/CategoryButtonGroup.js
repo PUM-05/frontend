@@ -2,6 +2,11 @@ import './categoryButtonGroup.scss'
 import CategoryButton from '../categoryButton/CategoryButton'
 import { Fragment, useState } from 'react'
 
+/**
+ * Creates and displays a group of categories
+ * @param {*} props 
+ * @returns Component of category buttons
+ */
 export default function CategoryButtonGroup (props) {
   const [showSubValue, setShowSubValue] = useState()
   const buttonData = [
@@ -56,6 +61,10 @@ export default function CategoryButtonGroup (props) {
     }
   ]
 
+  /**
+   * Handles change
+   * @param {*} data is the data from the event
+   */
   function onChange (data) {
     props.onChange(data)
   }

@@ -1,5 +1,11 @@
 import './textfield.scss'
 
+/**
+ * Textfield is a component where the user can write input
+ * @param {*} props contains what type of textfield it should be. 
+ *            For example, normal or password. It also contains a default text value
+ * @returns a textfield component that the user can input data into.
+ */
 export default function TextField (props) {
   const isRequired = props.isRequired || false
 

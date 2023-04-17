@@ -8,6 +8,10 @@ import { useState } from 'react'
 import { postData } from '../../utils/request'
 import TextArea from '../../components/textArea/TextArea'
 
+/**
+ * Component displaying the case input page
+ * @returns Input page component
+ */
 export default function Input () {
   const [comMode, setComMode] = useState(true)
   const [caseId, setCaseId] = useState('')
@@ -16,6 +20,10 @@ export default function Input () {
   const [caseCategory, setCaseCategory] = useState('')
   const [freeText, setFreeText] = useState('')
 
+  /**
+   * Send new case to server
+   * @param {*} e Event calling the function
+   */
   async function submitData (e) {
     e.preventDefault()
     const data = {

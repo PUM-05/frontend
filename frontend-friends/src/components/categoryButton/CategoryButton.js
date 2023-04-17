@@ -2,9 +2,19 @@ import { useState } from 'react'
 import SubcategoryButton from '../subcategoryButton/SubcategoryButton'
 import './button.scss'
 
+/**
+ * Creates and displays the button component for categories
+ * @param {*} props are everything
+ * @returns a category button and its potential subcategorybuttons
+ */
 export default function CategoryButton (props) {
   const [buttonTitle, setButtonTitle] = useState(props.children)
 
+  /**
+   * Handles click
+   * @param {*} e is the event from the click
+   * @param {*} currentValue is the value of the button
+   */
   function onClick (e, currentValue) {
     if (props.showSub) {
       props.setShowSub(null)
@@ -17,11 +27,20 @@ export default function CategoryButton (props) {
     }
   }
 
+  /**
+   * Handle click on subcategory
+   * @param {*} data is the inputdata
+   */
   function handleSubcategoryClick (data) {
     props.onChange(data)
     setButtonTitle(data.parentTitle)
   }
 
+  /**
+   * Checks if the button is checked or not
+   * @param {*} currentValue is the checkvalue of the button. If currentValue == true, the button is checked
+   * @returns a bool
+   */
   function isChecked (currentValue) {
     if (props.value === currentValue) {
       return true

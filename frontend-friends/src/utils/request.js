@@ -19,6 +19,12 @@ export async function postData (path, data) {
   return await fetch(baseAPIUrl + path, options)
 }
 
+/**
+ * 
+ * @param {*} path specifies url path to send patch request to
+ * @param {*} data body data to be sent in the patch request
+ * @returns request response 
+ */
 export async function editData (path, data) {
   const options = {
     method: 'PATCH',
@@ -48,6 +54,11 @@ export async function getLoggedIn (path) {
   return response.status
 }
 
+/**
+ * Sends a HTTP GET request to the server
+ * @param {*} path specifies which url path the request should be sent to
+ * @returns the response status code
+ */
 export async function getData (path) {
   const options = {
     method: 'GET',
