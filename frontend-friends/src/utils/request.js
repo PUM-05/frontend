@@ -20,10 +20,10 @@ export async function postData (path, data) {
 }
 
 /**
- * 
+ *
  * @param {*} path specifies url path to send patch request to
  * @param {*} data body data to be sent in the patch request
- * @returns request response 
+ * @returns request response
  */
 export async function editData (path, data) {
   const options = {

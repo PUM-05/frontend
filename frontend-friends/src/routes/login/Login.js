@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { postData } from '../../utils/request'
 
 /**
- * 
+ *
  * @returns content for login
  */
 export default function Input () {

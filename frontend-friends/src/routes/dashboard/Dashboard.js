@@ -5,7 +5,7 @@ import { getData } from '../../utils/request'
 import { useEffect, useState } from 'react'
 
 /**
- * 
+ *
  * @returns usestate, allows you to add state to a functional component.
  */
 export default function Dashboard () {

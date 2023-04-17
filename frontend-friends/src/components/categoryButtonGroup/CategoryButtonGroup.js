@@ -4,7 +4,7 @@ import { Fragment, useState } from 'react'
 
 /**
  * Creates and displays a group of categories
- * @param {*} props 
+ * @param {*} props
  * @returns Component of category buttons
  */
 export default function CategoryButtonGroup (props) {

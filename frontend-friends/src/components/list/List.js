@@ -3,11 +3,10 @@ import { useState } from 'react'
 import Popup from '../popup/Popup'
 import { editData } from '../../utils/request'
 
-
 /**
  * Creates and displays the list component of cases
- * @param {*} props props.content - data to show, 
- * props.loadCases - function to load all cases in the list, 
+ * @param {*} props props.content - data to show,
+ * props.loadCases - function to load all cases in the list,
  * props.hasPopup - bool to know if the list component should have a popup or not
  * @returns a list component containing the specified props.data
  */

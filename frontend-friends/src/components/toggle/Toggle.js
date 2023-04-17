@@ -6,14 +6,13 @@ import MailIcon from '../sidebar/icons/MailIcon'
 
 /**
  * Component displaying a toggle to switch between e-mail and phone.
- * @param {*} props 
+ * @param {*} props
  * @returns Toggle component
  */
 export default function Toggle (props) {
   const [checked, setChecked] = useState(props.value)
 
-
-/**
+  /**
  * Updates value of toggle.
  * @param {*} val New value
  */
