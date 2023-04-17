@@ -1,6 +1,6 @@
 @use '../../style/colors';
 
-.category-button-wrapper{
+.category-button-wrapper {
 
     position: relative;
 
@@ -21,27 +21,25 @@
         transition: all 0.2s;
     }
 
-    input[type="radio"]{
+    input[type="radio"] {
         position: fixed;
         opacity: 0;
         pointer-events: none;
     }
 
-    input[type="radio"]+label{
-        color: white;
-    }
 
-    input[type="radio"]:checked+label{
-        span{
+    input[type="radio"]:checked+label {
+        span {
             color: white;
             transition: all 0.2s;
         }
-        svg {
-            opacity: 100;
-        }
+
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px,
+        rgba(0, 0, 0, 0.14) 0px 6px 10px 0px,
+        rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
     }
 
-    svg{
+    svg {
         position: absolute;
         left: 75.5px;
         top: 21px;
@@ -50,14 +48,13 @@
         opacity: 0;
     }
 
-    span{
+    span {
         position: absolute;
         top: 0;
         width: 100%;
         height: 100%;
         text-align: center;
         text-transform: uppercase;
-        color: rgba(0,0,0,0.5);
         font-weight: 600;
         display: flex;
         justify-content: center;
@@ -67,141 +64,86 @@
 
     // Category blue
     .category-blue {
-        background-color: colors.$primary-color;
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-blue;
     }
 
-    input[type="radio"]:checked+label.category-blue{
-        background: colors.$category-blue-dark;
-        box-shadow: inset 0 0 0 3px colors.$category-blue;
-
-        svg{
-            path {
-                fill: colors.$category-blue;
-                stroke: colors.$category-blue;
-            }
-        }
+    input[type="radio"]:checked+label.category-blue {
+        background: colors.$category-blue;
     }
 
     // Category cyan
     .category-cyan {
-        background-color: colors.$category-cyan;
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-cyan;
     }
 
-    input[type="radio"]:checked+label.category-cyan{
-        background: colors.$category-cyan-dark;
-        box-shadow: inset 0 0 0 3px colors.$category-cyan;
-
-        svg{
-            path {
-                fill: colors.$category-cyan;
-                stroke: colors.$category-cyan;
-            }
-        }
+    input[type="radio"]:checked+label.category-cyan {
+        background: colors.$category-cyan;
     }
 
     // Category-red
 
     .category-red {
-        background-color: colors.$category-red;
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-red;
     }
 
-    input[type="radio"]:checked+label.category-red{
-        background: colors.$category-red-dark;
-        box-shadow: inset 0 0 0 3px colors.$category-red;
+    input[type="radio"]:checked+label.category-red {
+        background: colors.$category-red;
 
-        svg{
-            path {
-                fill: colors.$category-red;
-                stroke: colors.$category-red;
-            }
-        }
     }
 
     //Category-yellow
     .category-yellow {
-        background-color: colors.$category-yellow;
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-yellow;
     }
 
-    input[type="radio"]:checked+label.category-yellow{
-        background: colors.$category-yellow-dark;
-        box-shadow: inset 0 0 0 3px colors.$category-yellow;
-
-        svg{
-            path {
-                fill: colors.$category-yellow;
-                stroke: colors.$category-yellow;
-            }
-        }
+    input[type="radio"]:checked+label.category-yellow {
+        background: colors.$category-yellow;
     }
 
 
     //Category-brown
     .category-brown {
-        background-color: colors.$category-brown;
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-brown;
     }
 
-    input[type="radio"]:checked+label.category-brown{
-        background: colors.$category-brown-dark;
-        box-shadow: inset 0 0 0 3px colors.$category-brown;
-
-        svg{
-            path {
-                fill: colors.$category-brown;
-                stroke: colors.$category-brown;
-            }
-        }
+    input[type="radio"]:checked+label.category-brown {
+        background: colors.$category-brown;
     }
- 
+
 
     //Category-green
     .category-green {
-        background-color: colors.$category-green;
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-green;
     }
 
-    input[type="radio"]:checked+label.category-green{
-        background: colors.$category-green-dark;
-        box-shadow: inset 0 0 0 3px colors.$category-green;
-
-        svg{
-            path {
-                fill: colors.$category-green;
-                stroke: colors.$category-green;
-            }
-        }
+    input[type="radio"]:checked+label.category-green {
+        background: colors.$category-green;
     }
 
     //Category-purple
     .category-purple {
-        background-color: colors.$category-purple;
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-purple;
     }
 
-    input[type="radio"]:checked+label.category-purple{
-        background: colors.$category-purple-dark;
-        box-shadow: inset 0 0 0 3px colors.$category-purple;
-
-        svg{
-            path {
-                fill: colors.$category-purple;
-                stroke: colors.$category-purple;
-            }
-        }
+    input[type="radio"]:checked+label.category-purple {
+        background: colors.$category-purple;
     }
 
     //Category-violet
     .category-violet {
-        background-color: colors.$category-violet;
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-violet;
     }
 
-    input[type="radio"]:checked+label.category-violet{
-        background: colors.$category-violet-dark;
-        box-shadow: inset 0 0 0 3px colors.$category-violet;
-
-        svg{
-            path {
-                fill: colors.$category-violet;
-                stroke: colors.$category-violet;
-            }
-        }
+    input[type="radio"]:checked+label.category-violet {
+        background: colors.$category-violet;
     }
 
 }
