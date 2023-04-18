@@ -1,9 +1,9 @@
 import List from '../../components/list/List'
 import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import './dashboard.scss'
-import PieChartGroup from '../../components/piechartGroup/PiechartGroup'
-import { useState, useEffect } from 'react'
 import { getData } from '../../utils/request'
+import { useEffect, useState } from 'react'
+import PieChartGroup from '../../components/piechartGroup/PiechartGroup'
 
 /**
  *
@@ -28,7 +28,7 @@ export default function Dashboard () {
   return (
     <>
       <PageWrapper className='dashboard'>
-        <h1>Dashboard{cases}</h1>
+        <h1>Dashboard</h1>
         <div className='dashboard-content graph-container'>
           <div className='graphs-content'>
             <PieChartGroup />
