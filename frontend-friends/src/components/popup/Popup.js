@@ -4,6 +4,7 @@ import SubmitButton from '../submitButton/SubmitButton'
 import CloseIcon from '../sidebar/icons/CloseIcon'
 import TextArea from '../textArea/TextArea'
 import { useState } from 'react'
+import Arrow from '../sidebar/icons/Arrow'
 
 /**
  * Creates and displays a propup for editing a case
@@ -51,7 +52,11 @@ export default function Popup (props) {
               onChange={(e) => { setNewNotes(e.target.value) }}
             />
           </div>
-          <SubmitButton onClick={() => props.editCase(props.data.id, newSpentTime, newAdditionalTime, newNotes)}>SPARA</SubmitButton>
+          <SubmitButton className='submit-button' onClick={() => props.editCase(props.data.id, newSpentTime, newAdditionalTime, newNotes)}>SPARA</SubmitButton>
+          <div className='switch-buttons'>
+            <button className={`left ${props.index <= 0 ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index - 1)}><Arrow /></button>
+            <button className={`right ${props.index >= props.maxIndex ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index + 1)}><Arrow /></button>
+          </div>
         </div>
       </div>
     </>
