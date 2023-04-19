@@ -18,15 +18,18 @@
         width: 100%;
         height: 50px;
         background-color: colors.$text-field-background;
-        border: 1px solid colors.$text-field-stroke;
+        box-shadow: inset 0 0 0 1px colors.$text-field-stroke;
         box-sizing: border-box;
         padding: 0 20px;
         font-size: 18px;
-        transition: border-color 0.3s;
+        transition: box-shadow 0.2s;
 
         &:focus {
-            border-color: colors.$primary-color;
-            border-width: 2px;
+            box-shadow: 
+                inset 0 1.5px 0 0 #579CFB, 
+                inset 0 -2px 0 0 #579CFB, 
+                inset -2px 0 0 0 #579CFB, 
+                inset 1.5px 0 0 0 #579CFB
         }
 
     }
