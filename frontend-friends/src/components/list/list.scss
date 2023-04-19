@@ -5,6 +5,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     overflow: scroll;
+    table-layout: auto;
 }
 
 tr, th, td {
@@ -13,7 +14,7 @@ tr, th, td {
     border-top: 1px inset #B8C4CF;
     border-bottom: 1px inset #B8C4CF;
     text-align: left;
-    padding: 0 30px;
+    padding: 0 15px;
     font-weight: 400;
     color: colors.$dark-blue;
     max-width: 100px;
@@ -37,8 +38,24 @@ td {
     text-align: center;
     color: colors.$primary-color;
     font-weight: 600;
+    padding: 0 10px;
 
     &:hover{
         color: #4984D3;
+    }
+}
+
+.notes-icon {
+    padding: 0 10px;
+
+    .notes-icon-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    svg {
+        width: 22px;
+        height: 22px;
     }
 }
