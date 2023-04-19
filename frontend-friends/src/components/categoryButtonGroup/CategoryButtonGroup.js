@@ -16,8 +16,8 @@ export default function CategoryButtonGroup (props) {
    * Gets categories from server
    */
   async function loadCategories () {
-    const request = await getData('/case/categories');
-    const data = await request.json();
+    const request = await getData('/case/categories')
+    const data = await request.json()
     setButtonData(data)
   }
 
