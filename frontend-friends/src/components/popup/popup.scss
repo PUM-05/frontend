@@ -24,6 +24,7 @@
     width: 500px;
     height: 85%;
     min-height: 650px;
+    max-height: 700px;
     display: flex;
     flex-direction: column;
     padding: 0 30px;
@@ -149,7 +150,8 @@
     align-self: end;
     display: flex;
     gap: 10px;
-    margin-top: 15px;
+    position: absolute;
+    bottom: 15px;
 
     button {
         all: unset;
