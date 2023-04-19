@@ -24,7 +24,7 @@ export default function SideBar () {
     const request = await postData('/logout')
     if (request.status === 204) {
       localStorage.clear()
-      window.location.replace('http://' + window.location.host + '/login')
+      window.location.replace(window.location.origin + '/login')
     }
   }
 
