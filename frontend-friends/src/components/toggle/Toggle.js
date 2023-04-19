@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import './Toggle.scss'
 import PhoneIcon from '../sidebar/icons/PhoneIcon'
 import MailIcon from '../sidebar/icons/MailIcon'
+/* global localStorage */
 
 /**
  * Component displaying a toggle to switch between e-mail and phone.

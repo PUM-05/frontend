@@ -8,7 +8,7 @@ import SmallLogo from './logo/SmallLogo'
 import InputIcon from './icons/InputIcon'
 import SubmitButton from '../submitButton/SubmitButton'
 import { postData } from '../../utils/request'
-
+/* global localStorage */
 /**
  * @returns the sidebar that should be visible on each page, except login
  */
