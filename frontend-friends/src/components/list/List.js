@@ -13,15 +13,15 @@ import NotesIcon from '../sidebar/icons/NotesIcon'
  */
 export default function List (props) {
   const [isOpen, setIsOpen] = useState(false)
-  const [popupData, setPopupData] = useState({})
+  const [caseIndex, setCaseIndex] = useState(0)
 
   /**
    * Toggles the popup for editing cases
    * @param {*} popupContent - data content (data of the case) of the popup
    */
-  function togglePopup (popupContent) {
+  function togglePopup (popupContent, caseIndex) {
     setIsOpen(!isOpen)
-    setPopupData(popupContent)
+    setCaseIndex(caseIndex)
   }
 
   /**
@@ -42,6 +42,12 @@ export default function List (props) {
     if (response.status === 204) {
       props.loadCases()
       setIsOpen(!isOpen)
+    }
+  }
+
+  function switchCase (newIndex) {
+    if (newIndex >= 0 && newIndex < props.content.length) {
+      setCaseIndex(newIndex)
     }
   }
 
@@ -75,9 +81,9 @@ export default function List (props) {
           </tr>
         </thead>
         <tbody>
-          {props.content.map((currCase) =>
-            <tr onClick={() => togglePopup(currCase)} key={currCase.id}>
-              <td>{currCase.id}</td>
+          {props.content.map((currCase, index) =>
+            <tr onClick={() => togglePopup(currCase, index)} key={currCase.id}>
+              <td>#{currCase.id}</td>
               <td>{currCase.category_id}</td>
               <td>{currCase.customer_time} min</td>
               <td>{currCase.additional_time} min</td>
@@ -93,7 +99,7 @@ export default function List (props) {
 
         </tbody>
       </table>
-      {isOpen && props.hasPopup && <Popup handleClose={togglePopup} data={popupData} editCase={editCase} />}
+      {isOpen && props.hasPopup && <Popup handleClose={togglePopup} key={props.content[caseIndex].id} data={props.content[caseIndex]} editCase={editCase} index={caseIndex} switchCase={switchCase} maxIndex={props.content.length - 1} />}
     </>
   )
 }
