@@ -19,15 +19,11 @@
 
 .login-form-container {
 
-    width: 30%;
+    width: 16%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-
-    .error-msg{
-        color:red;
-    }
 
     .error-msg{
         color:red;
