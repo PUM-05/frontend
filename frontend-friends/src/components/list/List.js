@@ -49,6 +49,7 @@ export default function List (props) {
     if (newIndex >= 0 && newIndex < props.content.length) {
       setCaseIndex(newIndex)
     }
+  }
 
   function parseDate (date) {
     const d = new Date(date)
