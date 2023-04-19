@@ -19,17 +19,26 @@
 
 .login-form-container {
 
-    width: fit-content;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 45px;
+    gap: 20px;
+
+    .error-msg{
+        color:red;
+    }
+
+    .error-msg{
+        color:red;
+    }
 
     form {
         display: flex;
+        width: 100%;
         flex-direction: column;
         align-items: center;
-        gap: 45px;
+        gap: 20px;
     }
 
     button {

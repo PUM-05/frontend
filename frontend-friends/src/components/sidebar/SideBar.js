@@ -6,14 +6,31 @@ import ListIcon from './icons/ListIcon'
 import Logo from './logo/Logo'
 import SmallLogo from './logo/SmallLogo'
 import InputIcon from './icons/InputIcon'
+import SubmitButton from '../submitButton/SubmitButton'
+import { postData } from '../../utils/request'
 
+/**
+ * @returns the sidebar that should be visible on each page, except login
+ */
 export default function SideBar () {
   const location = useLocation()
   const path = location.pathname
+
+  /**
+   * Sends a GET request to the server to sign out the user.
+   * Then redirects the user to the login page
+   */
+  async function logOutUser () {
+    const request = await postData('/logout')
+    if (request.status === 204) {
+      window.location.replace('http://localhost:' + window.location.port)
+    }
+  }
+
   return (
     <div className='sidebar-container'>
       <div className='logo-wrapper'>
-        <div class='default-logo'>
+        <div className='default-logo'>
           <Logo />
         </div>
         <div className='small-logo'>
@@ -23,46 +40,31 @@ export default function SideBar () {
 
       <ul>
         <li className='input-link'>
-          <Link
-            to='/'
-            className={`navigation-link ${path === '/' ? 'active' : ''}`}
-          >
+          <Link to='/' className={`navigation-link ${path === '/' ? 'active' : ''}`}>
             <InputIcon />
             <span className='nav-text'>Inmatning</span>
           </Link>
         </li>
         <li>
-          <Link
-            to='/dashboard'
-            className={`navigation-link ${
-              path === '/dashboard' ? 'active' : ''
-            }`}
-          >
+          <Link to='/dashboard' className={`navigation-link ${path === '/dashboard' ? 'active' : ''}`}>
             <DashboardIcon />
             <span className='nav-text'>Dashboard</span>
           </Link>
         </li>
         <li>
-          <Link
-            to='/statistik'
-            className={`navigation-link ${
-              path === '/statistik' ? 'active' : ''
-            }`}
-          >
+          <Link to='/statistik' className={`navigation-link ${path === '/statistik' ? 'active' : ''}`}>
             <StatisticsIcon />
             <span className='nav-text'>Statistik</span>
           </Link>
         </li>
         <li>
-          <Link
-            to='/lista'
-            className={`navigation-link ${path === '/lista' ? 'active' : ''}`}
-          >
+          <Link to='/lista' className={`navigation-link ${path === '/lista' ? 'active' : ''}`}>
             <ListIcon />
             <span className='nav-text'>Ärendelista</span>
           </Link>
         </li>
       </ul>
+      <SubmitButton name='submit' className='logout' onClick={logOutUser}>Logga ut</SubmitButton>
     </div>
   )
 }

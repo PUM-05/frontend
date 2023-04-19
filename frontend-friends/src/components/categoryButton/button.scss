@@ -1,12 +1,14 @@
 @use '../../style/colors';
-.category-button-wrapper{
+
+.category-button-wrapper {
+
+    position: relative;
+
     label {
         all: unset;
         box-sizing: border-box;
         height: 80px;
         padding: 20px 30px;
-        text-transform: uppercase;
-        font-weight: 600;
         user-select: none;
         text-align: center;
         border-radius: 6px;
@@ -15,94 +17,133 @@
         justify-content: center;
         overflow: hidden;
         cursor: pointer;
+        position: relative;
+        transition: all 0.2s;
     }
 
-    input[type="radio"]{
+    input[type="radio"] {
         position: fixed;
         opacity: 0;
         pointer-events: none;
     }
 
-    input[type="radio"]:checked+label{
-        color: white;
+
+    input[type="radio"]:checked+label {
+        span {
+            color: white;
+            transition: all 0.2s;
+        }
+
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px,
+        rgba(0, 0, 0, 0.14) 0px 6px 10px 0px,
+        rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
     }
 
-    input[type="radio"]+label:hover{
-        background-color: colors.$darkerlight-grey;
+    svg {
+        position: absolute;
+        left: 75.5px;
+        top: 21px;
+        transform: scale(1.5);
+        z-index: 1;
+        opacity: 0;
     }
 
-    input[type="radio"]+label{
-        background-color: white;
+    span {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
     }
 
-    // RED
-    input[type="radio"]:checked+label.red{
-        background-color: colors.$primary-red;
-        color: white;
+    // Category blue
+    .category-blue {
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-blue;
     }
 
-    .red{
-        color: colors.$primary-red;
-        box-shadow: inset 0 0 0 4px colors.$primary-red;
+    input[type="radio"]:checked+label.category-blue {
+        background: colors.$category-blue;
     }
 
-
-    // Dark Blue
-    input[type="radio"]:checked+label.darkblue{
-        background-color: colors.$dark-blue;
-        color: white;
+    // Category cyan
+    .category-cyan {
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-cyan;
     }
 
-    .darkblue{
-        color: colors.$dark-blue;
-        box-shadow: inset 0 0 0 4px colors.$dark-blue;
+    input[type="radio"]:checked+label.category-cyan {
+        background: colors.$category-cyan;
     }
 
-    // Grape
+    // Category-red
 
-    input[type="radio"]:checked+label.grape{
-        background-color: colors.$grape;
-        color: white;
+    .category-red {
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-red;
     }
 
-    .grape{
-        color: colors.$grape;
-        box-shadow: inset 0 0 0 4px colors.$grape;
+    input[type="radio"]:checked+label.category-red {
+        background: colors.$category-red;
+
     }
 
-    //Yellow
-    input[type="radio"]:checked+label.yellow{
-        background-color: colors.$yellow;
-        color: white;
+    //Category-yellow
+    .category-yellow {
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-yellow;
     }
 
-    .yellow{
-        color: colors.$yellow;
-        box-shadow: inset 0 0 0 4px colors.$yellow;
+    input[type="radio"]:checked+label.category-yellow {
+        background: colors.$category-yellow;
     }
 
 
-    //Green
-    input[type="radio"]:checked+label.green{
-        background-color: colors.$green;
-        color: white;
+    //Category-brown
+    .category-brown {
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-brown;
     }
 
-    .green{
-        color: colors.$green;
-        box-shadow: inset 0 0 0 4px colors.$green;
-    }
- 
-
-    //Orange
-    input[type="radio"]:checked+label.orange{
-        background-color: colors.$orange;
-        color: white;
+    input[type="radio"]:checked+label.category-brown {
+        background: colors.$category-brown;
     }
 
-    .orange{
-        color: colors.$orange;
-        box-shadow: inset 0 0 0 4px colors.$orange;
+
+    //Category-green
+    .category-green {
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-green;
+    }
+
+    input[type="radio"]:checked+label.category-green {
+        background: colors.$category-green;
+    }
+
+    //Category-purple
+    .category-purple {
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-purple;
+    }
+
+    input[type="radio"]:checked+label.category-purple {
+        background: colors.$category-purple;
+    }
+
+    //Category-violet
+    .category-violet {
+        color: colors.$category-text;
+        box-shadow: inset 0 0 0 6px colors.$category-violet;
+    }
+
+    input[type="radio"]:checked+label.category-violet {
+        background: colors.$category-violet;
     }
 
 }

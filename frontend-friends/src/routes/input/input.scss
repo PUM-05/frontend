@@ -13,34 +13,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 45px;
+    gap: 30px;
 
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 45px;
+        gap: 30px;
+
+        textarea {
+            height: 100px;
+        }
+
+        .text-area {
+            width: 55%;
+        }
     }
 
     .text-field {
         width: 55%;
-    }
-
-    button {
-        all: unset;
-        background-color: colors.$primary-color;
-        font-weight: 600;
-        color: white;
-        text-align: center;
-        width: 55%;
-        height: 50px;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: 0.4s;
-        
-        &:hover {
-            background-color: #4984D3;
-        }
     }
 }
 
@@ -49,6 +40,7 @@
         margin: 0;
         font-size: 24px;
     }
+    margin-bottom: 5px;
 }
 
 .text-field-container {

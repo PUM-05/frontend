@@ -1,5 +1,9 @@
 import PageWrapper from '../components/pagewrapper/PageWrapper'
 
+/**
+ * Component for displaying the statistics page.
+ * @returns Statistics component
+ */
 export default function Statistics () {
   return (
     <>

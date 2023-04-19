@@ -1,5 +1,5 @@
-const colors = ['blue', 'red', 'cyan', 'yellow', 'brown', 'dark-blue', 'purple', 'violet', 'gray', 'orange', 'darker-green']
+const colors = ['blue', 'cyan', 'red', 'yellow', 'brown', 'green', 'purple', 'violet']
 
-export function getCategoryColor(categoryId){
-    return colors[categoryId % colors.length]
+export function getCategoryColor (categoryId) {
+  return 'category-' + colors[categoryId % colors.length]
 }

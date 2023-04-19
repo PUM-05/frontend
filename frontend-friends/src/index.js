@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.scss'
 import Statistics from './routes/Statistics'
-import Root from './routes/root'
+import Dashboard from './routes/dashboard/Dashboard'
 import Input from './routes/input/Input'
 import CaseList from './routes/caselist/CaseList'
 import Login from './routes/login/Login'
@@ -11,7 +11,7 @@ import Login from './routes/login/Login'
 const router = createBrowserRouter([
   {
     path: '/dashboard',
-    element: <Root />
+    element: <Dashboard />
   },
   {
     path: '/statistik',
