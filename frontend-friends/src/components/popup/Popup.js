@@ -25,7 +25,7 @@ export default function Popup (props) {
           <span onClick={props.handleClose}><CloseIcon /></span>
           <div className='text-fields-container'>
             <p>Ärendenr</p>
-            <div className="hashtag">#</div>
+            <div className='hashtag'>#</div>
             <TextField
               isRequired={false}
               value={props.data.id}
@@ -36,19 +36,19 @@ export default function Popup (props) {
             </div>
             <div className='dual-textfield-container'>
               <TextField
-                class={'minutes-text-field'}
+                class='minutes-text-field'
                 isRequired={false}
                 value={props.data.customer_time}
                 onChange={(e) => { setNewSpentTime(e.target.value) }}
               />
-              <div className="minutes left">min</div>
+              <div className='minutes left'>min</div>
               <TextField
-                class={'minutes-text-field'}
+                class='minutes-text-field'
                 isRequired={false}
                 value={props.data.additional_time}
                 onChange={(e) => { setNewAdditionalTime(e.target.value) }}
               />
-              <div className="minutes right">min</div>
+              <div className='minutes right'>min</div>
             </div>
             <p>Fritext</p>
             <TextArea
