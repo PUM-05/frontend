@@ -51,7 +51,7 @@ export default function Input () {
     return (
       <>
         <div className='contain-all'>
-          <div class='default-logo'>
+          <div className='default-logo'>
             <Logo className='login-logo' />
           </div>
           <div className='login-form-container'>
@@ -92,7 +92,7 @@ export default function Input () {
     return (
       <>
         <div className='contain-all'>
-          <div class='default-logo'>
+          <div className='default-logo'>
             <Logo className='login-logo' />
           </div>
           <div className='login-form-container'>

@@ -2,6 +2,7 @@ import './list.scss'
 import { useState } from 'react'
 import Popup from '../popup/Popup'
 import { editData } from '../../utils/request'
+import NotesIcon from '../sidebar/icons/NotesIcon'
 
 /**
  * Creates and displays the list component of cases
@@ -48,6 +49,10 @@ export default function List (props) {
     if (newIndex >= 0 && newIndex < props.content.length) {
       setCaseIndex(newIndex)
     }
+
+  function parseDate (date) {
+    const d = new Date(date)
+    return d.toLocaleString()
   }
 
   return (
@@ -71,6 +76,7 @@ export default function List (props) {
               SKAPAT
             </th>
             <th />
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -80,8 +86,13 @@ export default function List (props) {
               <td>{currCase.category_id}</td>
               <td>{currCase.customer_time} min</td>
               <td>{currCase.additional_time} min</td>
-              <td>{currCase.created_at}</td>
+              <td><div>{parseDate(currCase.created_at)}</div></td>
               <td className='edit-field'>Redigera</td>
+              <td className='notes-icon'>
+                <div className='notes-icon-container'>
+                  {/[a-z0-9$&+,:;=?@#|'<>.^*()%!-åäö]/i.test(currCase.notes) ? <NotesIcon /> : <></>}
+                </div>
+              </td>
             </tr>
           )}
 

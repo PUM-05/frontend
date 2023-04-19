@@ -3,6 +3,7 @@ import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import './dashboard.scss'
 import { getData } from '../../utils/request'
 import { useEffect, useState } from 'react'
+import PieChartGroup from '../../components/piechartGroup/PiechartGroup'
 
 /**
  *
@@ -29,12 +30,8 @@ export default function Dashboard () {
       <PageWrapper className='dashboard'>
         <h1>Dashboard</h1>
         <div className='dashboard-content graph-container'>
-          <div className='container-title'>
-            <h2>Grafer</h2>
-          </div>
           <div className='graphs-content'>
-            <div>Graf 1</div><div>Graf 2</div>
-            {/* TODO: Lägg till graferna här och ta bort Graf 1 och Graf 2 */}
+            <PieChartGroup />
           </div>
         </div>
         <div className='dashboard-content list-container'>
