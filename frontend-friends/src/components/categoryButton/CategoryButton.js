@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import SubcategoryButton from '../subcategoryButton/SubcategoryButton'
 import './button.scss'
+import { getCategoryColor } from '../../utils/colors'
 
 /**
  * Creates and displays the button component for categories
@@ -22,8 +23,8 @@ export default function CategoryButton (props) {
       props.setShowSub(props.value)
     }
 
-    if (!props.subcategories && !isChecked(currentValue)) {
-      props.onChange({ title: props.children, value: props.value })
+    if (props.subcategories.length === 0 && !isChecked(currentValue)) {
+      props.onChange({ name: props.children, value: props.value })
     }
   }
 
@@ -49,7 +50,7 @@ export default function CategoryButton (props) {
     let value = false
     if (props.subcategories) {
       for (const category of props.subcategories) {
-        if (category.value === currentValue) {
+        if (category.id === currentValue) {
           value = true
         }
       }
@@ -76,26 +77,25 @@ export default function CategoryButton (props) {
           onClick={onClick}
           readOnly
         />
-        <label htmlFor={props.id} name={props.name} value={props.value} className={`${props.color ?? 'darkblue'}`}>
+        <label htmlFor={props.id} name={props.name} value={props.value} className={`${getCategoryColor(props.value)}`}>
           <span>{buttonTitle}</span>
         </label>
       </div>
 
-      {props.subcategories && props.showSub && (
+      {props.subcategories.length !== 0 && props.showSub && (
         <div className='subcategory-popup' style={{ gridRowStart: Math.ceil(props.index / 4) + 1 }}>
           {props.subcategories.map((category, i) => (
             <SubcategoryButton
-              id={'button-' + category.value}
-              parentTitle={category.parentTitle}
-              value={category.value}
+              id={'button-' + category.id}
+              parentTitle={props.children + ' ' + category.name}
+              value={category.id}
               name={'sub-' + props.name}
-              color={props.color}
+              color={getCategoryColor(props.value)}
               onClick={handleSubcategoryClick}
-              onChange={handleSubcategoryClick}
-              checked={props.currentValue === category.value}
-              key={category.value}
+              checked={props.currentValue === category.id}
+              key={category.id}
             >
-              {category.title}
+              {category.name}
             </SubcategoryButton>
           ))}
         </div>
