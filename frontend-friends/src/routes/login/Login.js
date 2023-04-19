@@ -41,7 +41,7 @@ export default function Input () {
       setIsLoggedIn(true)
     } else if (request.status === 204) {
       setIsLoggedIn(true)
-      window.location.replace('http://localhost:' + window.location.port)
+      window.location.replace(window.location.origin)
     } else if (request.status === 401) {
       setIsLoggedIn(false)
     }

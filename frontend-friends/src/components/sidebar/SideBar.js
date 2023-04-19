@@ -8,7 +8,7 @@ import SmallLogo from './logo/SmallLogo'
 import InputIcon from './icons/InputIcon'
 import SubmitButton from '../submitButton/SubmitButton'
 import { postData } from '../../utils/request'
-
+/* global localStorage */
 /**
  * @returns the sidebar that should be visible on each page, except login
  */
@@ -23,7 +23,8 @@ export default function SideBar () {
   async function logOutUser () {
     const request = await postData('/logout')
     if (request.status === 204) {
-      window.location.replace('http://localhost:' + window.location.port)
+      localStorage.clear()
+      window.location.replace(window.location.origin + '/login')
     }
   }
 
