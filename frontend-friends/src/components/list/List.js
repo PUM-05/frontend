@@ -45,11 +45,10 @@ export default function List (props) {
     }
   }
 
-  function parseDate(date) {
-    var d = new Date(date)
+  function parseDate (date) {
+    const d = new Date(date)
     return d.toLocaleString()
   }
-
 
   return (
     <>
@@ -85,8 +84,8 @@ export default function List (props) {
               <td><div>{parseDate(currCase.created_at)}</div></td>
               <td className='edit-field'>Redigera</td>
               <td className='notes-icon'>
-                <div className="notes-icon-container">
-                {/[a-z0-9$&+,:;=?@#|'<>.^*()%!-åäö]/i.test(currCase.notes) ? <NotesIcon /> : <></>}
+                <div className='notes-icon-container'>
+                  {/[a-z0-9$&+,:;=?@#|'<>.^*()%!-åäö]/i.test(currCase.notes) ? <NotesIcon /> : <></>}
                 </div>
               </td>
             </tr>
