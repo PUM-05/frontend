@@ -1,9 +1,8 @@
 import ReactSwitch from 'react-switch'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Toggle.scss'
 import PhoneIcon from '../sidebar/icons/PhoneIcon'
 import MailIcon from '../sidebar/icons/MailIcon'
-import { useEffect } from 'react'
 
 /**
  * Component displaying a toggle to switch between e-mail and phone.
@@ -13,15 +12,13 @@ import { useEffect } from 'react'
 export default function Toggle (props) {
   const [checked, setChecked] = useState(props.value)
 
-  
   useEffect(() => {
-    if(JSON.parse(localStorage.getItem('checked')) === false){
+    if (JSON.parse(localStorage.getItem('checked')) === false) {
       setChecked(false)
     } else {
       setChecked(true)
     }
   }, [])
-  
 
   /**
  * Updates value of toggle.
