@@ -33,9 +33,7 @@ export default function CategoryButton (props) {
    * @param {*} data is the inputdata
    */
   function handleSubcategoryClick (data) {
-    console.log(data)
     props.onChange(data)
-
     setButtonTitle(data.parentTitle)
   }
 
@@ -80,7 +78,7 @@ export default function CategoryButton (props) {
           readOnly
         />
         <label htmlFor={props.id} name={props.name} value={props.value} className={`${getCategoryColor(props.value)}`}>
-          {buttonTitle}
+          <span>{buttonTitle}</span>
         </label>
       </div>
 

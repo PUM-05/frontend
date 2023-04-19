@@ -15,9 +15,9 @@ export default function CategoryButton (props) {
   }
   return (
     <div className='subcategory-button-wrapper' style={props.style}>
-      <input id={props.id} name={props.name} value={props.value} type='radio' className='red active' onClick={handleChange} checked={props.checked} />
+      <input id={props.id} name={props.name} value={props.value} type='radio' className='red active' onClick={handleChange} checked={props.checked} readOnly />
       <label for={props.id} name={props.name} value={props.value} className={`${props.color ?? 'category-blue'}`}>
-        {props.children}
+        <span>{props.children}</span>
       </label>
     </div>
   )
