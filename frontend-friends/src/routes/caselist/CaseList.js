@@ -29,7 +29,7 @@ export default function CaseList () {
       <PageWrapper>
         <h1>Ärendelista</h1>
         <div className='list-container'>
-          <div class='container-title'>
+          <div className='container-title'>
             <h1>Senaste ärenden</h1>
           </div>
           <List content={cases} loadCases={loadCases} hasPopup />
