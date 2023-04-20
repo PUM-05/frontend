@@ -20,7 +20,7 @@ export default function TextField (props) {
    */
   function validatePositivInteger (event) {
     if (inputType === 'number') {
-      if (!/[0-9]/.test(event.key) && event.key !== 'Backspace' && event.key !== 'Tab') {
+      if (!/\d/.test(event.key) && event.key !== 'Backspace' && event.key !== 'Tab') {
         event.preventDefault()
       }
     }
