@@ -83,7 +83,7 @@ export default function CategoryButton (props) {
       </div>
 
       {props.subcategories.length !== 0 && props.showSub && (
-        <div className='subcategory-popup' style={{ gridRowStart: Math.ceil(props.index / 4) + 1 }}>
+        <div className='subcategory-popup' style={{ gridRowStart: Math.ceil((props.index + 1) / 4) + 1 }}>
           {props.subcategories.map((category, i) => (
             <SubcategoryButton
               id={'button-' + category.id}
