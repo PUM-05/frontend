@@ -2,8 +2,10 @@ import SubmitButton from '../../components/submitButton/SubmitButton'
 import TextField from '../../components/textfield/TextField'
 import './Login.scss'
 import Logo from '../../components/sidebar/logo/Logo'
-import { useState } from 'react'
-import { postData } from '../../utils/request'
+import { useState, useEffect } from 'react'
+import { postData, getLoggedIn } from '../../utils/request'
+
+import { Navigate } from 'react-router'
 
 /**
  *
@@ -14,6 +16,23 @@ export default function Input () {
   const [password, setPassword] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [checkLoggedIn, setCheckLoggedIn] = useState(false)
+
+  useEffect(() => {
+    /**
+     * Checks if the user is logged in and sets the variable isLoggedIn based on
+     * the response of the GET request.
+     */
+    async function checkLoggedInStatus () {
+      const response = await getLoggedIn('/check')
+      if (response === 204) {
+        setCheckLoggedIn(true)
+      } else {
+        setCheckLoggedIn(false)
+      }
+    }
+    checkLoggedInStatus()
+  }, [])
 
   /**
    * Waiting for enter to be pressed, if clicked, then submitdata
@@ -46,74 +65,77 @@ export default function Input () {
       setIsLoggedIn(false)
     }
   }
-
-  if (isAdmin) {
-    return (
-      <>
-        <div className='contain-all'>
-          <div className='default-logo'>
-            <Logo className='login-logo' />
+  if (!checkLoggedIn) {
+    if (isAdmin) {
+      return (
+        <>
+          <div className='contain-all'>
+            <div className='default-logo'>
+              <Logo className='login-logo' />
+            </div>
+            <div className='login-form-container'>
+              <form>
+                <TextField
+                  placeholder='Användarnamn'
+                  isRequired
+                  onChange={(e) => {
+                    setUsername(e.target.value)
+                  }}
+                  onKeyDown={(e) => {
+                    handleKeyPress(e)
+                  }}
+                  value={username}
+                />
+                <TextField
+                  placeholder='Lösenord'
+                  isRequired
+                  onChange={(e) => {
+                    setPassword(e.target.value)
+                  }}
+                  onKeyDown={(e) => {
+                    handleKeyPress(e)
+                  }}
+                  value={password}
+                  type='password'
+                />
+                {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn eller lösenord</p>}
+              </form>
+              <SubmitButton name='submit' onClick={submitData}>
+                LOGGA IN
+              </SubmitButton>
+            </div>
           </div>
-          <div className='login-form-container'>
-            <form>
-              <TextField
-                placeholder='Användarnamn'
-                isRequired
-                onChange={(e) => {
-                  setUsername(e.target.value)
-                }}
-                onKeyDown={(e) => {
-                  handleKeyPress(e)
-                }}
-                value={username}
-              />
-              <TextField
-                placeholder='Lösenord'
-                isRequired
-                onChange={(e) => {
-                  setPassword(e.target.value)
-                }}
-                onKeyDown={(e) => {
-                  handleKeyPress(e)
-                }}
-                value={password}
-                type='password'
-              />
-              {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn eller lösenord</p>}
-            </form>
-            <SubmitButton name='submit' onClick={submitData}>
-              LOGGA IN
-            </SubmitButton>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <div className='contain-all'>
+            <div className='default-logo'>
+              <Logo className='login-logo' />
+            </div>
+            <div className='login-form-container'>
+              <form>
+                <TextField
+                  placeholder='Användarnamn'
+                  isRequired
+                  onChange={(e) => {
+                    setUsername(e.target.value)
+                  }}
+                  onKeyDown={(e) => {
+                    handleKeyPress(e)
+                  }}
+                  value={username}
+                />
+                {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn</p>}
+              </form>
+              <SubmitButton name='submit' onClick={submitData}>LOGGA IN</SubmitButton>
+            </div>
           </div>
-        </div>
-      </>
-    )
+        </>
+      )
+    }
   } else {
-    return (
-      <>
-        <div className='contain-all'>
-          <div className='default-logo'>
-            <Logo className='login-logo' />
-          </div>
-          <div className='login-form-container'>
-            <form>
-              <TextField
-                placeholder='Användarnamn'
-                isRequired
-                onChange={(e) => {
-                  setUsername(e.target.value)
-                }}
-                onKeyDown={(e) => {
-                  handleKeyPress(e)
-                }}
-                value={username}
-              />
-              {isLoggedIn ? '' : <p className='error-msg'>Felaktigt användarnamn</p>}
-            </form>
-            <SubmitButton name='submit' onClick={submitData}>LOGGA IN</SubmitButton>
-          </div>
-        </div>
-      </>
-    )
+    return <Navigate replace to='/' />
   }
 }
