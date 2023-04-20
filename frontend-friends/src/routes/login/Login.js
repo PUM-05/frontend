@@ -2,10 +2,9 @@ import SubmitButton from '../../components/submitButton/SubmitButton'
 import TextField from '../../components/textfield/TextField'
 import './Login.scss'
 import Logo from '../../components/sidebar/logo/Logo'
-import { useState } from 'react'
-import { postData } from '../../utils/request'
-import { useEffect } from 'react'
-import { getLoggedIn } from '../../utils/request'
+import { useState, useEffect } from 'react'
+import { postData, getLoggedIn } from '../../utils/request'
+
 import { Navigate } from 'react-router'
 
 /**
@@ -34,7 +33,6 @@ export default function Input () {
     }
     checkLoggedInStatus()
   }, [])
-
 
   /**
    * Waiting for enter to be pressed, if clicked, then submitdata
@@ -67,7 +65,7 @@ export default function Input () {
       setIsLoggedIn(false)
     }
   }
-  if(!checkLoggedIn){
+  if (!checkLoggedIn) {
     if (isAdmin) {
       return (
         <>
@@ -137,7 +135,7 @@ export default function Input () {
         </>
       )
     }
-  }else{
-    return <Navigate replace to='/'/>
+  } else {
+    return <Navigate replace to='/' />
   }
 }
