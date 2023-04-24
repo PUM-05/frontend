@@ -27,6 +27,7 @@ export default function Popup (props) {
             <p>Ärendenr</p>
             <div className='hashtag'>#</div>
             <TextField
+              type='number'
               isRequired={false}
               value={props.data.id}
             />
@@ -36,6 +37,7 @@ export default function Popup (props) {
             </div>
             <div className='dual-textfield-container'>
               <TextField
+                type='number'
                 class='minutes-text-field'
                 isRequired={false}
                 value={props.data.customer_time}
@@ -43,6 +45,7 @@ export default function Popup (props) {
               />
               <div className='minutes left'>min</div>
               <TextField
+                type='number'
                 class='minutes-text-field'
                 isRequired={false}
                 value={props.data.additional_time}

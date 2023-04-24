@@ -9,22 +9,30 @@ import './textfield.scss'
 export default function TextField (props) {
   const isRequired = props.isRequired || false
 
-  let inputType = 'text'
-  if (props.type != null) {
-    inputType = props.type
+  /**
+   * Checks if input is positiv integer, if not it prevents the input
+   * @param {*} event Input event
+   */
+  function onChange (event) {
+    if (props.type === 'number') {
+      event.target.value = event.target.value.replace(/\D/g, '')
+    }
+    props.onChange(event)
   }
 
   if (isRequired) {
     return (
       <div className='text-field'>
-        <input className={props.class} type={inputType} id={props.id} name='mandatory-text-field' required onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} />
+        <input
+          min='0' className={props.class} type='text' id={props.id} name='mandatory-text-field' required onInput={onChange} defaultValue={props.value}
+        />
         <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
       </div>
     )
   }
   return (
     <div className='text-field'>
-      <input className={props.class} type={inputType} id={props.id} name='text-field' onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} />
+      <input min='0' className={props.class} type='text' id={props.id} name='text-field' onInput={onChange} defaultValue={props.value} />
       <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
     </div>
   )

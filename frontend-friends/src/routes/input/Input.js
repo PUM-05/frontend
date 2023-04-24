@@ -48,6 +48,7 @@ export default function Input () {
             <form>
               <Toggle onChange={(val) => setComMode(val)} value={comMode} />
               <TextField
+                type='number'
                 placeholder='Ärendenr'
                 isRequired={false}
                 onChange={(e) => {
@@ -64,6 +65,7 @@ export default function Input () {
               />
               <div className='text-field-container'>
                 <TextField
+                  type='number'
                   placeholder='Tidsåtgång'
                   isRequired
                   onChange={(e) => {
@@ -72,6 +74,7 @@ export default function Input () {
                   value={timeSpend}
                 />
                 <TextField
+                  type='number'
                   placeholder='Efterarbete'
                   onChange={(e) => {
                     setAfterWorkTime(e.target.value)
