@@ -36,6 +36,7 @@
     background-color: #fff;
     width: 260px;
     height: 100%;
+    min-height: 370px;
     padding: 1em;
     position: fixed;
     z-index: 100;
@@ -91,7 +92,7 @@
         align-items: center;
         justify-content: flex-start;
         padding: 0.5em 1em;
-        border-radius: 1em;
+        border-radius: 6px;
         font-size: 20px;
         height: 28px;
         margin: 0.2em auto;
@@ -107,9 +108,40 @@
     }
 
     .input-link{
+        display: flex;
+        flex-direction: column;
+        margin: calc(1em - 7px) 0;
+
         .navigation-link{
             background-color: colors.$primary-color;
             color: white;
+            transition: background-color 0.4s;
+            height: 50px;
+            width: 220px;
+            padding: 0;
+            margin: 0;
+            align-self: center;
+
+            .nav-text{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: center;
+            }
+
+            svg{
+                display:none;
+            }
+
+            span{
+                svg{
+                    display: inline-block;
+
+                    path{
+                        fill: white;
+                    }
+                }
+            }
         }
 
         .navigation-link:hover{
@@ -142,19 +174,19 @@
     }
     
     button {
-        all: unset;
         position:absolute;
         background-color: colors.$primary-color;
         font-weight: 600;
         color: white;
         text-align: center;
-        width: 70%;
+        width: 150px;
         height: 50px;
         border-radius: 6px;
         cursor: pointer;
         transition: 0.4s;
         bottom: 2%;
-        margin-left: 9%;
+        display:block;
+        align-self: center;
         
         &:hover {
             background-color: #4984D3;

@@ -2,7 +2,7 @@ import './list.scss'
 import { useState } from 'react'
 import Popup from '../popup/Popup'
 import { editData } from '../../utils/request'
-import NotesIcon from '../sidebar/icons/NotesIcon'
+import NotesIcon from '../../utils/icons/NotesIcon'
 
 /**
  * Creates and displays the list component of cases

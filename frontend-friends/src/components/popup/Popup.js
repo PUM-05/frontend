@@ -1,10 +1,10 @@
 import './popup.scss'
 import TextField from '../textfield/TextField'
 import SubmitButton from '../submitButton/SubmitButton'
-import CloseIcon from '../sidebar/icons/CloseIcon'
+import CloseIcon from '../../utils/icons/CloseIcon'
 import TextArea from '../textArea/TextArea'
 import { useState } from 'react'
-import Arrow from '../sidebar/icons/Arrow'
+import Arrow from '../../utils/icons/Arrow'
 
 /**
  * Creates and displays a propup for editing a case
