@@ -3,9 +3,8 @@
 .collapsed-sidebar .sidebar-container{
     width: 80px;
     .nav-text{
-        width: 0;
+        display: none;
         overflow: hidden;
-        height: 0;
     }
 
     .navigation-link{
@@ -13,7 +12,6 @@
         justify-content: center;
         padding: 0.5em 0.5em;
         gap: 0;
-        border-radius: 30px;
     }
 
     .default-logo{
@@ -25,7 +23,21 @@
     }
 
     button{
-        width: 0;
+        display: none;
+    }
+
+    .input-link{
+        .navigation-link{
+            width: 50px;
+
+            .nav-text{
+                display: none;
+            }
+
+            svg{
+                display: inline-block;
+            }
+        }
     }
 }
 
@@ -200,9 +212,8 @@
     .sidebar-container{
         width: 80px;
         .nav-text{
-            width: 0;
+            display: none;
             overflow: hidden;
-            height: 0;
         }
     
         .navigation-link{
@@ -221,6 +232,20 @@
         }
         button{
             display: none;
+        }
+
+        .input-link{
+            .navigation-link{
+                width: 50px;
+
+                .nav-text{
+                    display: none;
+                }
+    
+                svg{
+                    display: inline-block;
+                }
+            }
         }
     }
 
