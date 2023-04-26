@@ -19,31 +19,30 @@ export default function Input () {
   const [afterWorkTime, setAfterWorkTime] = useState('')
   const [caseCategory, setCaseCategory] = useState('')
   const [freeText, setFreeText] = useState('')
-  const [showSnackbar, setShowSnackbar] = useState(false);
+  const [showSnackbar, setShowSnackbar] = useState(false)
 
   /**
    * Send new case to server
    * @param {*} e Event calling the function
    */
-  async function submitData(e) {
-    e.preventDefault();
+  async function submitData (e) {
+    e.preventDefault()
     const data = {
       medium: comMode ? 'phone' : 'email',
       category_id: caseCategory,
       customer_time: parseInt(timeSpend),
       additional_time: parseInt(afterWorkTime),
       notes: freeText
-    };
-    console.log('Submitting data:', data); // Debugging statement
-  
-    const success = await postData('/case', data);
-    if (success.status=== 201) {
-      setShowSnackbar(true);
-      console.log('POST request succeeded'); // Debugging statement
+    }
+    console.log('Submitting data:', data) // Debugging statement
+    const success = await postData('/case', data)
+    if (success.status === 201) {
+      setShowSnackbar(true)
+      console.log('POST request succeeded')// Debugging statement
     } else {
-      setShowSnackbar(false);
-      console.log('POST request failed'); // Debugging statement
-      console.log('Error message:', success.error); // Debugging statement
+      setShowSnackbar(false)
+      console.log('POST request failed') // Debugging statement
+      console.log('Error message:', success.error)// Debugging statement
     }
   }
 
@@ -103,10 +102,7 @@ export default function Input () {
               SKICKA
             </SubmitButton>
           </div>
-          <MuiSnackbar
-        show={showSnackbar}
-        onClose={() => setShowSnackbar(false)}
-      />
+          <MuiSnackbar show={showSnackbar} onClose={() => setShowSnackbar(false)} />
         </div>
       </PageWrapper>
     </>
