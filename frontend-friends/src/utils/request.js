@@ -67,4 +67,3 @@ export async function getData (path) {
   }
   return await fetch(baseAPIUrl + path, options)
 }
-
