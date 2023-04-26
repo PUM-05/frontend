@@ -9,7 +9,6 @@ import { postData } from '../../utils/request'
 import TextArea from '../../components/textArea/TextArea'
 import SuccesSnackbar from '../../components/message/succesSnackbar'
 import ErrorSnackbar from '../../components/message/errorSnackbar'
-
 /**
  * Component displaying the case input page
  * @returns Input page component
@@ -142,7 +141,7 @@ export default function Input () {
             </SubmitButton>
           </div>
           <SuccesSnackbar show={showsuccesSnackbar} onClose={() => setsuccesShowSnackbar(false)} />
-          <ErrorSnackbar show={showerrorSnackbar} onClose={() => seterrorShowSnackbar(false)} />
+          <ErrorSnackbar show={showerrorSnackbar} onClose={() => seterrorShowSnackbar(false)} />go)
         </div>
       </PageWrapper>
     </>
