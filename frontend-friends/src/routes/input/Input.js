@@ -7,7 +7,7 @@ import './input.scss'
 import { useState } from 'react'
 import { postData } from '../../utils/request'
 import TextArea from '../../components/textArea/TextArea'
-
+import MuiSnackbar from '../../components/message/MuiSnackbar'
 /**
  * Component displaying the case input page
  * @returns Input page component
@@ -19,13 +19,14 @@ export default function Input () {
   const [afterWorkTime, setAfterWorkTime] = useState('')
   const [caseCategory, setCaseCategory] = useState('')
   const [freeText, setFreeText] = useState('')
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   /**
    * Send new case to server
    * @param {*} e Event calling the function
    */
-  async function submitData (e) {
-    e.preventDefault()
+  async function submitData(e) {
+    e.preventDefault();
     const data = {
       medium: comMode ? 'phone' : 'email',
       case_id: parseInt(caseId),
@@ -33,8 +34,18 @@ export default function Input () {
       customer_time: parseInt(timeSpend),
       additional_time: parseInt(afterWorkTime),
       notes: freeText
+    };
+    console.log('Submitting data:', data); // Debugging statement
+  
+    const success = await postData('/case', data);
+    if (success.status=== 201) {
+      setShowSnackbar(true);
+      console.log('POST request succeeded'); // Debugging statement
+    } else {
+      setShowSnackbar(false);
+      console.log('POST request failed'); // Debugging statement
+      console.log('Error message:', success.error); // Debugging statement
     }
-    await postData('/case', data)
   }
 
   return (
@@ -98,6 +109,10 @@ export default function Input () {
               SKICKA
             </SubmitButton>
           </div>
+          <MuiSnackbar
+        show={showSnackbar}
+        onClose={() => setShowSnackbar(false)}
+      />
         </div>
       </PageWrapper>
     </>
