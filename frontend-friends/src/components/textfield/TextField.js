@@ -19,6 +19,7 @@ export default function TextField (props) {
     inputType = 'text'
   }
   function onChange (event) {
+    event.preventDefaults()
     if (props.type === 'number') {
       event.target.value = event.target.value.replace(/\D/g, '')
     }
@@ -29,7 +30,7 @@ export default function TextField (props) {
     return (
       <div className='text-field'>
         <input
-          min='0' className={props.class} type={inputType} id={props.id} name='mandatory-text-field' required onInput={onChange} defaultValue={props.value}
+          min='0' className={props.class} type={inputType} id={props.id} name='mandatory-text-field' required onInput={onChange} onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value}
         />
         <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
       </div>
@@ -37,7 +38,7 @@ export default function TextField (props) {
   }
   return (
     <div className='text-field'>
-      <input min='0' className={props.class} type={inputType} id={props.id} name='text-field' onInput={onChange} defaultValue={props.value} />
+      <input min='0' className={props.class} type={inputType} id={props.id} name='text-field' onInput={onChange} onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} />
       <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
     </div>
   )
