@@ -19,7 +19,6 @@ export default function TextField (props) {
     inputType = 'text'
   }
   function onChange (event) {
-    event.preventDefaults()
     if (props.type === 'number') {
       event.target.value = event.target.value.replace(/\D/g, '')
     }
