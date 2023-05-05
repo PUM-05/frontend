@@ -106,7 +106,7 @@ export default function Statistics () {
     let day = today.getDay()
     let i = 0
     const labelArray = []
-    const monthNames = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    const monthNames = ['', 'Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December']
 
     while (i < interval) {
       // Check for new month or new year
