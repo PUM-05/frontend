@@ -84,7 +84,7 @@ export default function List (props) {
           {props.content.map((currCase, index) =>
             <tr onClick={() => togglePopup(currCase, index)} key={currCase.id}>
               <td>#{currCase.id}</td>
-              <td>{currCase.category_id}</td>
+              <td>{currCase.category_name}</td>
               <td>{currCase.customer_time} min</td>
               <td>{currCase.additional_time} min</td>
               <td><div>{parseDate(currCase.created_at)}</div></td>
