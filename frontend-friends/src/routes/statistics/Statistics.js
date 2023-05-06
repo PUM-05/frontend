@@ -92,7 +92,7 @@ export default function Statistics () {
       setNumOfCalls(phoneArray.slice().reverse())
       setNumOfMails(mailArray.slice().reverse())
     }
-    getNumOfCasesWeek(interval)
+    getNumOfCasesWeek(interval).catch(() => 'obligatory catch')
   }, [interval])
 
   /**
