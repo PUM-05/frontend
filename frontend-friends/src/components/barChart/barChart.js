@@ -9,8 +9,6 @@ import {
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 
-import './barChart.scss'
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
