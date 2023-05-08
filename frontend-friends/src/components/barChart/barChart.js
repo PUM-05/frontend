@@ -29,8 +29,6 @@ export default function BarChart (props) {
   const [numOfCalls, setNumOfCalls] = useState([])
   const [numOfMails, setNumOfMails] = useState([])
   const interval = props.interval
-  //const [options, setOptions] = useState([])
-  //const [data, setData] = useState([])
 
   useEffect(() => {
     /**
@@ -95,8 +93,6 @@ export default function BarChart (props) {
       setNumOfMails(mailArray.slice().reverse())
     }
     getNumOfCasesWeek(interval).catch(() => 'obligatory catch')
-    console.log(numOfCalls)
-    console.log(numOfMails)
   
   }, [props.interval])
 
