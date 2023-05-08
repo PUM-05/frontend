@@ -15,6 +15,7 @@ export default function Popup (props) {
   const [newSpentTime, setNewSpentTime] = useState(props.data.customer_time)
   const [newAdditionalTime, setNewAdditionalTime] = useState(props.data.additional_time)
   const [newNotes, setNewNotes] = useState(props.data.notes)
+  const [newCaseId, setNewCaseId] = useState(props.data.case_id)
 
   return (
     <>
@@ -29,7 +30,8 @@ export default function Popup (props) {
             <TextField
               type='number'
               isRequired={false}
-              value={props.data.id}
+              value={props.data.case_id}
+              onChange={(e) => { setNewCaseId(e.target.value) }}
             />
             <div className='dual-textfield-labels'>
               <p>Tidsåtgång</p>
@@ -60,7 +62,7 @@ export default function Popup (props) {
               onChange={(e) => { setNewNotes(e.target.value) }}
             />
           </div>
-          <SubmitButton className='submit-button' onClick={() => props.editCase(props.data.id, newSpentTime, newAdditionalTime, newNotes)}>SPARA</SubmitButton>
+          <SubmitButton className='submit-button' onClick={() => props.editCase(props.data.id, newSpentTime, newAdditionalTime, newNotes, newCaseId)}>SPARA</SubmitButton>
           <div className='switch-buttons'>
             <button className={`left ${props.index <= 0 ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index - 1)}><Arrow /></button>
             <button className={`right ${props.index >= props.maxIndex ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index + 1)}><Arrow /></button>

@@ -1,29 +1,16 @@
-import PageWrapper from '../components/pagewrapper/PageWrapper'
-import LineChart from '../components/lineChart/LineChart'
+import LineChart from '../lineChart/LineChart'
 import { useEffect, useState } from 'react'
-import { getData } from '../utils/request'
+import { getData } from '../../utils/request'
+import Datepicker from '../datepicker/Datepicker'
 
 /**
  * Component for displaying the statistics page.
  * @returns Statistics component
  */
-export default function Statistics () {
-  const props = {}
-
-  props.date = '2023-05-05'
-
-  const date = props.date ? new Date(props.date) : new Date()
+export default function DayTotalCasesLine () {
   const intervalLength = 30
-  const currentTime = new Date()
-  const startTime = (new Date(date.setHours(7, -intervalLength, 0, 0)))
 
-  let endTime
-  if ((new Date(props.date)).setHours(0, 0, 0, 0) < (new Date()).setHours(0, 0, 0, 0)) {
-    endTime = (new Date((new Date(props.date)).setHours(18, 0, 0, 0)))
-  } else {
-    endTime = (new Date((new Date()).setHours(Math.min(currentTime.getHours(), 18), currentTime.getMinutes(), 0, 0)))
-  }
-
+  const [inputDate, setInputDate] = useState('')
   const [datasets, setDatasets] = useState([])
   const [labels, setLabels] = useState([])
 
@@ -55,15 +42,25 @@ export default function Statistics () {
     }])
   }
   useEffect(() => {
+    const date = inputDate ? new Date(inputDate) : new Date()
+
+    const currentTime = new Date()
+    const startTime = (new Date(date.setHours(7, -intervalLength, 0, 0)))
+
+    let endTime
+    if ((new Date(inputDate)).setHours(0, 0, 0, 0) < (new Date()).setHours(0, 0, 0, 0)) {
+      endTime = (new Date((new Date(inputDate)).setHours(18, 0, 0, 0)))
+    } else {
+      endTime = (new Date((new Date()).setHours(Math.min(currentTime.getHours(), 18), currentTime.getMinutes(), 0, 0)))
+    }
+
     loadStats(startTime, endTime)
-  }, [])
+  }, [inputDate])
 
   return (
-    <>
-      <PageWrapper>
-        <h1>Statistics</h1>
-        <LineChart datasets={datasets} labels={labels} />
-      </PageWrapper>
-    </>
+    <div>
+      <Datepicker onChange={(e) => setInputDate(e.target.value)} />
+      <LineChart datasets={datasets} labels={labels} />
+    </div>
   )
 }
