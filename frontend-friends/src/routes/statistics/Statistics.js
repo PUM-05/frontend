@@ -1,7 +1,7 @@
 import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import BarChart from '../../components/barChart/barChart'
 import './Statistics.scss'
-import { useState } from 'react
+import { useState } from 'react'
 import IntervalDropdown from '../../components/intervalDropdown/intervalDropdown'
 /**
  * Component for displaying the statistics page.
