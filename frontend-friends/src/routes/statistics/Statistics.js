@@ -8,7 +8,6 @@ import IntervalDropdown from '../../components/intervalDropdown/intervalDropdown
  * @returns Statistics component
  */
 export default function Statistics () {
-
   const [interval, setInterval] = useState(7)
   const handleChange = (event) => {
     switch (event.target.value) {
