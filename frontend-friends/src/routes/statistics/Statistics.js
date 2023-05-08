@@ -75,7 +75,7 @@ export default function Statistics () {
             month = 12
           }
           const lastDayOfMonth = new Date(today.getFullYear(), month, 0).getDate()
-          urlArray.push(('/stats/medium?start-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-01T00:00:00Z&end-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-' + lastDayOfMonth) + 'T23:59:59Z')))
+          urlArray.push(('/stats/medium?start-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-01T00:00:00&end-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-' + lastDayOfMonth) + 'T23:59:59')))
           month = month - 1
         }
         i = i + 1
