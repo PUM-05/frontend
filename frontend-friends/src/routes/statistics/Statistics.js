@@ -1,13 +1,14 @@
 import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import BarChart from '../../components/barChart/barChart'
 import './Statistics.scss'
-import { useState } from 'react'
+import { useState } from 'react
 import IntervalDropdown from '../../components/intervalDropdown/intervalDropdown'
 /**
  * Component for displaying the statistics page.
  * @returns Statistics component
  */
 export default function Statistics () {
+
   const [interval, setInterval] = useState(7)
   const handleChange = (event) => {
     switch (event.target.value) {
@@ -25,7 +26,6 @@ export default function Statistics () {
         break
     }
   }
-
   return (
     <>
       <PageWrapper className='Statistics'>
