@@ -9,7 +9,6 @@ import IntervalDropdown from '../../components/intervalDropdown/intervalDropdown
  * @returns Statistics component
  */
 export default function Statistics () {
-  const today = new Date()
   const [numOfCalls, setNumOfCalls] = useState([])
   const [numOfMails, setNumOfMails] = useState([])
 
@@ -39,9 +38,10 @@ export default function Statistics () {
     async function getNumOfCasesWeek (interval) {
       let i = 0
       const urlArray = []
+      const today = new Date()
       let year = today.getFullYear()
       let month = today.getMonth() + 1
-      let day = today.getDay()
+      let day = today.getDate()
 
       while (i < interval) {
         if (day === 0 || (day === 7 && interval === 4)) { // new month
@@ -75,7 +75,7 @@ export default function Statistics () {
             month = 12
           }
           const lastDayOfMonth = new Date(today.getFullYear(), month, 0).getDate()
-          urlArray.push(('/stats/medium?start-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-' + '01' + 'T00:00:00Z&end-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-' + lastDayOfMonth) + 'T23:59:59Z')))
+          urlArray.push(('/stats/medium?start-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-01T00:00:00Z&end-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-' + lastDayOfMonth) + 'T23:59:59Z')))
           month = month - 1
         }
         i = i + 1
@@ -101,9 +101,10 @@ export default function Statistics () {
    * @returns an array of labels
    */
   function setLabels (interval) {
+    const today = new Date()
     let year = today.getFullYear()
     let month = today.getMonth() + 1
-    let day = today.getDay()
+    let day = today.getDate()
     let i = 0
     const labelArray = []
     const monthNames = ['', 'Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December']
@@ -122,7 +123,7 @@ export default function Statistics () {
 
       // Check the interval. 7 or 14 means data from each day for 7 or 14 days
       if (interval === 7 || interval === 14) {
-        labelArray.push((year + '-' + month + '-' + (('0' + day).slice(-2))))
+        labelArray.push((year + '-' + ('0' + (month)).slice(-2) + '-' + (('0' + day).slice(-2))))
         day = day - 1
       } else if (interval === 4) { // 4 means 4 weeks worth of data (roughly one month)
         if (day - 7 <= 0) {
