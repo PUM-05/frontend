@@ -2,7 +2,7 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement, 
+  BarElement,
   Title,
   Tooltip,
   Legend
@@ -71,7 +71,7 @@ export default function BarChart (props) {
           day = day - 7
         } else {
           if (month <= 0) {
-            year = year - 1 
+            year = year - 1
             month = 12
           }
           const lastDayOfMonth = new Date(today.getFullYear(), month, 0).getDate()
@@ -93,7 +93,6 @@ export default function BarChart (props) {
       setNumOfMails(mailArray.slice().reverse())
     }
     getNumOfCasesWeek(interval).catch(() => 'obligatory catch')
-  
   }, [props.interval])
 
   /**
