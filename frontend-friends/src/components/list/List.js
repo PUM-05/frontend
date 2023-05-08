@@ -31,8 +31,9 @@ export default function List (props) {
    * @param {*} caseAdditionalTime - Additional time spent of the current case
    * @param {*} caseNotes - notes of the current case
    */
-  async function editCase (caseId, caseSpentTime, caseAdditionalTime, caseNotes) {
+  async function editCase (caseId, caseSpentTime, caseAdditionalTime, caseNotes, newCaseId) {
     const data = {
+      case_id: parseInt(newCaseId),
       customer_time: parseInt(caseSpentTime),
       additional_time: parseInt(caseAdditionalTime),
       notes: caseNotes
@@ -83,8 +84,8 @@ export default function List (props) {
         <tbody>
           {props.content.map((currCase, index) =>
             <tr onClick={() => togglePopup(currCase, index)} key={currCase.id}>
-              <td>#{currCase.id}</td>
-              <td>{currCase.category_id}</td>
+              <td>#{currCase.case_id}</td>
+              <td>{currCase.category_name}</td>
               <td>{currCase.customer_time} min</td>
               <td>{currCase.additional_time} min</td>
               <td><div>{parseDate(currCase.created_at)}</div></td>
