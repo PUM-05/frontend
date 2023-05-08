@@ -1,0 +1,33 @@
+.Statistics{
+    .barchart-container{
+        margin-left: 10%;
+        margin-top: 10%;
+        background-color: white;
+        height: 50%;
+        width: 100%;
+    }
+
+    .chart-container{
+        //width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 390px);
+        background-color: white;
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-bottom: 40px;
+        border-radius: 6px;
+        overflow-y:auto;
+        filter: drop-shadow(5px 5px 15px #dee0e2);
+
+        .container-title {
+            padding: 30px;
+
+            h2 {
+                font-weight: 600;
+                font-size: 24px;
+                margin: 0;
+            }
+        }
+    }
+}
