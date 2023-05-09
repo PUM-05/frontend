@@ -25,20 +25,20 @@ export default function TextField (props) {
     props.onChange(event)
   }
 
-  if (isRequired) {
-    return (
-      <div className='text-field'>
+  return (
+    <div className='text-field'>
+      {props.leftText &&
+        <span className='textfield-right-text'>{props.leftText ?? ''}</span>}
+      <div className='textfield-input-container'>
         <input
-          min='0' className={props.class} type={inputType} id={props.id} name='mandatory-text-field' required onInput={onChange} onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value}
+          min='0' className={`${props.class ?? ''} ${props.rightText ? 'textfield-right-text-container' : ''}  ${props.leftText ? 'textfield-left-text-container' : ''}`} type={inputType} id={props.id} name={`${isRequired ? 'mandatory-text-field' : 'text-field'}`} required={isRequired} onInput={onChange} onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value}
         />
         <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
       </div>
-    )
-  }
-  return (
-    <div className='text-field'>
-      <input min='0' className={props.class} type={inputType} id={props.id} name='text-field' onInput={onChange} onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} />
-      <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
+
+      {props.rightText &&
+        <span className='textfield-left-text'>{props.rightText ?? ''}</span>}
     </div>
+
   )
 }

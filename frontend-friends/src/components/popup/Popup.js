@@ -23,15 +23,15 @@ export default function Popup (props) {
         <div className='popup-background' onClick={props.handleClose} />
         <div className='popup'>
           <h1>Redigera ärende</h1>
-          <span onClick={props.handleClose}><CloseIcon /></span>
+          <span className='close-icon' onClick={props.handleClose}><CloseIcon /></span>
           <div className='text-fields-container'>
             <p>Ärendenr</p>
-            <div className='hashtag'>#</div>
             <TextField
               type='number'
               isRequired={false}
               value={props.data.case_id}
               onChange={(e) => { setNewCaseId(e.target.value) }}
+              leftText='#'
             />
             <div className='dual-textfield-labels'>
               <p>Tidsåtgång</p>
@@ -44,16 +44,16 @@ export default function Popup (props) {
                 isRequired={false}
                 value={props.data.customer_time}
                 onChange={(e) => { setNewSpentTime(e.target.value) }}
+                rightText='min'
               />
-              <div className='minutes left'>min</div>
               <TextField
                 type='number'
                 class='minutes-text-field'
                 isRequired={false}
                 value={props.data.additional_time}
                 onChange={(e) => { setNewAdditionalTime(e.target.value) }}
+                rightText='min'
               />
-              <div className='minutes right'>min</div>
             </div>
             <p>Fritext</p>
             <TextArea
