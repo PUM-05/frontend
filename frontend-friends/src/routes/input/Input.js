@@ -73,6 +73,7 @@ export default function Input () {
                     setTimeSpend(e.target.value)
                   }}
                   value={timeSpend}
+                  rightText='min'
                 />
                 <TextField
                   type='number'
@@ -81,6 +82,7 @@ export default function Input () {
                     setAfterWorkTime(e.target.value)
                   }}
                   value={afterWorkTime}
+                  rightText='min'
                 />
               </div>
               <TextArea
