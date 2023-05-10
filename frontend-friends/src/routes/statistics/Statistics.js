@@ -4,6 +4,7 @@ import './Statistics.scss'
 import { useState } from 'react'
 import IntervalDropdown from '../../components/intervalDropdown/intervalDropdown'
 import DayTotalCasesLine from '../../components/dayTotalCasesLine/DayTotalCasesLine'
+import Datepicker from '../../components/datepicker/Datepicker'
 /**
  * Component for displaying the statistics page.
  * @returns Statistics component
@@ -21,6 +22,8 @@ export default function Statistics () {
       case 'year':
         setInterval(12)
         break
+      case 'day':
+
       default:
         setInterval(7)
         break
@@ -40,6 +43,13 @@ export default function Statistics () {
           </div>
           <div className='barchart-container'>
             <DayTotalCasesLine />
+          </div>
+          <div className='barchart-container'>
+            <Datepicker />
+            <BarChart
+              titletext='Antal ärenden per timme' 
+              interval={11}  
+            />
           </div>
         </div>
       </PageWrapper>
