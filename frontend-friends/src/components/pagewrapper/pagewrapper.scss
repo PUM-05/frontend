@@ -1,16 +1,16 @@
 @use "../../style/colors.scss";
 
-.page-container{
+.page-container {
     display: flex;
 }
 
-.content-container{
+.content-container {
     margin-left: 260px;
     flex-grow: 1;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+
     h1 {
         all: unset;
         font-size: 32px;
@@ -19,14 +19,15 @@
         margin-top: 40px;
         margin-left: 40px;
         margin-bottom: 40px;
-        }
+    }
 }
 
-.collapsed-sidebar .content-container{
+.collapsed-sidebar .content-container {
     margin-left: 80px;
 }
-@media screen and (max-width: 992px){
-    .content-container{
+
+@media screen and (max-width: 992px) {
+    .content-container {
         margin-left: 80px;
     }
 }

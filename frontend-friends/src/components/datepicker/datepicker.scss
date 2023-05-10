@@ -1,0 +1,9 @@
+@use '../../style/colors';
+.datepicker{
+    border-color: colors.$grey-text;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: colors.$grey-text;
+}

@@ -3,6 +3,7 @@ import BarChart from '../../components/barChart/barChart'
 import './Statistics.scss'
 import { useState } from 'react'
 import IntervalDropdown from '../../components/intervalDropdown/intervalDropdown'
+import DayTotalCasesLine from '../../components/dayTotalCasesLine/DayTotalCasesLine'
 /**
  * Component for displaying the statistics page.
  * @returns Statistics component
@@ -37,7 +38,9 @@ export default function Statistics () {
               interval={interval}
             />
           </div>
-          {/* Add other charts here */}
+          <div className='barchart-container'>
+            <DayTotalCasesLine />
+          </div>
         </div>
       </PageWrapper>
     </>
