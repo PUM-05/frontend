@@ -1,13 +1,14 @@
 import { Link, useLocation } from 'react-router-dom'
 import './sidebar.scss'
-import DashboardIcon from './icons/DashboardIcon'
-import StatisticsIcon from './icons/StatisticsIcon'
-import ListIcon from './icons/ListIcon'
+import DashboardIcon from '../../utils/icons/DashboardIcon'
+import StatisticsIcon from '../../utils/icons/StatisticsIcon'
+import ListIcon from '../../utils/icons/ListIcon'
 import Logo from './logo/Logo'
 import SmallLogo from './logo/SmallLogo'
-import InputIcon from './icons/InputIcon'
+import InputIcon from '../../utils/icons/InputIcon'
 import SubmitButton from '../submitButton/SubmitButton'
 import { postData } from '../../utils/request'
+import ArrowForward from '../../utils/icons/ArrowForward'
 /* global localStorage */
 /**
  * @returns the sidebar that should be visible on each page, except login
@@ -43,7 +44,7 @@ export default function SideBar () {
         <li className='input-link'>
           <Link to='/' className={`navigation-link ${path === '/' ? 'active' : ''}`}>
             <InputIcon />
-            <span className='nav-text'>Inmatning</span>
+            <span className='nav-text'>Gå till inmatning<ArrowForward /></span>
           </Link>
         </li>
         <li>
