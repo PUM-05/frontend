@@ -22,9 +22,9 @@ ChartJS.register(
   Colors
 )
 /**
- * Pie chart displaying given data
+ * Line diagram displaying given data
  * @param {*} props {titletext, labels, datasets}
- * @returns Pie chart component
+ * @returns Line diagram component
  */
 export default function lineChart (props) {
   const data = {

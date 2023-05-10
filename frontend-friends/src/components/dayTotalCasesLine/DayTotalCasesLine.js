@@ -4,8 +4,8 @@ import { getData } from '../../utils/request'
 import Datepicker from '../datepicker/Datepicker'
 
 /**
- * Component for displaying the statistics page.
- * @returns Statistics component
+ * Component for displaying line diagram of total cases during a day
+ * @returns Line diagram component
  */
 export default function DayTotalCasesLine () {
   const intervalLength = 30
