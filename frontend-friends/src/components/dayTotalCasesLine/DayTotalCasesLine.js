@@ -41,7 +41,7 @@ export default function DayTotalCasesLine () {
       cubicInterpolationMode: 'monotone'
     }])
   }
-  useEffect(() => {
+  useEffect(async () => {
     const date = inputDate ? new Date(inputDate) : new Date()
 
     const currentTime = new Date()
@@ -54,7 +54,7 @@ export default function DayTotalCasesLine () {
       endTime = (new Date((new Date()).setHours(Math.min(currentTime.getHours(), 18), currentTime.getMinutes(), 0, 0)))
     }
 
-    loadStats(startTime, endTime)
+    await loadStats(startTime, endTime)
   }, [inputDate])
 
   return (
