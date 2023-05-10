@@ -54,7 +54,7 @@ export default function DayTotalCasesLine () {
       endTime = (new Date((new Date()).setHours(Math.min(currentTime.getHours(), 18), currentTime.getMinutes(), 0, 0)))
     }
 
-    loadStats(startTime, endTime).catch(console.error())
+    loadStats(startTime, endTime).catch(console.error)
   }, [inputDate])
 
   return (
