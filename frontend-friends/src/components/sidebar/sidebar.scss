@@ -77,7 +77,7 @@
         margin: 20px 0;
         padding: 0;
         display: flex;
-        align-items: center;
+        align-items: stretch;
         flex-direction: column;
 
         li{
@@ -165,11 +165,6 @@
     .active{
         color: colors.$primary-color;
     }
-
-    ul{
-        align-items: stretch;
-    }
-
 
     .nav-text{
         height: auto;
