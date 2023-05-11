@@ -27,38 +27,51 @@ export default function Input () {
   const [isCategoryValid, setCategoryValid] = useState(false)
 
   async function submitData (e) {
-    e.preventDefault()
-    const data = {
-      medium: comMode ? 'phone' : 'email',
-      // case_id: parseInt(caseId), Slutar funkar för mig när den är med :(
-      category_id: caseCategory,
-      customer_time: parseInt(timeSpend),
-      additional_time: parseInt(afterWorkTime),
-      notes: freeText
-    }
-    const command = await postData('/case', data)
-    console.log(command)
-    if (command.status === 201) {
-      console.log('Borde skicka true')
-      setsuccesShowSnackbar(true)
-      seterrorShowSnackbar(false)
-      setCaseId('')
-      setTimeSpend('')
-      setAfterWorkTime('')
-      setCaseCategory('')
-      setFreeText('')
-      setIsTimeSpendValid(false)
-      setCategoryValid(false)
-    } else {
+    try {
+      e.preventDefault()
+      const data = {
+        medium: comMode ? 'phone' : 'email',
+        // case_id: parseInt(caseId), funkar inte med den med för mig :(
+        category_id: caseCategory,
+        customer_time: parseInt(timeSpend),
+        additional_time: parseInt(afterWorkTime),
+        notes: freeText
+      }
+      const command = await postData('/case', data)
+      console.log(command)
+      if (command.status === 201) {
+        console.log('Borde skicka true')
+        setsuccesShowSnackbar(true)
+        seterrorShowSnackbar(false) //  hide error snackbar
+        setCaseId('')
+        setTimeSpend('')
+        setAfterWorkTime('')
+        setCaseCategory('')
+        setFreeText('')
+        setIsTimeSpendValid(false)
+        setCategoryValid(false)
+      } else if (command.status !== 201) {
+        seterrorShowSnackbar(true)
+        setsuccesShowSnackbar(false) 
+      } else {
+        //setsuccesShowSnackbar(false)
+        //seterrorShowSnackbar(false)
+      }
+    } catch (error) {
+      console.error(error)
       seterrorShowSnackbar(true)
-      setsuccesShowSnackbar(false)
     }
   }
   async function submitCheck (e) {
     console.log('submitCheck called')
     if (isTimeSpendValid && isCategoryValid) {
-      submitData(e)
-      seterrorShowSnackbar(false)
+      try {
+        await submitData(e)
+        seterrorShowSnackbar(false)
+      } catch (error) {
+        console.error(error)
+        seterrorShowSnackbar(true)
+      }
     } else {
       seterrorShowSnackbar(true)
     }
