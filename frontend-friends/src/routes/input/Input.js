@@ -4,7 +4,7 @@ import Toggle from '../../components/toggle/Toggle'
 import CategoryButtonGroup from '../../components/categoryButtonGroup/CategoryButtonGroup'
 import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import './input.scss'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { postData } from '../../utils/request'
 import TextArea from '../../components/textArea/TextArea'
 import SuccesSnackbar from '../../components/message/succesSnackbar'
@@ -23,37 +23,62 @@ export default function Input () {
   const [freeText, setFreeText] = useState('')
   const [showsuccesSnackbar, setsuccesShowSnackbar] = useState(false)
   const [showerrorSnackbar, seterrorShowSnackbar] = useState(false)
-  const [isTimeSpendValid, setIsTimeSpendValid] = useState(false) // använda
+  const [isTimeSpendValid, setIsTimeSpendValid] = useState(false)
+  const [isCategoryValid, setCategoryValid] = useState(false)
 
   async function submitData (e) {
     e.preventDefault()
-
     const data = {
       medium: comMode ? 'phone' : 'email',
-      case_id: parseInt(caseId),
+      // case_id: parseInt(caseId), Slutar funkar för mig när den är med :(
       category_id: caseCategory,
       customer_time: parseInt(timeSpend),
       additional_time: parseInt(afterWorkTime),
       notes: freeText
     }
     const command = await postData('/case', data)
+    console.log(command)
     if (command.status === 201) {
+      console.log('Borde skicka true')
       setsuccesShowSnackbar(true)
-      seterrorShowSnackbar(false) //  hide error snackbar
+      seterrorShowSnackbar(false)
       setCaseId('')
       setTimeSpend('')
       setAfterWorkTime('')
       setCaseCategory('')
       setFreeText('')
       setIsTimeSpendValid(false)
-    } else if (command.status !== 201) {
-      seterrorShowSnackbar(true)
-      setsuccesShowSnackbar(false) // hide success snackbar
+      setCategoryValid(false)
     } else {
+      seterrorShowSnackbar(true)
       setsuccesShowSnackbar(false)
-      seterrorShowSnackbar(false)
     }
   }
+  async function submitCheck (e) {
+    console.log('submitCheck called')
+    if (isTimeSpendValid && isCategoryValid) {
+      submitData(e)
+      seterrorShowSnackbar(false)
+    } else {
+      seterrorShowSnackbar(true)
+    }
+  }
+
+  useEffect(() => {
+    console.log('timeSpend changed: ', timeSpend)
+    if (timeSpend !== '') {
+      setIsTimeSpendValid(true)
+    } else {
+      setIsTimeSpendValid(false)
+    }
+    console.log('caseCategory changed: ', caseCategory)
+    if (caseCategory === '') {
+      setCategoryValid(false)
+    } else {
+      setCategoryValid(true)
+    }
+  }, [timeSpend, caseCategory])
+
   return (
     <>
       <PageWrapper className='collapsed-sidebar'>
@@ -61,7 +86,6 @@ export default function Input () {
           <div className='header-container'>
             <h1>Kommunikationsmedie</h1>
           </div>
-
           <div className='form-container'>
             <form>
               <Toggle onChange={(val) => setComMode(val)} value={comMode} />
@@ -86,12 +110,8 @@ export default function Input () {
                   placeholder='Tidsåtgång'
                   isRequired
                   onChange={(e) => {
+                    console.log('Förändring tidsåtgång')
                     setTimeSpend(e.target.value)
-                    if (e.target.value === '') {
-                      setIsTimeSpendValid(false)
-                    } else {
-                      setIsTimeSpendValid(true)
-                    }
                   }}
                   value={timeSpend}
                   rightText='min'
@@ -115,7 +135,7 @@ export default function Input () {
                 value={freeText}
               />
             </form>
-            <SubmitButton name='submit' onClick={submitData} disabled={!isTimeSpendValid}>
+            <SubmitButton name='submit' onClick={submitCheck}>
               SKICKA
             </SubmitButton>
           </div>

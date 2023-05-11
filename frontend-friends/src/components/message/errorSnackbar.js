@@ -8,7 +8,7 @@ export default function errorSnackbar (props) {
       open={props.show}
       autoHideDuration={4000}
       onClose={() => props.onClose()}
-      message='Måste välja katergori också!'
+      message='Både katergori och tidsåtgång måste vara ifyllt!'
     />
   )
 }
