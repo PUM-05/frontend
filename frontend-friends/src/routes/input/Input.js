@@ -10,7 +10,6 @@ import TextArea from '../../components/textArea/TextArea'
 import SuccesSnackbar from '../../components/message/succesSnackbar'
 import ErrorSnackbar from '../../components/message/errorSnackbar'
 
-
 /**
  * Component displaying the case input page
  * @returns Input page component
@@ -24,11 +23,11 @@ export default function Input () {
   const [freeText, setFreeText] = useState('')
   const [showsuccesSnackbar, setsuccesShowSnackbar] = useState(false)
   const [showerrorSnackbar, seterrorShowSnackbar] = useState(false)
-  const [isTimeSpendValid, setIsTimeSpendValid] = useState(false) //använda
+  const [isTimeSpendValid, setIsTimeSpendValid] = useState(false) // använda
 
   async function submitData (e) {
     e.preventDefault()
-  
+
     const data = {
       medium: comMode ? 'phone' : 'email',
       case_id: parseInt(caseId),
@@ -37,10 +36,10 @@ export default function Input () {
       additional_time: parseInt(afterWorkTime),
       notes: freeText
     }
-    const command = await postData("/case", data);
+    const command = await postData('/case', data)
     if (command.status === 201) {
-      setsuccesShowSnackbar(true);
-      seterrorShowSnackbar(false); //  hide error snackbar
+      setsuccesShowSnackbar(true)
+      seterrorShowSnackbar(false) //  hide error snackbar
       setCaseId('')
       setTimeSpend('')
       setAfterWorkTime('')
@@ -48,13 +47,12 @@ export default function Input () {
       setFreeText('')
       setIsTimeSpendValid(false)
     } else if (command.status !== 201) {
-      seterrorShowSnackbar(true);
-      setsuccesShowSnackbar(false); // hide success snackbar
+      seterrorShowSnackbar(true)
+      setsuccesShowSnackbar(false) // hide success snackbar
     } else {
-      setsuccesShowSnackbar(false);
-      seterrorShowSnackbar(false);
+      setsuccesShowSnackbar(false)
+      seterrorShowSnackbar(false)
     }
-
   }
   return (
     <>
@@ -83,16 +81,16 @@ export default function Input () {
                 value={caseCategory}
               />
               <div className='text-field-container'>
-              <TextField
+                <TextField
                   type='number'
                   placeholder='Tidsåtgång'
                   isRequired
                   onChange={(e) => {
                     setTimeSpend(e.target.value)
-                    if (e.target.value === "") {
-                      setIsTimeSpendValid(false);
+                    if (e.target.value === '') {
+                      setIsTimeSpendValid(false)
                     } else {
-                      setIsTimeSpendValid(true);
+                      setIsTimeSpendValid(true)
                     }
                   }}
                   value={timeSpend}
