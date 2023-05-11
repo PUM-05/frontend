@@ -30,7 +30,7 @@ export default function CaseList () {
         <h1>Ärendelista</h1>
         <div className='list-container'>
           <div className='container-title'>
-            <h1>Senaste ärenden</h1>
+            <h2>Senaste ärenden</h2>
           </div>
           <List content={cases} loadCases={loadCases} hasPopup />
         </div>
