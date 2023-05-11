@@ -1,8 +1,8 @@
 import ReactSwitch from 'react-switch'
 import { useState, useEffect } from 'react'
 import './Toggle.scss'
-import PhoneIcon from '../sidebar/icons/PhoneIcon'
-import MailIcon from '../sidebar/icons/MailIcon'
+import PhoneIcon from '../../utils/icons/PhoneIcon'
+import MailIcon from '../../utils/icons/MailIcon'
 /* global localStorage */
 
 /**

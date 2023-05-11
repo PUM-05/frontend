@@ -1,0 +1,15 @@
+@use '../../style/colors';
+
+.dropdown-container{
+    select{
+        border-color: colors.$text-field-stroke;
+        background-color: colors.$text-field-background;
+        color: colors.$category-text;
+        border-radius: 6px;
+        height: 30px;
+    }
+    select:focus{
+        border-color: colors.$text-field-stroke;
+        outline-color: colors.$text-field-stroke;
+    }
+}

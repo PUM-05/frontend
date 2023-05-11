@@ -31,6 +31,7 @@ export default function Input () {
   
     const data = {
       medium: comMode ? 'phone' : 'email',
+      case_id: parseInt(caseId),
       category_id: caseCategory,
       customer_time: parseInt(timeSpend),
       additional_time: parseInt(afterWorkTime),
@@ -67,6 +68,7 @@ export default function Input () {
             <form>
               <Toggle onChange={(val) => setComMode(val)} value={comMode} />
               <TextField
+                type='number'
                 placeholder='Ärendenr'
                 onChange={(e) => {
                   setCaseId(e.target.value)
@@ -82,6 +84,7 @@ export default function Input () {
               />
               <div className='text-field-container'>
               <TextField
+                  type='number'
                   placeholder='Tidsåtgång'
                   isRequired
                   onChange={(e) => {
@@ -92,14 +95,17 @@ export default function Input () {
                       setIsTimeSpendValid(true);
                     }
                   }}
-                value={timeSpend}
+                  value={timeSpend}
+                  rightText='min'
                 />
                 <TextField
+                  type='number'
                   placeholder='Efterarbete'
                   onChange={(e) => {
                     setAfterWorkTime(e.target.value)
                   }}
                   value={afterWorkTime}
+                  rightText='min'
                 />
               </div>
               <TextArea
