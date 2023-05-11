@@ -117,11 +117,11 @@ export default function BarChart (props) {
       const phoneArray = []
       const mailArray = []
       const array = await Promise.all(promises)
-      
-      for (let data of array){
+
+      for (const data of array) {
         phoneArray.push(data.phone)
         mailArray.push(data.email)
-      }    
+      }
       phoneArray.push(0)
       phoneArray.push(0)
       mailArray.push(0)
