@@ -1,4 +1,6 @@
 @use "../../style/colors.scss";
+@use "../../style/margins.scss";
+@use "../../style/fontsizes.scss";
 
 .page-container {
     display: flex;
@@ -13,12 +15,18 @@
 
     h1 {
         all: unset;
-        font-size: 32px;
+        font-size: fontsizes.$fontsz-h1;
         font-weight: 600;
         color: colors.$dark-blue;
-        margin-top: 40px;
-        margin-left: 40px;
-        margin-bottom: 40px;
+        margin-top: margins.$margin-md;
+        margin-left: margins.$margin-md;
+        margin-bottom: margins.$margin-md;
+        }
+    
+    h2 {
+        font-size: fontsizes.$fontsz-h2;
+        font-weight: 600;
+        margin: 0;
     }
 }
 
