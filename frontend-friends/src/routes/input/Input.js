@@ -52,10 +52,10 @@ export default function Input () {
         setCategoryValid(false)
       } else if (command.status !== 201) {
         seterrorShowSnackbar(true)
-        setsuccesShowSnackbar(false) 
+        setsuccesShowSnackbar(false)
       } else {
-        //setsuccesShowSnackbar(false)
-        //seterrorShowSnackbar(false)
+        // setsuccesShowSnackbar(false)
+        // seterrorShowSnackbar(false)
       }
     } catch (error) {
       console.error(error)
