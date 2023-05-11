@@ -3,6 +3,7 @@ import './CaseList.scss'
 import List from '../../components/list/List'
 import { getData } from '../../utils/request'
 import { useEffect, useState } from 'react'
+import SearchBar from '../../components/searchBar/searchBar'
 
 /**
  * Page containing a list of all cases.
@@ -29,8 +30,13 @@ export default function CaseList () {
       <PageWrapper>
         <h1>Ärendelista</h1>
         <div className='list-container'>
-          <div className='container-title'>
-            <h1>Senaste ärenden</h1>
+          <div className='top-wrapper'>
+            <div className='container-title'>
+              <h1>Senaste ärenden</h1>
+            </div>
+            <div className='search-container'>
+              <SearchBar placeholder='Sök på ärendenummer...'/>
+            </div>
           </div>
           <List content={cases} loadCases={loadCases} hasPopup />
         </div>

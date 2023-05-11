@@ -1,0 +1,23 @@
+@use "../../style/colors.scss";
+
+.placeholder-content{
+    //display: flex;
+    width: 100%;
+    
+    .search-icon{
+        color: colors.$placeholder-text;
+        font-size: 18px;
+        flex-direction: row;
+        //align-self: flex-end;
+        margin-top: 13px;
+        margin-right: 10px;
+        line-height: 50px;
+        pointer-events: none;
+        cursor:text;
+    }
+
+    .text-field label{
+        width: 100%;
+        margin-left: 2px;
+    }
+}
