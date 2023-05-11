@@ -16,8 +16,10 @@ export default function Toggle (props) {
   useEffect(() => {
     if (JSON.parse(localStorage.getItem('checked')) === false) {
       setChecked(false)
+      props.onChange(false)
     } else {
       setChecked(true)
+      props.onChange(true)
     }
   }, [])
 
