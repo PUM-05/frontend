@@ -130,7 +130,7 @@ export default function BarChart (props) {
       setNumOfMails(mailArray.slice().reverse())
     }
     if (interval === 11) {
-      getNumOfCasesHour()
+      getNumOfCasesHour().catch(() => 'obligatory catch')
     }
   }, [props.date])
 
