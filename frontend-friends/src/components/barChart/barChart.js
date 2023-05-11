@@ -117,11 +117,11 @@ export default function BarChart (props) {
       const phoneArray = []
       const mailArray = []
       const array = await Promise.all(promises)
-      console.log(urlArray)
-      for (let i = 0; i < array.length; i++) {
-        phoneArray.push(array[i].phone)
-        mailArray.push(array[i].email)
-      }
+      
+      for (let data of array){
+        phoneArray.push(data.phone)
+        mailArray.push(data.email)
+      }    
       phoneArray.push(0)
       phoneArray.push(0)
       mailArray.push(0)
@@ -190,7 +190,6 @@ export default function BarChart (props) {
       }
       i = i + 1
     }
-    console.log(labelArray)
     return labelArray.slice().reverse()
   }
 

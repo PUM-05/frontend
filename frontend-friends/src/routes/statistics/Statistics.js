@@ -32,12 +32,6 @@ export default function Statistics () {
         break
     }
   }
-  /*
-  const getDate = (e) => {
-    inputDate = e
-    return
-  }
-  */
 
   return (
     <>
