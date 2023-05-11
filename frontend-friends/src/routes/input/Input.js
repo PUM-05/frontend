@@ -7,7 +7,10 @@ import './input.scss'
 import { useState } from 'react'
 import { postData } from '../../utils/request'
 import TextArea from '../../components/textArea/TextArea'
-import MuiSnackbar from '../../components/message/MuiSnackbar'
+import SuccesSnackbar from '../../components/message/succesSnackbar'
+import ErrorSnackbar from '../../components/message/errorSnackbar'
+
+
 /**
  * Component displaying the case input page
  * @returns Input page component
@@ -19,14 +22,13 @@ export default function Input () {
   const [afterWorkTime, setAfterWorkTime] = useState('')
   const [caseCategory, setCaseCategory] = useState('')
   const [freeText, setFreeText] = useState('')
-  const [showSnackbar, setShowSnackbar] = useState(false)
+  const [showsuccesSnackbar, setsuccesShowSnackbar] = useState(false)
+  const [showerrorSnackbar, seterrorShowSnackbar] = useState(false)
+  const [isTimeSpendValid, setIsTimeSpendValid] = useState(false) //använda
 
-  /**
-   * Send new case to server
-   * @param {*} e Event calling the function
-   */
   async function submitData (e) {
     e.preventDefault()
+  
     const data = {
       medium: comMode ? 'phone' : 'email',
       category_id: caseCategory,
@@ -34,18 +36,25 @@ export default function Input () {
       additional_time: parseInt(afterWorkTime),
       notes: freeText
     }
-    console.log('Submitting data:', data) // Debugging statement
-    const success = await postData('/case', data)
-    if (success.status === 201) {
-      setShowSnackbar(true)
-      console.log('POST request succeeded')// Debugging statement
+    const command = await postData("/case", data);
+    if (command.status === 201) {
+      setsuccesShowSnackbar(true);
+      seterrorShowSnackbar(false); //  hide error snackbar
+      setCaseId('')
+      setTimeSpend('')
+      setAfterWorkTime('')
+      setCaseCategory('')
+      setFreeText('')
+      setIsTimeSpendValid(false)
+    } else if (command.status !== 201) {
+      seterrorShowSnackbar(true);
+      setsuccesShowSnackbar(false); // hide success snackbar
     } else {
-      setShowSnackbar(false)
-      console.log('POST request failed') // Debugging statement
-      console.log('Error message:', success.error)// Debugging statement
+      setsuccesShowSnackbar(false);
+      seterrorShowSnackbar(false);
     }
-  }
 
+  }
   return (
     <>
       <PageWrapper className='collapsed-sidebar'>
@@ -59,7 +68,6 @@ export default function Input () {
               <Toggle onChange={(val) => setComMode(val)} value={comMode} />
               <TextField
                 placeholder='Ärendenr'
-                isRequired={false}
                 onChange={(e) => {
                   setCaseId(e.target.value)
                 }}
@@ -73,13 +81,18 @@ export default function Input () {
                 value={caseCategory}
               />
               <div className='text-field-container'>
-                <TextField
+              <TextField
                   placeholder='Tidsåtgång'
                   isRequired
                   onChange={(e) => {
                     setTimeSpend(e.target.value)
+                    if (e.target.value === "") {
+                      setIsTimeSpendValid(false);
+                    } else {
+                      setIsTimeSpendValid(true);
+                    }
                   }}
-                  value={timeSpend}
+                value={timeSpend}
                 />
                 <TextField
                   placeholder='Efterarbete'
@@ -98,11 +111,12 @@ export default function Input () {
                 value={freeText}
               />
             </form>
-            <SubmitButton name='submit' onClick={submitData}>
+            <SubmitButton name='submit' onClick={submitData} disabled={!isTimeSpendValid}>
               SKICKA
             </SubmitButton>
           </div>
-          <MuiSnackbar show={showSnackbar} onClose={() => setShowSnackbar(false)} />
+          <SuccesSnackbar show={showsuccesSnackbar} onClose={() => setsuccesShowSnackbar(false)} />
+          <ErrorSnackbar show={showerrorSnackbar} onClose={() => seterrorShowSnackbar(false)} />
         </div>
       </PageWrapper>
     </>

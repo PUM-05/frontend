@@ -1,11 +1,11 @@
 import React from 'react'
 import { Snackbar } from '@mui/material'
-import './muiSnackbar.scss'
+import './succesSnackbar.scss'
 
-export default function MuiSnackbar (props) {
+export default function succesSnackbar (props) {
   return (
     <Snackbar
-      className='mui-Snackbar '
+      className='succes-Snackbar '
       open={props.show}
       autoHideDuration={4000}
       onClose={() => props.onClose()}

@@ -17,14 +17,14 @@ export default function TextField (props) {
   if (isRequired) {
     return (
       <div className='text-field'>
-        <input className={props.class} type={inputType} id={props.id} name='mandatory-text-field' required onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} />
+        <input className={props.class} type={inputType} id={props.id} name='mandatory-text-field' required onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} value={props.value}/>
         <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
       </div>
     )
   }
   return (
     <div className='text-field'>
-      <input className={props.class} type={inputType} id={props.id} name='text-field' onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} />
+      <input className={props.class} type={inputType} id={props.id} name='text-field' onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} value={props.value} />
       <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
     </div>
   )

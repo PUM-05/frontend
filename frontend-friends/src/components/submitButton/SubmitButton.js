@@ -7,7 +7,7 @@ import './submitButton.scss'
  */
 export default function SubmitButton (props) {
   return (
-    <button className='submit-button' type='submit' onClick={props.onClick}>
+    <button className='submit-button' type='submit' onClick={props.onClick} disabled={props.disabled}>
       {props.children}
     </button>
   )
