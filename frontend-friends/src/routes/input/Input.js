@@ -31,7 +31,7 @@ export default function Input () {
       e.preventDefault()
       const data = {
         medium: comMode ? 'phone' : 'email',
-        // case_id: parseInt(caseId), funkar inte med den med för mig :(
+        case_id: parseInt(caseId), 
         category_id: caseCategory,
         customer_time: parseInt(timeSpend),
         additional_time: parseInt(afterWorkTime),
