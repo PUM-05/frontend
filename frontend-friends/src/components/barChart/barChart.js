@@ -5,7 +5,7 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import { useState, useEffect } from 'react'
@@ -45,7 +45,7 @@ export default function BarChart (props) {
       let day = today.getDate()
 
       while (i < interval) {
-        //Check if the month or year needs to be changed
+        // Check if the month or year needs to be changed
         if (day === 0 || (day === 7 && interval === 4)) { // new month
           month = month - 1
           const newDate = new Date(year, month, 0)
@@ -55,11 +55,11 @@ export default function BarChart (props) {
           year = year - 1
           day = 31
         }
-        if (interval === 7 || interval === 14) { //If interval is one week or two weeks, add one request for each day
+        if (interval === 7 || interval === 14) { // If interval is one week or two weeks, add one request for each day
           urlArray.push(('/stats/medium?start-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-' + ('0' + day).slice(-2)) + 'T00:00:00&end-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-' + ('0' + day).slice(-2)) + 'T23:59:59'))
           day = day - 1
-        } else if (interval === 4) { //If interval is 4 weeks (one month), add one request for each week
-          if (day - 7 <= 0) { //If the week spans multiple months
+        } else if (interval === 4) { // If interval is 4 weeks (one month), add one request for each week
+          if (day - 7 <= 0) { // If the week spans multiple months
             const monthUpdated = month - 1
             const diff = Math.abs(day - 7)
             const newDate = new Date(year, month, 0)
@@ -71,7 +71,7 @@ export default function BarChart (props) {
             urlArray.push(('/stats/medium?start-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-' + ('0' + (day - 7)).slice(-2)) + 'T00:00:00&end-time=' + (year + '-' + ('0' + (month)).slice(-2) + '-' + ('0' + day).slice(-2)) + 'T23:59:59'))
           }
           day = day - 7
-        } else { //else, the interval is one year, meaning add one request for each month
+        } else { // else, the interval is one year, meaning add one request for each month
           if (month <= 0) {
             year = year - 1
             month = 12
@@ -94,7 +94,6 @@ export default function BarChart (props) {
       setNumOfMails(mailArray.slice().reverse())
     }
     getNumOfCasesWeek(interval).catch(() => 'obligatory catch')
-
   }, [props.interval])
 
   useEffect(() => {
@@ -118,7 +117,7 @@ export default function BarChart (props) {
       const phoneArray = []
       const mailArray = []
       const array = await Promise.all(promises)
-
+      console.log(urlArray)
       for (let i = 0; i < array.length; i++) {
         phoneArray.push(array[i].phone)
         mailArray.push(array[i].email)
@@ -166,9 +165,7 @@ export default function BarChart (props) {
         labelArray.push((year + '-' + ('0' + (month)).slice(-2) + '-' + (('0' + day).slice(-2))))
         day = day - 1
       } else if (interval === 4) { // 4 means 4 weeks worth of data (roughly one month)
-        console.log(day)
         if (day - 7 <= 0) {
-          console.log('in if')
           const monthUpdated = month - 1
           const diff = Math.abs(day - 7)
           const newDate = new Date(year, month, 0)
@@ -177,10 +174,9 @@ export default function BarChart (props) {
           day = dayUpdated
           month = monthUpdated
         } else {
-          console.log('in else')
           labelArray.push(((day - 7) + '-' + day + ' ' + monthNames[month].slice(0, 3)))
+          day = day - 7
         }
-        day = day - 7
       } else if (interval === 11) {
         const lastHour = 18
         labelArray.push((('0' + ((lastHour - i) - 1)).slice(-2) + ':00'))
