@@ -15,7 +15,7 @@ export default function CaseList () {
   const [finalValue, setFinalValue] = useState('')
 
   useEffect(() => {
-    getSearchedCases()
+    getSearchedCases().catch(() => 'Could not retrieve cases')
   }, [finalValue])
 
   /**
@@ -52,7 +52,7 @@ export default function CaseList () {
               <SearchBar
                 placeholder='Sök på ärendenummer...'
                 onChange={(e) => { setSearchString(e.target.value) }}
-                onKeyDown={(e) => { handleKeyPress(e) }}
+                onKeyDown={(e) => { handleKeyPress(e).catch(() => 'Could not retrieve cases') }}
                 value={searchString}
               />
             </div>
