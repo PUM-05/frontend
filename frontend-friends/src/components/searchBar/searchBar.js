@@ -8,14 +8,13 @@ import './searchBar.scss'
  * @returns a textfield component that the user can input data into.
  */
 export default function SearchBar (props) {
-
   return (
     <div className='text-field'>
       <div className='textfield-input-container'>
         <input
-            className='search' onChange={props.onChange}
+          className='search' onChange={props.onChange} onKeyDown={props.onKeyDown}
         />
-        <label className={props.value && 'filled'} htmlFor={props.id}><div className='placeholder-content'><SearchIcon className='search-icon'/>{props.placeholder}</div></label>
+        <label className={props.value && 'filled'} htmlFor={props.id}><div className='placeholder-content'><SearchIcon className='search-icon' />{props.placeholder}</div></label>
       </div>
     </div>
 
