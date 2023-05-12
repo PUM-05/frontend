@@ -13,7 +13,7 @@ export default function Dashboard () {
   const [cases, setCases] = useState([])
 
   useEffect(() => {
-    loadCases()
+    loadCases().catch((e) => console.error(e))
   }, [])
 
   /**
