@@ -64,7 +64,7 @@ export default function CaseList () {
               />
             </div>
           </div>
-          <List content={cases} loadCases={getSearchedCases} hasPopup />
+          <List content={cases} loadCases={getSearchedCases} hasPopup page={page} setPage={setPage} hasMorePages={hasMorePages} />
 
         </div>
 
