@@ -31,16 +31,14 @@ export default function Input () {
       e.preventDefault()
       const data = {
         medium: comMode ? 'phone' : 'email',
-        case_id: parseInt(caseId), 
+        case_id: parseInt(caseId),
         category_id: caseCategory,
         customer_time: parseInt(timeSpend),
         additional_time: parseInt(afterWorkTime),
         notes: freeText
       }
       const command = await postData('/case', data)
-      console.log(command)
       if (command.status === 201) {
-        console.log('Borde skicka true')
         setsuccesShowSnackbar(true)
         seterrorShowSnackbar(false) //  hide error snackbar
         setCaseId('')
@@ -50,26 +48,20 @@ export default function Input () {
         setFreeText('')
         setIsTimeSpendValid(false)
         setCategoryValid(false)
-      } else if (command.status !== 201) {
+      } else {
         seterrorShowSnackbar(true)
         setsuccesShowSnackbar(false)
-      } else {
-        // setsuccesShowSnackbar(false)
-        // seterrorShowSnackbar(false)
       }
     } catch (error) {
-      console.error(error)
       seterrorShowSnackbar(true)
     }
   }
   async function submitCheck (e) {
-    console.log('submitCheck called')
     if (isTimeSpendValid && isCategoryValid) {
       try {
         await submitData(e)
         seterrorShowSnackbar(false)
       } catch (error) {
-        console.error(error)
         seterrorShowSnackbar(true)
       }
     } else {
@@ -78,13 +70,11 @@ export default function Input () {
   }
 
   useEffect(() => {
-    console.log('timeSpend changed: ', timeSpend)
     if (timeSpend !== '') {
       setIsTimeSpendValid(true)
     } else {
       setIsTimeSpendValid(false)
     }
-    console.log('caseCategory changed: ', caseCategory)
     if (caseCategory === '') {
       setCategoryValid(false)
     } else {
@@ -123,7 +113,6 @@ export default function Input () {
                   placeholder='Tidsåtgång'
                   isRequired
                   onChange={(e) => {
-                    console.log('Förändring tidsåtgång')
                     setTimeSpend(e.target.value)
                   }}
                   value={timeSpend}
