@@ -27,6 +27,12 @@
         margin-left: 2px;
         margin-bottom: 10px;
     }
+    .filled {
+        display: none;
+    }
+    input:focus + label{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 992px){

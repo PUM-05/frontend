@@ -53,6 +53,7 @@ export default function CaseList () {
                 placeholder='Sök på ärendenummer...'
                 onChange={(e) => { setSearchString(e.target.value) }}
                 onKeyDown={(e) => { handleKeyPress(e) }}
+                value={searchString}
               />
             </div>
           </div>
