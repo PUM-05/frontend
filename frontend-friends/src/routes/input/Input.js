@@ -142,7 +142,7 @@ export default function Input () {
             </SubmitButton>
           </div>
           <SuccesSnackbar show={showsuccesSnackbar} onClose={() => setsuccesShowSnackbar(false)} />
-          <ErrorSnackbar show={showerrorSnackbar} onClose={() => seterrorShowSnackbar(false)} />go)
+          <ErrorSnackbar show={showerrorSnackbar} onClose={() => seterrorShowSnackbar(false)} />
         </div>
       </PageWrapper>
     </>
