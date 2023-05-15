@@ -86,7 +86,7 @@ export default function Input () {
       <PageWrapper className='collapsed-sidebar'>
         <div className='contain-all'>
           <div className='header-container'>
-            <h1>Kommunikationsmedie</h1>
+            <h2>Kommunikationsmedie</h2>
           </div>
           <div className='form-container'>
             <form>

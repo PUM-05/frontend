@@ -1,4 +1,5 @@
 @use '../../style/colors';
+@use "../../style/fontsizes.scss";
 
 .submit-button {
     all: unset;
@@ -6,6 +7,7 @@
     font-weight: 600;
     color: white;
     text-align: center;
+    font-size: fontsizes.$fontsz-sm;
     width: 55%;
     height: 50px;
     border-radius: 6px;
