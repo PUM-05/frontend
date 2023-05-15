@@ -4,9 +4,11 @@ import Toggle from '../../components/toggle/Toggle'
 import CategoryButtonGroup from '../../components/categoryButtonGroup/CategoryButtonGroup'
 import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import './input.scss'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { postData } from '../../utils/request'
 import TextArea from '../../components/textArea/TextArea'
+import SuccesSnackbar from '../../components/message/succesSnackbar'
+import ErrorSnackbar from '../../components/message/errorSnackbar'
 
 /**
  * Component displaying the case input page
@@ -19,23 +21,66 @@ export default function Input () {
   const [afterWorkTime, setAfterWorkTime] = useState('')
   const [caseCategory, setCaseCategory] = useState('')
   const [freeText, setFreeText] = useState('')
+  const [showsuccesSnackbar, setsuccesShowSnackbar] = useState(false)
+  const [showerrorSnackbar, seterrorShowSnackbar] = useState(false)
+  const [isTimeSpendValid, setIsTimeSpendValid] = useState(false)
+  const [isCategoryValid, setCategoryValid] = useState(false)
 
-  /**
-   * Send new case to server
-   * @param {*} e Event calling the function
-   */
   async function submitData (e) {
-    e.preventDefault()
-    const data = {
-      medium: comMode ? 'phone' : 'email',
-      case_id: parseInt(caseId),
-      category_id: caseCategory,
-      customer_time: parseInt(timeSpend),
-      additional_time: parseInt(afterWorkTime),
-      notes: freeText
+    try {
+      e.preventDefault()
+      const data = {
+        medium: comMode ? 'phone' : 'email',
+        case_id: parseInt(caseId),
+        category_id: caseCategory,
+        customer_time: parseInt(timeSpend),
+        additional_time: parseInt(afterWorkTime),
+        notes: freeText
+      }
+      const command = await postData('/case', data)
+      if (command.status === 201) {
+        setsuccesShowSnackbar(true)
+        seterrorShowSnackbar(false) //  hide error snackbar
+        setCaseId('')
+        setTimeSpend('')
+        setAfterWorkTime('')
+        setCaseCategory('')
+        setFreeText('')
+        setIsTimeSpendValid(false)
+        setCategoryValid(false)
+      } else {
+        seterrorShowSnackbar(true)
+        setsuccesShowSnackbar(false)
+      }
+    } catch (error) {
+      seterrorShowSnackbar(true)
     }
-    await postData('/case', data)
   }
+  async function submitCheck (e) {
+    if (isTimeSpendValid && isCategoryValid) {
+      try {
+        await submitData(e)
+        seterrorShowSnackbar(false)
+      } catch (error) {
+        seterrorShowSnackbar(true)
+      }
+    } else {
+      seterrorShowSnackbar(true)
+    }
+  }
+
+  useEffect(() => {
+    if (timeSpend !== '') {
+      setIsTimeSpendValid(true)
+    } else {
+      setIsTimeSpendValid(false)
+    }
+    if (caseCategory === '') {
+      setCategoryValid(false)
+    } else {
+      setCategoryValid(true)
+    }
+  }, [timeSpend, caseCategory])
 
   return (
     <>
@@ -44,14 +89,12 @@ export default function Input () {
           <div className='header-container'>
             <h1>Kommunikationsmedie</h1>
           </div>
-
           <div className='form-container'>
             <form>
               <Toggle onChange={(val) => setComMode(val)} value={comMode} />
               <TextField
                 type='number'
                 placeholder='Ärendenr'
-                isRequired={false}
                 onChange={(e) => {
                   setCaseId(e.target.value)
                 }}
@@ -94,10 +137,12 @@ export default function Input () {
                 value={freeText}
               />
             </form>
-            <SubmitButton name='submit' onClick={submitData}>
+            <SubmitButton name='submit' onClick={submitCheck}>
               SKICKA
             </SubmitButton>
           </div>
+          <SuccesSnackbar show={showsuccesSnackbar} onClose={() => setsuccesShowSnackbar(false)} />
+          <ErrorSnackbar show={showerrorSnackbar} onClose={() => seterrorShowSnackbar(false)} />
         </div>
       </PageWrapper>
     </>
