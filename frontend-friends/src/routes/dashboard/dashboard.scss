@@ -10,7 +10,7 @@
         margin-bottom: margins.$margin-md;
         border-radius: 6px;
         overflow-x: auto;
-        overflow-y: hidden;
+        overflow-y: auto;
         filter: drop-shadow(5px 5px 15px #dee0e2);
 
         .container-title {

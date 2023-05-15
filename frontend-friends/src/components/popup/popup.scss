@@ -59,7 +59,7 @@
     }
 
     .submit-button {
-        width: 50%;
+        width: 40%;
     }
 
     p {
@@ -82,67 +82,11 @@
     .first-label {
         margin-top: 0;
     }
-
-    .hashtag {
-        width: 40px;
-        height: 40px;
-        box-sizing: border-box;
-        position: absolute;
-        top: 22px;
-        background-color: colors.$darker-grey-background;
-        color: rgba(0,0,0,0.5);
-        z-index: 1;
-        border-radius: 6px 0 0 6px;
-        box-shadow: 
-            inset 0 1px 0 0 colors.$text-field-stroke, 
-            inset 0 -1px 0 0 colors.$text-field-stroke, 
-            inset 1px 0 0 0 colors.$text-field-stroke;
-        font-size: fontsizes.$fontsz-sm;
-        line-height: 40px;
-        text-align: center;
-    }
-
-    .hashtag + .text-field {
-        margin-left: 40px;
-        input {
-            border-radius: 0 6px 6px 0;
-        }
-    }
 }
 
 .dual-textfield-container {
     display: flex;
     gap: 10px;
-
-    .minutes {
-        width: 50px;
-        height: 40px;
-        background-color: colors.$darker-grey-background;
-        color: rgba(0,0,0,0.5);
-        position: absolute;
-        box-sizing: border-box;
-        font-size: fontsizes.$fontsz-sm;
-        line-height: 38px;
-        text-align: center;
-        border-radius: 0 6px 6px 0;
-        box-shadow: 
-            inset 0 1px 0 0 colors.$text-field-stroke, 
-            inset 0 -1px 0 0 colors.$text-field-stroke, 
-            inset -1px 0 0 0 colors.$text-field-stroke;
-    }
-
-    .minutes-text-field {
-        width: calc(100% - 50px);
-        border-radius: 6px 0 0 6px;
-    }
-
-    .left {
-        left: 145px;
-    }
-
-    .right {
-        right: 0;
-    }
 }
 
 .dual-textfield-labels {

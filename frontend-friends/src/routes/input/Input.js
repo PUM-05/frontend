@@ -98,6 +98,7 @@ export default function Input () {
                   setCaseId(e.target.value)
                 }}
                 value={caseId}
+                leftText='#'
               />
               <CategoryButtonGroup
                 name='category'

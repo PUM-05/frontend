@@ -7,11 +7,12 @@
 }
 
 .content-container {
-    margin-left: 260px;
+    margin-left: 220px;
     flex-grow: 1;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100vh;
 
     h1 {
         all: unset;
