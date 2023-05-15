@@ -3,10 +3,9 @@ import Datepicker from '../datepicker/Datepicker'
 import { useState, useEffect } from 'react'
 import { getData } from '../../utils/request'
 
-export default function NumOfCasesHourBar (props) {
+export default function NumOfCasesHourBar () {
   const [numOfCalls, setNumOfCalls] = useState([])
   const [numOfMails, setNumOfMails] = useState([])
-  const interval = props.interval
   const today = new Date()
   const [inputDate, setInputDate] = useState((today.getFullYear() + '-' + (('0' + (today.getMonth() + 1))).slice(-2) + '-' + ('0' + (today.getDate())).slice(-2)))
 
@@ -81,7 +80,7 @@ export default function NumOfCasesHourBar (props) {
       <BarChart
         titletext='Antal ärenden'
         datasets={datasets}
-        labels={setLabels(interval)}
+        labels={setLabels()}
       />
     </div>
   )
