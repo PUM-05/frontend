@@ -165,7 +165,6 @@ export default function NumOfCasesWeekBar () {
     return labelArray.slice().reverse()
   }
 
-  
   const datasets = ([
     {
       label: 'Telefon',
@@ -177,7 +176,7 @@ export default function NumOfCasesWeekBar () {
       data: (numOfMails),
       backgroundColor: '#20E2BA'
     }
-    ]
+  ]
   )
 
   return (

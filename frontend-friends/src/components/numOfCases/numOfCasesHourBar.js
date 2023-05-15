@@ -1,7 +1,7 @@
-import BarChart from "../barChart/barChart"
-import Datepicker from "../datepicker/Datepicker" 
-import { useState, useEffect } from "react"
-import { getData } from "../../utils/request"
+import BarChart from '../barChart/barChart'
+import Datepicker from '../datepicker/Datepicker'
+import { useState, useEffect } from 'react'
+import { getData } from '../../utils/request'
 
 export default function NumOfCasesHourBar (props) {
   const [numOfCalls, setNumOfCalls] = useState([])
@@ -48,7 +48,7 @@ export default function NumOfCasesHourBar (props) {
     getNumOfCasesHour().catch(() => 'obligatory catch')
   }, [inputDate])
 
-  function setLabels(){
+  function setLabels () {
     const interval = 11
     let i = 0
     const labelArray = []
@@ -72,12 +72,12 @@ export default function NumOfCasesHourBar (props) {
       data: (numOfMails),
       backgroundColor: '#20E2BA'
     }
-    ]
+  ]
   )
 
   return (
     <div>
-      <Datepicker onChange={(e) => setInputDate(e.target.value)} />      
+      <Datepicker onChange={(e) => setInputDate(e.target.value)} />
       <BarChart
         titletext='Antal ärenden'
         datasets={datasets}
