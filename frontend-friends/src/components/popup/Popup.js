@@ -25,7 +25,7 @@ export default function Popup (props) {
           <h1>Redigera ärende</h1>
           <span className='close-icon' onClick={props.handleClose}><CloseIcon /></span>
           <div className='text-fields-container'>
-            <p>Ärendenr</p>
+            <p className='first-label'>Ärendenr</p>
             <TextField
               type='number'
               isRequired={false}

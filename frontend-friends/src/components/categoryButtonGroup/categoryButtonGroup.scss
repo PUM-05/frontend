@@ -1,11 +1,13 @@
 @use '../../style/colors';
+@use "../../style/fontsizes.scss";
+@use "../../style/margins.scss";
 
 .button-group-wrapper{
     max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(4, 140px);
     flex-wrap: wrap;
-    gap: 10px;
+    gap: margins.$margin-md;
 }
 
 .button-group-wrapper > *{

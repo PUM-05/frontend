@@ -1,4 +1,6 @@
 @use "../../style/colors.scss";
+@use "../../style/fontsizes.scss";
+@use "../../style/margins.scss";
 
 .contain-all {
     height: 100vh;
@@ -6,6 +8,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    h2 {
+        margin-bottom: 5px;
+    }
 }
 
 .form-container {
@@ -13,13 +19,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: margins.$margin-lg;
 
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 30px;
+        gap: margins.$margin-lg;
 
         textarea {
             height: 100px;
@@ -35,18 +41,10 @@
     }
 }
 
-.header-container {
-    h1{
-        margin: 0;
-        font-size: 24px;
-    }
-    margin-bottom: 5px;
-}
-
 .text-field-container {
     display: flex;
     width: 100%;
-    gap: 10px;
+    gap: margins.$margin-md;
 
     .text-field {
         width: 50%;

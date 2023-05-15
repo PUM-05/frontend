@@ -1,4 +1,6 @@
 @use "../../style/colors.scss";
+@use "../../style/fontsizes.scss";
+@use "../../style/margins.scss";
 
 .popup-container{
     position: fixed;
@@ -23,21 +25,19 @@
     background: white;
     width: 500px;
     height: 85%;
-    min-height: 650px;
+    min-height: 600px;
     max-height: 700px;
     display: flex;
     flex-direction: column;
-    padding: 0 30px;
+    padding: 0 margins.$margin-md;
     align-items: center;
     position: relative;
     border-radius: 6px;
 
-    h1 {
+    h2 {
         font-weight: 600;
-        font-size: 24px;
         margin: 0;
-        margin-bottom: 15px;
-        margin-top: 30px;
+        margin-top: margins.$margin-lg;
     }
 
     .close-icon {
@@ -64,6 +64,10 @@
 
     p {
         color: colors.$dark-blue;
+        margin: 0;
+        margin-bottom: 5px;
+        margin-top: margins.$margin-md;
+        font-size: fontsizes.$fontsz-sm;
     }
 }
 
@@ -72,15 +76,19 @@
     min-width: 400px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin: margins.$margin-lg 0;
     position: relative;
 
+    .first-label {
+        margin-top: 0;
+    }
+
     .hashtag {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         box-sizing: border-box;
         position: absolute;
-        top: 51.5px;
+        top: 22px;
         background-color: colors.$darker-grey-background;
         color: rgba(0,0,0,0.5);
         z-index: 1;
@@ -89,13 +97,13 @@
             inset 0 1px 0 0 colors.$text-field-stroke, 
             inset 0 -1px 0 0 colors.$text-field-stroke, 
             inset 1px 0 0 0 colors.$text-field-stroke;
-        font-size: 20px;
-        line-height: 50px;
+        font-size: fontsizes.$fontsz-sm;
+        line-height: 40px;
         text-align: center;
     }
 
     .hashtag + .text-field {
-        margin-left: 50px;
+        margin-left: 40px;
         input {
             border-radius: 0 6px 6px 0;
         }
@@ -105,6 +113,36 @@
 .dual-textfield-container {
     display: flex;
     gap: 10px;
+
+    .minutes {
+        width: 50px;
+        height: 40px;
+        background-color: colors.$darker-grey-background;
+        color: rgba(0,0,0,0.5);
+        position: absolute;
+        box-sizing: border-box;
+        font-size: fontsizes.$fontsz-sm;
+        line-height: 38px;
+        text-align: center;
+        border-radius: 0 6px 6px 0;
+        box-shadow: 
+            inset 0 1px 0 0 colors.$text-field-stroke, 
+            inset 0 -1px 0 0 colors.$text-field-stroke, 
+            inset -1px 0 0 0 colors.$text-field-stroke;
+    }
+
+    .minutes-text-field {
+        width: calc(100% - 50px);
+        border-radius: 6px 0 0 6px;
+    }
+
+    .left {
+        left: 145px;
+    }
+
+    .right {
+        right: 0;
+    }
 }
 
 .dual-textfield-labels {
@@ -125,8 +163,8 @@
 
     button {
         all: unset;
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         background-color: colors.$switch-button-background;
         border-radius: 6px;
         box-sizing: border-box;
