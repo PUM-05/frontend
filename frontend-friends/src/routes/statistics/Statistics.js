@@ -8,7 +8,6 @@ import NumOfCasesHourBar from '../../components/numOfCases/numOfCasesHourBar'
  * @returns Statistics component
  */
 export default function Statistics () {
-
   return (
     <>
       <PageWrapper className='Statistics'>
