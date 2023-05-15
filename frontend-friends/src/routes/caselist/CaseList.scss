@@ -15,17 +15,19 @@
         h1 {
             margin: 0;
         }
-        width: 50%;
     }
 
     .top-wrapper{
         display:flex;
-    }
+        align-items: center;
 
-    .search-container{
-        right: 0;
-        width: 40%;
-        //margin-top: 1.5%;
-        padding: 2%;
+        .search-container {
+            margin-left: margins.$margin-md;
+            width: 230px;
+
+            .placeholder-content {
+                align-items: center;
+            }
+        }
     }
 }
