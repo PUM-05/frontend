@@ -37,12 +37,14 @@
 .case-list-page{
    
     .pagination-wrapper{
+        align-items: center;
         user-select: none;
         display: flex;
         justify-content: end;
         margin-left: 40px;
         margin-right: 40px;
         margin-bottom: 40px;
+        gap: 20px;
 
         & > p{
            display: inline-block;

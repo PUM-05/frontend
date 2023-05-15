@@ -74,6 +74,7 @@ export default function CaseList () {
         </div>
 
         <div className='pagination-wrapper'>
+          <span>Sida {page}</span>
           <div className='pagination-switch-buttons'>
             <button className={`left ${page === 1 ? 'disabled' : ''}`} onClick={() => setPage(page - 1)}><Arrow /></button>
             <button className={`right ${hasMorePages ? '' : 'disabled'}`} onClick={() => setPage(page + 1)}><Arrow /></button>
