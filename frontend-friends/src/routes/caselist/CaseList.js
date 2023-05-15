@@ -21,8 +21,13 @@ export default function CaseList () {
   const casesPerPage = 10
 
   useEffect(() => {
+    setPage(1)
     getSearchedCases().catch(() => 'Could not retrieve cases')
-  }, [finalValue, page])
+  }, [finalValue])
+
+  useEffect(() => {
+    getSearchedCases().catch(() => 'Could not retrieve cases')
+  }, [page])
 
   /**
   * Waiting for enter to be pressed, if clicked, then submitdata

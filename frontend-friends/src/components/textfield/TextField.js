@@ -31,7 +31,7 @@ export default function TextField (props) {
         <span className='textfield-right-text'>{props.leftText ?? ''}</span>}
       <div className='textfield-input-container'>
         <input
-          min='0' className={`${props.class ?? ''} ${props.rightText ? 'textfield-right-text-container' : ''}  ${props.leftText ? 'textfield-left-text-container' : ''}`} type={inputType} id={props.id} name={`${isRequired ? 'mandatory-text-field' : 'text-field'}`} required={isRequired} onInput={onChange} onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value}
+          min='0' className={`${props.class ?? ''} ${props.rightText ? 'textfield-right-text-container' : ''}  ${props.leftText ? 'textfield-left-text-container' : ''}`} type={inputType} id={props.id} name={`${isRequired ? 'mandatory-text-field' : 'text-field'}`} required={isRequired} onInput={onChange} onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} value={props.value}
         />
         <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
       </div>
