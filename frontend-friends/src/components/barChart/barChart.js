@@ -24,6 +24,7 @@ ChartJS.register(
  * @returns a bar chart component
  */
 export default function barChart (props) {
+  console.log(props.datasets)
   const data = {
     labels: props.labels,
     datasets: props.datasets
