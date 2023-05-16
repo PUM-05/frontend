@@ -28,11 +28,11 @@ export default function barChart (props) {
     labels: props.labels,
     datasets: props.datasets
   }
-
   const options = ({
     responsive: true,
     plugins: {
       legend: {
+        display: false,
         position: 'top'
       },
       title: {

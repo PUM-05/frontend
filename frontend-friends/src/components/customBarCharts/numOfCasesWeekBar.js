@@ -21,10 +21,6 @@ ChartJS.register(
   Legend
 )
 
-/**
- * Creates a barchart that displays how many cases have been created in a given interval
- * @returns a barChart component
- */
 export default function NumOfCasesWeekBar () {
   const [numOfCalls, setNumOfCalls] = useState([])
   const [numOfMails, setNumOfMails] = useState([])
@@ -185,7 +181,7 @@ export default function NumOfCasesWeekBar () {
 
   return (
     <div>
-      <IntervalDropdown onChange={handleChange} />
+      <IntervalDropdown onChange={handleChange} options={{ week: '1 vecka', '2Week': '2 veckor', '4Week': '4 veckor', year: '1 år' }} />
       <BarChart
         titletext='Antal ärenden'
         datasets={datasets}

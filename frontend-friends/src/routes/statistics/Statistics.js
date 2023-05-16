@@ -1,8 +1,9 @@
 import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import './Statistics.scss'
 import DayTotalCasesLine from '../../components/dayTotalCasesLine/DayTotalCasesLine'
-import NumOfCasesWeekBar from '../../components/numOfCases/numOfCasesWeekBar'
-import NumOfCasesHourBar from '../../components/numOfCases/numOfCasesHourBar'
+import NumOfCasesWeekBar from '../../components/customBarCharts/numOfCasesWeekBar'
+import NumOfCasesHourBar from '../../components/customBarCharts/numOfCasesHourBar'
+import TimePerCategory from '../../components/customBarCharts/timePerCategoryBar'
 /**
  * Component for displaying the statistics page.
  * @returns Statistics component
@@ -21,6 +22,9 @@ export default function Statistics () {
           </div>
           <div className='barchart-container'>
             <NumOfCasesHourBar />
+          </div>
+          <div className='barchart-container'>
+            <TimePerCategory />
           </div>
         </div>
       </PageWrapper>
