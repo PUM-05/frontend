@@ -3,12 +3,19 @@ import Datepicker from '../datepicker/Datepicker'
 import { useState, useEffect } from 'react'
 import { getData } from '../../utils/request'
 
+/**
+ * This function creates a kind of barchart that displays the number of cases created for each hour of the day
+ * @returns a barchart
+ */
 export default function NumOfCasesHourBar () {
   const [numOfCalls, setNumOfCalls] = useState([])
   const [numOfMails, setNumOfMails] = useState([])
   const today = new Date()
   const [inputDate, setInputDate] = useState((today.getFullYear() + '-' + (('0' + (today.getMonth() + 1))).slice(-2) + '-' + ('0' + (today.getDate())).slice(-2)))
 
+  /**
+   * Sends 12 get requests. One for each hour of the day. Then sorts the data based on medium.
+   */
   async function getNumOfCasesHour () {
     const today = new Date()
     const year = today.getFullYear()
@@ -44,6 +51,10 @@ export default function NumOfCasesHourBar () {
     getNumOfCasesHour().catch(() => 'obligatory catch')
   }, [inputDate])
 
+  /**
+   * Gets the labels for the x-axis
+   * @returns a list of labels (strings)
+   */
   function setLabels () {
     const interval = 11
     let i = 0

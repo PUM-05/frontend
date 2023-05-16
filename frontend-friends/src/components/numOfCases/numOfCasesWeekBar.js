@@ -21,6 +21,10 @@ ChartJS.register(
   Legend
 )
 
+/**
+ * Creates a barchart that displays how many cases have been created in a given interval
+ * @returns a barChart component
+ */
 export default function NumOfCasesWeekBar () {
   const [numOfCalls, setNumOfCalls] = useState([])
   const [numOfMails, setNumOfMails] = useState([])
