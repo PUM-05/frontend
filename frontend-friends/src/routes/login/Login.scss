@@ -1,4 +1,6 @@
 @use "../../style/colors.scss";
+@use "../../style/margins.scss";
+@use "../../style/fontsizes.scss";
 
 .contain-all {
     height: 100vh;
@@ -8,8 +10,8 @@
     justify-content: center;
     .default-logo{
         display:block;
-        width: 300px;
-        margin-bottom: 5%;
+        width: 250px;
+        margin-bottom: margins.$margin-lg;
         fill: #579CFB;
         .login-logo{
             width: 100px;
@@ -19,11 +21,11 @@
 
 .login-form-container {
 
-    width: 16%;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: margins.$margin-md;
 
     .error-msg{
         color:red;
@@ -34,17 +36,22 @@
         width: 100%;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: margins.$margin-md;
+
+        .text-field {
+            width: 100%;
+        }
     }
 
     button {
         all: unset;
         background-color: colors.$primary-color;
+        font-size: fontsizes.$fontsz-sm;
         font-weight: 600;
         color: white;
         text-align: center;
         width: 100%;
-        height: 50px;
+        height: 45px;
         border-radius: 6px;
         cursor: pointer;
         transition: 0.4s;

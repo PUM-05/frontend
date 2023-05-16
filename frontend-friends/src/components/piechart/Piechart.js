@@ -30,7 +30,7 @@ export default function pieChart (props) {
           bottom: 10
         },
         font: {
-          size: 24,
+          size: 18,
           family: ['Montserrat', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif']
         }
       },

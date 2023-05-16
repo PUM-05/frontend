@@ -1,4 +1,6 @@
 @use '../../style/colors';
+@use "../../style/fontsizes.scss";
+@use "../../style/margins.scss";
 
 .filled {
     display: none;
@@ -29,17 +31,17 @@
         background-color: colors.$text-field-background;
         box-shadow: inset 0 0 0 1px colors.$text-field-stroke;
         box-sizing: border-box;
-        padding: 12px 20px;
-        font-size: 18px;
+        padding: margins.$margin-md;
+        font-size: fontsizes.$fontsz-sm;
         transition: box-shadow 0.2s;
     }
 
     label {
         position: absolute;
         color: colors.$placeholder-text;
-        font-size: 18px;
-        left: 22px;
-        line-height: 50px;
+        font-size: fontsizes.$fontsz-sm;
+        left: margins.$margin-md;
+        line-height: 48px;
         cursor:text;
     }
     
