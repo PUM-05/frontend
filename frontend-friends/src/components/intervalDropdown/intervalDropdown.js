@@ -6,11 +6,9 @@ import './intervalDropdown.scss'
  * @returns dropdown component
  */
 export default function IntervalDropdown (props) {
-  //items.push(<option key={i} value={i}>{i}</option>);   
-
-  function getOptions(){
+  function getOptions () {
     const options = []
-    for(let i = 0; i < Object.keys(props.options).length; i++){
+    for (let i = 0; i < Object.keys(props.options).length; i++) {
       options.push(<option key={i} value={Object.keys(props.options)[i]}>{Object.values(props.options)[i]}</option>)
     }
     return options
@@ -20,12 +18,7 @@ export default function IntervalDropdown (props) {
     <div className='dropdown-container'>
       <select className='time-select' onChange={props.onChange} value={props.value}>
         {getOptions()}
-        {/*
-        <option value='week'>1 vecka</option>
-        <option value='2Week'>2 veckor</option>
-        <option value='4Week'>4 veckor</option>
-        <option value='year'>1 år</option>
-        */}
+
       </select>
     </div>
   )

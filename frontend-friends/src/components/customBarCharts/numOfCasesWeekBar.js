@@ -181,7 +181,7 @@ export default function NumOfCasesWeekBar () {
 
   return (
     <div>
-      <IntervalDropdown onChange={handleChange} options={{'week':'1 vecka','2Week': '2 veckor', '4Week': '4 veckor', 'year': '1 år'}} />
+      <IntervalDropdown onChange={handleChange} options={{ week: '1 vecka', '2Week': '2 veckor', '4Week': '4 veckor', year: '1 år' }} />
       <BarChart
         titletext='Antal ärenden'
         datasets={datasets}
