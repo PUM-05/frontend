@@ -15,7 +15,7 @@ export default function NumOfCasesHourBar () {
     const month = today.getMonth() + 1
     const day = today.getDate()
     const urlArray = []
-    const interval = 11
+    const interval = 12
     let inputDates = inputDate
 
     for (let i = 0; i < interval; i++) {
@@ -34,13 +34,12 @@ export default function NumOfCasesHourBar () {
       phoneArray.push(data.phone)
       mailArray.push(data.email)
     }
+    //phoneArray.push(0)
     phoneArray.push(0)
-    phoneArray.push(0)
-    mailArray.push(0)
+    //mailArray.push(0)
     mailArray.push(0)
     setNumOfCalls(phoneArray.slice().reverse())
     setNumOfMails(mailArray.slice().reverse())
-    console.log(phoneArray)
   }
 
   useEffect(() => {
@@ -78,7 +77,7 @@ export default function NumOfCasesHourBar () {
     <div>
       <Datepicker onChange={(e) => setInputDate(e.target.value)} />
       <BarChart
-        titletext='Antal ärenden'
+        titletext='Antal nya ärenden varje timme'
         datasets={datasets}
         labels={setLabels()}
       />
