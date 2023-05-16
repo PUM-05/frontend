@@ -7,6 +7,11 @@ export default function TimePerCategory () {
   const [categories, setCategories] = useState([])
   const [interval, setInterval] = useState(100)
   const [responseArray, setResponseArray] = useState([])
+  const [categoryIDArray, setCategoryIDArray] = useState([])
+
+  const colors = ['#579CFB', '#20E2BA', '#FD5E80', '#F8D347', '#BC6C25', '#00C864', '#A259FF', '#9694FF']
+
+  const [datasets, setDatasets] = useState([])
 
   async function getCategories () {
     const response = await getData('/case/categories')
@@ -49,8 +54,10 @@ export default function TimePerCategory () {
     }
     const rawData = await response.json()
     const tempArray = []
+    const tempIDArray = []
 
     for (const data of rawData) {
+      tempIDArray.push(data.category_id)
       const count = data.count
       const totalTime = (data.customer_time + data.additional_time)
       let averageTime = Math.round(totalTime / count)
@@ -59,13 +66,48 @@ export default function TimePerCategory () {
       }
       tempArray.push(averageTime)
     }
+    setCategoryIDArray(tempIDArray)
     setResponseArray(tempArray)
   }
 
+  function createDatasets () {
+    const tempColorArray = []
+    for (const id of categoryIDArray) {
+      tempColorArray.push(colors[id % colors.length])
+    }
+
+    const dataArray = []
+    for (let i = 0; i < responseArray.length; i++) {
+      const tempData = []
+      for (let j = 0; j < responseArray.length; j++) {
+        if (j !== i) {
+          tempData.push(0)
+        } else {
+          tempData.push(responseArray[i])
+        }
+      }
+      dataArray.push(
+        {
+          label: categories[i],
+          data: tempData,
+          backgroundColor: tempColorArray[i]
+        }
+      )
+    }
+    setDatasets(dataArray)
+    return dataArray
+  }
   useEffect(() => {
-    getCategories().catch(console.error)
-    getTime().catch(console.error)
+    getCategories()
+      .then(() => getTime())
+      .catch(console.error)
   }, [interval])
+
+  useEffect(() => {
+    if (responseArray.length > 0 && categoryIDArray.length > 0) {
+      createDatasets()
+    }
+  }, [responseArray, categoryIDArray])
 
   const handleChange = (event) => {
     switch (event.target.value) {
@@ -86,15 +128,6 @@ export default function TimePerCategory () {
         break
     }
   }
-
-  const datasets = ([
-    {
-      label: 'Ärendehanteringstid',
-      data: responseArray,
-      backgroundColor: '#579CFB'
-    }
-  ]
-  )
 
   return (
     <div>
