@@ -71,14 +71,14 @@ export default function PieChartGroup (props) {
       const categoryArray = await categoryPromise
       const categoryData = []
       const categoryLabels = []
-      for (let i = 0; i < categoryArray.length; i++) {
-        categoryData.push(categoryArray[i].count)
-        categoryLabels.push(categoryArray[i].category_name)
+      for (const element of categoryArray) {
+        categoryData.push(element.count)
+        categoryLabels.push(element.category_name)
       }
       setCategoryData(categoryData)
       setCategoryLabels(categoryLabels)
     }
-    getPieData()
+    getPieData().catch(() => 'obligatory catch')
   }, [])
   return (
     <div className='pie-chart-container'>
