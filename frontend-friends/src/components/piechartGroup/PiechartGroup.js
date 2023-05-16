@@ -31,6 +31,7 @@ export default function PieChartGroup(props) {
         }
         const newDate = new Date(startYear, startMonth, 0);
         startDay = newDate.getDate();
+        startDay = starDay - 13 + endDay;
       } else {
         startDay -= 13;
       }
