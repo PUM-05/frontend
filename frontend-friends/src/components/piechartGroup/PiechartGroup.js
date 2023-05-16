@@ -12,7 +12,6 @@ export default function PieChartGroup (props) {
   const [categoryData, setCategoryData] = useState([])
   const [categoryLabels, setCategoryLabels] = useState([])
 
-
   useEffect(() => {
     async function getPieData () {
       const today = new Date()
@@ -96,7 +95,7 @@ export default function PieChartGroup (props) {
             ],
             borderColor: ['white'],
             borderWidth: 4
-          },
+          }
         ]}
       />
       <PieChart
