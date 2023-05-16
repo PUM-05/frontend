@@ -3,6 +3,7 @@
 
 .dashboard {
 
+    //background-color: unset;
     .dashboard-content {
         background-color: white;
         margin-left: margins.$margin-md;
@@ -32,4 +33,8 @@
     .list-container {
         flex: 1;
     }
+    .mid-content {
+        display: flex;
+    }
+    
 }
