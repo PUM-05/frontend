@@ -1,23 +1,23 @@
 @use "../../style/colors.scss";
+@use "../../style/fontsizes.scss";
+@use "../../style/margins.scss";
 
 .placeholder-content{
     display: flex;
     width: 100%;
-    font-size: 1.4vw;
+    font-size: fontsizes.$fontsz-sm;;
     white-space: nowrap;
 
     
     .search-icon{
         color: colors.$placeholder-text;
-        font-size: 18px;
+        font-size: fontsizes.$fontsz-sm;
         flex-direction: row;
-        margin-top: 13px;
-        margin-right: 10px;
-        margin-left: -3%;
-        line-height: 50px;
         pointer-events: none;
-        padding-top: 2px;
         cursor:text;
+        margin-right: margins.$margin-md / 2;
+        width: 16px;
+        height: 16px;
     }
 
     .text-field label{
@@ -37,6 +37,6 @@
 
 @media screen and (max-width: 992px){
     .placeholder-content{
-        font-size: 1.7vw;
+        font-size: fontsizes.$fontsz-sm;
     }
 }

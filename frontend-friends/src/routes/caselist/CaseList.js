@@ -46,7 +46,7 @@ export default function CaseList () {
         <div className='list-container'>
           <div className='top-wrapper'>
             <div className='container-title'>
-              <h1>Senaste ärenden</h1>
+              <h2>Senaste ärenden</h2>
             </div>
             <div className='search-container'>
               <SearchBar

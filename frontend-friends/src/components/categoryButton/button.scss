@@ -1,4 +1,6 @@
 @use '../../style/colors';
+@use "../../style/fontsizes.scss";
+@use "../../style/margins.scss";
 
 .category-button-wrapper {
 
@@ -7,8 +9,8 @@
     label {
         all: unset;
         box-sizing: border-box;
-        height: 80px;
-        padding: 20px 30px;
+        height: 65px;
+        width: 140px;
         user-select: none;
         text-align: center;
         border-radius: 6px;
@@ -55,6 +57,7 @@
         height: 100%;
         text-align: center;
         text-transform: uppercase;
+        font-size: fontsizes.$fontsz-p;
         font-weight: 600;
         display: flex;
         justify-content: center;

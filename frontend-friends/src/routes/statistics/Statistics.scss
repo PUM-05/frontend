@@ -1,3 +1,6 @@
+@use "../../style/fontsizes.scss";
+@use "../../style/margins.scss";
+
 .Statistics{
     .barchart-container{
         margin-left: 2%;
@@ -8,13 +11,12 @@
     }
 
     .chart-container{
-        height: 100%;
+        flex-grow: 1;
         display: grid; 
         grid-template-columns: repeat(3, 390px);
         background-color: white;
-        margin-left: 40px;
-        margin-right: 40px;
-        margin-bottom: 40px;
+        margin: margins.$margin-md;
+        margin-top: 0;
         border-radius: 6px;
         overflow-y:auto;
         filter: drop-shadow(5px 5px 15px #dee0e2);

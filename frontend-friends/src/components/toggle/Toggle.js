@@ -36,7 +36,7 @@ export default function Toggle (props) {
     <ReactSwitch
       checked={checked}
       onChange={handleChange}
-      handleDiameter={34}
+      handleDiameter={27}
       className='toggle'
       onColor='#579CFB' // #F0F1F2
       offColor='#20E2BA' // #F0F1F2
@@ -62,14 +62,14 @@ export default function Toggle (props) {
             justifyContent: 'center',
             alignItems: 'center',
             height: '100%',
-            paddingRight: 2
+            paddingRight: 0
           }}
         >
           <MailIcon />
         </div>
       }
-      width={85}
-      height={40}
+      width={70}
+      height={35}
     />
   )
 }
