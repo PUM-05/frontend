@@ -114,7 +114,6 @@ export default function PieChartGroup (props) {
               '#A259FF',
               '#b197fb',
               '#579CFB'
-              /*'cyan', 'red', 'yellow', 'brown', 'green', 'purple', 'violet' 'blue', */
             ],
             borderColor: ['white'],
             borderWidth: 4
