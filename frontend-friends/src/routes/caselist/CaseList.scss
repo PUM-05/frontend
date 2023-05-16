@@ -1,4 +1,5 @@
 @use "../../style/margins.scss";
+@use "../../style/colors.scss";
 
 .list-container {
     flex-grow: 1;
@@ -27,6 +28,69 @@
 
             .placeholder-content {
                 align-items: center;
+            }
+        }
+    }
+
+
+}
+
+.case-list-page{
+   
+    .pagination-wrapper{
+        align-items: center;
+        user-select: none;
+        display: flex;
+        justify-content: end;
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-bottom: 40px;
+        gap: 20px;
+
+        & > p{
+           display: inline-block;
+           margin-right: 20px;
+        }
+    }
+    .pagination-switch-buttons {
+        align-self: end;
+        display: flex;
+        gap: 10px;
+        width: fit-content;
+
+        & > button {
+            all: unset;
+            width: 50px;
+            height: 50px;
+            background-color: colors.$switch-button-background;
+            border-radius: 6px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+    
+            &:hover{
+                background-color: colors.$switch-button-hover;
+            }
+        }
+    
+        & > .left {
+    
+            svg {
+                transform: rotate(0.5turn);
+            }
+        }
+    
+        & > .disabled {
+            background-color: colors.$switch-button-disabled-background;
+            pointer-events: none;
+            
+            svg {
+                path {
+                    fill: colors.$switch-button-disabled-icon;
+                }
             }
         }
     }
