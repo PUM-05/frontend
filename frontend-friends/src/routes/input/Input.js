@@ -4,7 +4,7 @@ import Toggle from '../../components/toggle/Toggle'
 import CategoryButtonGroup from '../../components/categoryButtonGroup/CategoryButtonGroup'
 import PageWrapper from '../../components/pagewrapper/PageWrapper'
 import './input.scss'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { postData } from '../../utils/request'
 import TextArea from '../../components/textArea/TextArea'
 import SuccesSnackbar from '../../components/message/succesSnackbar'
@@ -24,6 +24,11 @@ export default function Input () {
   const [showerrorSnackbar, seterrorShowSnackbar] = useState(false)
   const [isTimeSpendValid, setIsTimeSpendValid] = useState(false)
   const [isCategoryValid, setCategoryValid] = useState(false)
+
+  const caseIdRef = useRef(null)
+  const timeSpendRef = useRef(null)
+  const addTimeRef = useRef(null)
+  const notesRef = useRef(null)
 
   async function submitData (e) {
     try {
@@ -47,6 +52,11 @@ export default function Input () {
         setFreeText('')
         setIsTimeSpendValid(false)
         setCategoryValid(false)
+
+        caseIdRef.current.value = ''
+        timeSpendRef.current.value = ''
+        addTimeRef.current.value = ''
+        notesRef.current.value = ''
       } else {
         seterrorShowSnackbar(true)
         setsuccesShowSnackbar(false)
@@ -99,6 +109,7 @@ export default function Input () {
                 }}
                 value={caseId}
                 leftText='#'
+                ref={caseIdRef}
               />
               <CategoryButtonGroup
                 name='category'
@@ -117,6 +128,7 @@ export default function Input () {
                   }}
                   value={timeSpend}
                   rightText='min'
+                  ref={timeSpendRef}
                 />
                 <TextField
                   type='number'
@@ -126,6 +138,7 @@ export default function Input () {
                   }}
                   value={afterWorkTime}
                   rightText='min'
+                  ref={addTimeRef}
                 />
               </div>
               <TextArea
@@ -135,6 +148,7 @@ export default function Input () {
                   setFreeText(e.target.value)
                 }}
                 value={freeText}
+                ref={notesRef}
               />
             </form>
             <SubmitButton name='submit' onClick={submitCheck}>

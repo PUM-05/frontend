@@ -1,3 +1,4 @@
+import React from 'react'
 import './textfield.scss'
 
 /**
@@ -6,7 +7,7 @@ import './textfield.scss'
  *            For example, normal or password. It also contains a default text value
  * @returns a textfield component that the user can input data into.
  */
-export default function TextField (props) {
+const TextField = React.forwardRef((props, ref) => {
   const isRequired = props.isRequired || false
   let inputType = props.type ?? 'text'
 
@@ -31,7 +32,8 @@ export default function TextField (props) {
         <span className='textfield-right-text'>{props.leftText ?? ''}</span>}
       <div className='textfield-input-container'>
         <input
-          min='0' className={`${props.class ?? ''} ${props.rightText ? 'textfield-right-text-container' : ''}  ${props.leftText ? 'textfield-left-text-container' : ''}`} type={inputType} id={props.id} name={`${isRequired ? 'mandatory-text-field' : 'text-field'}`} required={isRequired} onInput={onChange} onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value} value={props.value}
+          ref={ref}
+          min='0' className={`${props.class ?? ''} ${props.rightText ? 'textfield-right-text-container' : ''}  ${props.leftText ? 'textfield-left-text-container' : ''}`} type={inputType} id={props.id} name={`${isRequired ? 'mandatory-text-field' : 'text-field'}`} required={isRequired} onInput={onChange} onChange={props.onChange} onKeyDown={props.onKeyDown} defaultValue={props.value}
         />
         <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
       </div>
@@ -41,4 +43,6 @@ export default function TextField (props) {
     </div>
 
   )
-}
+})
+
+export default TextField
