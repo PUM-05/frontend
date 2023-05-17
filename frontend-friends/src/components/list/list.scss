@@ -1,4 +1,6 @@
 @use '../../style/colors';
+@use "../../style/fontsizes.scss";
+@use "../../style/margins.scss";
 
 table {
     width: 100%;
@@ -9,15 +11,16 @@ table {
 }
 
 tr, th, td {
-    height: 50px;
+    height: 40px;
     border: none;
     border-top: 1px inset #B8C4CF;
     border-bottom: 1px inset #B8C4CF;
     text-align: left;
-    padding: 0 15px;
+    padding: 0 margins.$margin-sm;
     font-weight: 400;
     color: colors.$dark-blue;
     max-width: 100px;
+    font-size: fontsizes.$fontsz-p;
 }
 
 td {
@@ -55,7 +58,7 @@ td {
     }
 
     svg {
-        width: 22px;
-        height: 22px;
+        width: 18px;
+        height: 18px;
     }
 }

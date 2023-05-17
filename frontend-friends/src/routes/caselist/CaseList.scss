@@ -1,38 +1,41 @@
 @use "../../style/colors.scss";
 
+@use "../../style/margins.scss";
+
 .list-container {
     flex-grow: 1;
     background-color: white;
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-bottom: 20px;
+    margin-left: margins.$margin-md;
+    margin-right: margins.$margin-md;
+    margin-bottom: margins.$margin-md;
     border-radius: 6px;
     box-shadow: 5px 5px 15px #dee0e2;
     overflow: scroll;
 
     .container-title {
-        padding: 30px;
+        padding: margins.$margin-md;
         h1 {
-            font-weight: 600;
-            font-size: 24px;
             margin: 0;
         }
-        width: 50%;
     }
 
     .top-wrapper{
         display:flex;
-    }
+        align-items: center;
 
-    .search-container{
-        right: 0;
-        width: 40%;
-        //margin-top: 1.5%;
-        padding: 2%;
+        .search-container {
+            margin-left: margins.$margin-md;
+            width: 230px;
+
+            .placeholder-content {
+                align-items: center;
+            }
+        }
     }
 
 
 }
+
 
 .case-list-page{
    
@@ -41,9 +44,9 @@
         user-select: none;
         display: flex;
         justify-content: end;
-        margin-left: 40px;
-        margin-right: 40px;
-        margin-bottom: 40px;
+        margin-left: margins.$margin-md;
+        margin-right: margins.$margin-md;
+        margin-bottom: margins.$margin-md;
         gap: 20px;
 
         & > p{
@@ -59,8 +62,8 @@
 
         & > button {
             all: unset;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background-color: colors.$switch-button-background;
             border-radius: 6px;
             box-sizing: border-box;

@@ -9,7 +9,6 @@ import { postData } from '../../utils/request'
 import TextArea from '../../components/textArea/TextArea'
 import SuccesSnackbar from '../../components/message/succesSnackbar'
 import ErrorSnackbar from '../../components/message/errorSnackbar'
-
 /**
  * Component displaying the case input page
  * @returns Input page component
@@ -87,7 +86,7 @@ export default function Input () {
       <PageWrapper className='collapsed-sidebar'>
         <div className='contain-all'>
           <div className='header-container'>
-            <h1>Kommunikationsmedie</h1>
+            <h2>Kommunikationsmedie</h2>
           </div>
           <div className='form-container'>
             <form>
@@ -99,6 +98,7 @@ export default function Input () {
                   setCaseId(e.target.value)
                 }}
                 value={caseId}
+                leftText='#'
               />
               <CategoryButtonGroup
                 name='category'

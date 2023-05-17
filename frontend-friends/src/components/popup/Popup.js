@@ -22,10 +22,10 @@ export default function Popup (props) {
       <div className='popup-container'>
         <div className='popup-background' onClick={props.handleClose} />
         <div className='popup'>
-          <h1>Redigera ärende</h1>
+          <h2>Redigera ärende</h2>
           <span className='close-icon' onClick={props.handleClose}><CloseIcon /></span>
           <div className='text-fields-container'>
-            <p>Ärendenr</p>
+            <p className='first-label'>Ärendenr</p>
             <TextField
               type='number'
               isRequired={false}
