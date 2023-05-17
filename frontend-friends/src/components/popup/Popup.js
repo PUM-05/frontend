@@ -64,8 +64,8 @@ export default function Popup (props) {
           </div>
           <SubmitButton className='submit-button' onClick={() => props.editCase(props.data.id, newSpentTime, newAdditionalTime, newNotes, newCaseId)}>SPARA</SubmitButton>
           <div className='switch-buttons'>
-            <button className={`left ${props.index <= 0 ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index - 1)}><Arrow /></button>
-            <button className={`right ${props.index >= props.maxIndex ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index + 1)}><Arrow /></button>
+            <button className={`left ${props.disablePrev ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index - 1)}><Arrow /></button>
+            <button className={`right ${props.disableNext ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index + 1)}><Arrow /></button>
           </div>
         </div>
       </div>

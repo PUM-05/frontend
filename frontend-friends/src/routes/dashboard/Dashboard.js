@@ -13,14 +13,14 @@ export default function Dashboard () {
   const [cases, setCases] = useState([])
 
   useEffect(() => {
-    loadCases()
+    loadCases().catch((e) => console.error(e))
   }, [])
 
   /**
    * Sends a request that fetches all cases from the database
    */
   async function loadCases () {
-    const request = await (getData('/case'))
+    const request = await (getData('/case?page=1&per-page=5'))
     const data = await (request.json())
     setCases(data.cases)
   }

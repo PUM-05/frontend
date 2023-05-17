@@ -1,5 +1,5 @@
 import './list.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Popup from '../popup/Popup'
 import { editData } from '../../utils/request'
 import NotesIcon from '../../utils/icons/NotesIcon'
@@ -14,6 +14,7 @@ import NotesIcon from '../../utils/icons/NotesIcon'
 export default function List (props) {
   const [isOpen, setIsOpen] = useState(false)
   const [caseIndex, setCaseIndex] = useState(0)
+  const [navDir, setNavDir] = useState()
 
   /**
    * Toggles the popup for editing cases
@@ -49,6 +50,9 @@ export default function List (props) {
   function switchCase (newIndex) {
     if (newIndex >= 0 && newIndex < props.content.length) {
       setCaseIndex(newIndex)
+    } else {
+      props.setPage(newIndex < 0 ? props.page - 1 : props.page + 1)
+      setNavDir(newIndex < 0 ? '-' : '+')
     }
   }
 
@@ -56,6 +60,20 @@ export default function List (props) {
     const d = new Date(date)
     return d.toLocaleString()
   }
+
+  function getCaseIndex (index) {
+    return Math.min(Math.max(props.content.length - 1, 0), index)
+  }
+
+  useEffect(() => {
+    if (navDir === '+') {
+      setCaseIndex(0)
+      setNavDir(undefined)
+    } else if (navDir === '-') {
+      setCaseIndex(props.content.length - 1)
+      setNavDir(undefined)
+    }
+  }, [props.content])
 
   return (
     <>
@@ -100,7 +118,7 @@ export default function List (props) {
 
         </tbody>
       </table>
-      {isOpen && props.hasPopup && <Popup handleClose={togglePopup} key={props.content[caseIndex].id} data={props.content[caseIndex]} editCase={editCase} index={caseIndex} switchCase={switchCase} maxIndex={props.content.length - 1} />}
+      {isOpen && props.hasPopup && <Popup handleClose={togglePopup} data={props.content[getCaseIndex(caseIndex)]} editCase={editCase} key={props.content[getCaseIndex(caseIndex)].id} index={getCaseIndex(caseIndex)} switchCase={switchCase} disablePrev={props.page === 1 && getCaseIndex(caseIndex) === 0} disableNext={!props.hasMorePages && getCaseIndex(caseIndex) === props.content.length - 1} />}
     </>
   )
 }
