@@ -1,3 +1,4 @@
+import React from 'react'
 import './text-area.scss'
 
 /**
@@ -5,11 +6,13 @@ import './text-area.scss'
  * @param {*} props contains what should happen on change and the default text for the area
  * @returns a textarea component.
  */
-export default function TextArea (props) {
+const TextArea = React.forwardRef((props, ref) => {
   return (
     <div className='text-area'>
-      <textarea id={props.id} name='text-area' onChange={props.onChange} defaultValue={props.value} value={props.value} />
+      <textarea ref={ref} id={props.id} name='text-area' onChange={props.onChange} defaultValue={props.value} />
       <label className={props.value && 'filled'} htmlFor={props.id}>{props.placeholder}</label>
     </div>
   )
-}
+})
+
+export default TextArea
