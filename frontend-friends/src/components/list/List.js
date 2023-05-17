@@ -107,7 +107,7 @@ export default function List (props) {
               <td>{currCase.customer_time} min</td>
               <td>{currCase.additional_time} min</td>
               <td><div>{parseDate(currCase.created_at)}</div></td>
-              <td className='edit-field'>Redigera</td>
+              <td className='edit-field'>{props.hasPopup ? 'Redigera' : ''}</td>
               <td className='notes-icon'>
                 <div className='notes-icon-container'>
                   {/[a-z0-9$&+,:;=?@#|'<>.^*()%!-åäö]/i.test(currCase.notes) ? <NotesIcon /> : <></>}
