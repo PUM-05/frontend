@@ -90,8 +90,8 @@ export default function PieChartGroup (props) {
             label: 'Antal Ärenden',
             data: mediumData,
             backgroundColor: [
-              'rgba(87, 156, 251, 0.5)',
-              'rgba(32, 226, 186, 0.5)'
+              '#579CFB',
+              '#20E2BA'
             ],
             borderColor: ['white'],
             borderWidth: 4
