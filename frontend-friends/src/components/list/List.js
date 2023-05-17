@@ -102,7 +102,7 @@ export default function List (props) {
         <tbody>
           {props.content.map((currCase, index) =>
             <tr onClick={() => togglePopup(currCase, index)} key={currCase.id}>
-              <td>#{currCase.case_id}</td>
+              <td>{currCase.case_id !== null ? '#' : ''}{currCase.case_id}</td>
               <td>{(currCase.category_name !== null ? currCase.category_name : 'Kategori saknas')}</td>
               <td>{currCase.customer_time} min</td>
               <td>{currCase.additional_time} min</td>
