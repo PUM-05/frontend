@@ -51,7 +51,7 @@ export default function lineChart (props) {
           bottom: 10
         },
         font: {
-          size: 24,
+          size: 15,
           family: ['Montserrat', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif']
         }
       },

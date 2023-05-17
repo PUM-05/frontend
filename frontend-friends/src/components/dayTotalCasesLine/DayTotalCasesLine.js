@@ -60,7 +60,7 @@ export default function DayTotalCasesLine () {
   return (
     <div>
       <Datepicker onChange={(e) => setInputDate(e.target.value)} />
-      <LineChart datasets={datasets} labels={labels} />
+      <LineChart datasets={datasets} labels={labels} titletext='Totalt antal ärenden' />
     </div>
   )
 }
