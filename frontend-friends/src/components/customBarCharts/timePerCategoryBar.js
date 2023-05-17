@@ -131,7 +131,7 @@ export default function TimePerCategory () {
 
   return (
     <div>
-      <IntervalDropdown onChange={handleChange} options={{ alltime: 'All tid', week: '1 vecka', '2Week': '2 veckor', '4Week': '4 veckor', year: '1 år' }} />
+      <IntervalDropdown onChange={handleChange} options={{ alltime: 'Totalt', week: '1 vecka', '2Week': '2 veckor', '4Week': '4 veckor', year: '1 år' }} />
       <BarChart
         titletext='Genomsnittlig tid per kategori [min]'
         datasets={datasets}
