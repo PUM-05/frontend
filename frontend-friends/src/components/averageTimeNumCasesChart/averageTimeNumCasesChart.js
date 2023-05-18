@@ -96,7 +96,7 @@ export default function TimePerCategory () {
           data: [{
             x:(numOfCases[i]),
             y:(caseAverageTime[i]),
-            r:(Math.round((numOfCases[i]+caseAverageTime[i])/2.5))
+            r:(Math.round(Math.sqrt(numOfCases[i]*caseAverageTime[i])))
           }],
           backgroundColor: tempColorArray[i],
         }
