@@ -102,7 +102,6 @@ export default function Input () {
   }, [caseId, caseCategory, timeSpend, afterWorkTime, freeText])
 
   function startInputTime () {
-    console.log('start')
     if (!inputStart) {
       setInputStart(new Date())
       return
