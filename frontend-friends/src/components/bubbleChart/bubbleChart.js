@@ -35,7 +35,7 @@ export default function bubbleChart (props) {
     plugins: {
       legend: {
         display: false,
-        position: 'right',
+        position: 'right'
       },
       title: {
         display: true,
@@ -53,24 +53,24 @@ export default function bubbleChart (props) {
       tooltip: {
         callbacks: {
           label: function (context) {
-            const label = context.dataset.label || '';
-            const xValue = context.parsed.x || '';
-            const yValue = context.parsed.y || '';
-            return label + ': (' + xValue + ', ' + yValue + ')';
+            const label = context.dataset.label || ''
+            const xValue = context.parsed.x || ''
+            const yValue = context.parsed.y || ''
+            return label + ': (' + xValue + ', ' + yValue + ')'
           },
           // Hide the r value (radius)
           labelPoint: function () {
-            return '';
-          },
-        },
-      },
+            return ''
+          }
+        }
+      }
     },
     scales: {
       x: {
         title: {
           display: true,
           text: 'Antal ärenden'
-        },
+        }
       },
       y: {
         title: {

@@ -61,7 +61,7 @@ export default function TimePerCategory () {
     const tempNumArray = []
     let maxCount = 0
     for (const data of rawData) {
-      if(data.count > maxCount){
+      if (data.count > maxCount) {
         maxCount = data.count
       }
       setXMax(maxCount)
@@ -91,14 +91,14 @@ export default function TimePerCategory () {
     for (let i = 0; i < caseAverageTime.length; i++) {
       dataArray.push(
         {
-          type:'bubble',
+          type: 'bubble',
           label: categories[i],
           data: [{
-            x:(numOfCases[i]),
-            y:(caseAverageTime[i]),
-            r:(Math.round(Math.sqrt(numOfCases[i]*caseAverageTime[i])))
+            x: (numOfCases[i]),
+            y: (caseAverageTime[i]),
+            r: (Math.round(Math.sqrt(numOfCases[i] * caseAverageTime[i])))
           }],
-          backgroundColor: tempColorArray[i],
+          backgroundColor: tempColorArray[i]
         }
       )
     }
