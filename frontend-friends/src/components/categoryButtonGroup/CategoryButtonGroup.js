@@ -25,6 +25,12 @@ export default function CategoryButtonGroup (props) {
     loadCategories()
   }, [])
 
+  useEffect(() => {
+    if (showSubid) {
+      props.onSubToggle()
+    }
+  }, [showSubid])
+
   /**
    * Handles change
    * @param {*} data is the data from the event
