@@ -9,6 +9,7 @@ export default function DailyData (props) {
   const [emailCases, setEmailCases] = useState({})
   const [phoneCases, setPhoneCases] = useState({})
 
+
   /**
    * Sends get requests that obtains the number of cases for a certain interval
    * @param {*} interval is an integer that represents what interval should be requested
@@ -24,9 +25,9 @@ export default function DailyData (props) {
       const yesterday = await (await getData(`/stats/medium?start-time=${getISO(yesterdayStart)}&end-time=${getISO(todayStart)}`)).json()
       const today = await (await getData(`/stats/medium?start-time=${getISO(todayStart)}&end-time=${getISO(todayEnd)}`)).json()
 
-      setTotalCases({ total: today.email + today.phone, increase: (today.email + today.phone - (yesterday.email + yesterday.phone)) / (yesterday.email + yesterday.phone) })
-      setEmailCases({ total: today.email, increase: (today.email - yesterday.email) / (yesterday.email) })
-      setPhoneCases({ total: today.phone, increase: (today.phone - yesterday.phone) / (yesterday.phone) })
+      setTotalCases({ total: today.email + today.phone, increase: (today.email + today.phone - (yesterday.email + yesterday.phone)) / (yesterday.email + yesterday.phone), totalYesterday: (yesterday.email + yesterday.phone) })
+      setEmailCases({ total: today.email, increase: (today.email - yesterday.email) / (yesterday.email), totalYesterday: yesterday.email})
+      setPhoneCases({ total: today.phone, increase: (today.phone - yesterday.phone) / (yesterday.phone), totalYesterday: yesterday.phone})
     }
 
     function getISO (date) {
@@ -42,14 +43,14 @@ export default function DailyData (props) {
         <p className='amount'>{totalCases.total ?? ''} st</p>
         <p className='errands-text'>Ärenden idag</p>
         <p className='data-comparison'>
-          <span className='percentage'>{totalCases.increase * 100}% ärenden från igår</span>
+          <span className='percentage'>{totalCases.totalYesterday === 0 ? "Inga" : totalCases.increase * 100 + '% '} ärenden från igår</span>
         </p>
         <p className='data-title'>TOTALT</p>
       </div>
       <div className='phone-data daily-data'>
         <p className='amount'>{phoneCases.total ?? ''} st</p>
         <p className='errands-text'>Ärenden</p>
-        <p className='data-comparison'>{phoneCases.increase * 100}% ärenden från igår</p>
+        <p className='data-comparison'>{phoneCases.totalYesterday === 0 ? "Inga" : phoneCases.increase * 100 + '% '} ärenden från igår</p>
         <div className='data-pic'>
           <img src={PhoneIcon} />
         </div>
@@ -57,7 +58,7 @@ export default function DailyData (props) {
       <div className='mail-data daily-data'>
         <p className='amount'>{emailCases.total ?? ''} st</p>
         <p className='errands-text'>Ärenden</p>
-        <p className='data-comparison'>{emailCases.increase * 100}% ärenden från igår</p>
+        <p className='data-comparison'>{emailCases.totalYesterday === 0 ? "Inga" : totalCases.increase * 100 + '% '} ärenden från igår</p>
         <div className='data-pic'>
           <img src={MailIcon} />
         </div>
