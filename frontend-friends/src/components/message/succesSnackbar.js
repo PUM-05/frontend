@@ -9,7 +9,7 @@ export default function succesSnackbar (props) {
       open={props.show}
       autoHideDuration={4000}
       onClose={() => props.onClose()}
-      message='Nytt ärende skapad!'
+      message={`Nytt ärende skapad! Tid för inmatning: ${props.formFillTime?.toFixed(1) ?? ''} s`}
     />
   )
 }

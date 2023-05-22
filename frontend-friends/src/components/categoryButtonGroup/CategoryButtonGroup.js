@@ -22,8 +22,14 @@ export default function CategoryButtonGroup (props) {
   }
 
   useEffect(() => {
-    loadCategories()
+    loadCategories().catch(console.error)
   }, [])
+
+  useEffect(() => {
+    if (showSubid) {
+      props.onSubToggle()
+    }
+  }, [showSubid])
 
   /**
    * Handles change

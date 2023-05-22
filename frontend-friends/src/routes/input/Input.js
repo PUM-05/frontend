@@ -30,7 +30,12 @@ export default function Input () {
   const addTimeRef = useRef(null)
   const notesRef = useRef(null)
 
+  const [inputStart, setInputStart] = useState()
+
+  const [formFillTime, setFormFillTime] = useState()
+
   async function submitData (e) {
+    const inputTime = endInputTime()
     try {
       e.preventDefault()
       const data = {
@@ -39,7 +44,8 @@ export default function Input () {
         category_id: caseCategory,
         customer_time: parseInt(timeSpend),
         additional_time: parseInt(afterWorkTime),
-        notes: freeText
+        notes: freeText,
+        form_fill_time: inputTime / 1000
       }
       const command = await postData('/case', data)
       if (command.status === 201) {
@@ -91,6 +97,36 @@ export default function Input () {
     }
   }, [timeSpend, caseCategory])
 
+  useEffect(() => {
+    if (caseId || caseCategory || timeSpend || afterWorkTime || freeText) {
+      startInputTime()
+    }
+  }, [caseId, caseCategory, timeSpend, afterWorkTime, freeText])
+
+  function startInputTime () {
+    if (!inputStart) {
+      setInputStart(new Date())
+      return
+    }
+    const delta = new Date() - inputStart
+
+    if (delta > 1000 * 120) {
+      setInputStart(new Date())
+    }
+  }
+
+  function endInputTime () {
+    const delta = new Date() - inputStart
+    setInputStart(null)
+
+    if (delta < 1000 * 120) {
+      setFormFillTime(delta / 1000)
+      return delta
+    }
+
+    return null
+  }
+
   return (
     <>
       <PageWrapper className='collapsed-sidebar'>
@@ -117,6 +153,7 @@ export default function Input () {
                   setCaseCategory(data.value)
                 }}
                 value={caseCategory}
+                onSubToggle={startInputTime}
               />
               <div className='text-field-container'>
                 <TextField
@@ -155,7 +192,7 @@ export default function Input () {
               SKICKA
             </SubmitButton>
           </div>
-          <SuccesSnackbar show={showsuccesSnackbar} onClose={() => setsuccesShowSnackbar(false)} />
+          <SuccesSnackbar show={showsuccesSnackbar} onClose={() => setsuccesShowSnackbar(false)} formFillTime={formFillTime} />
           <ErrorSnackbar show={showerrorSnackbar} onClose={() => seterrorShowSnackbar(false)} />
         </div>
       </PageWrapper>

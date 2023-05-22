@@ -23,6 +23,13 @@ tr, th, td {
     font-size: fontsizes.$fontsz-p;
 }
 
+tr:last-child {
+    border-bottom: none;
+    td{
+        border-bottom: none;
+    }
+}
+
 td {
     overflow: hidden;
     cursor: pointer;
