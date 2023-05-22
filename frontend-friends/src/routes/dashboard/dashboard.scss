@@ -17,6 +17,11 @@
         .container-title {
             padding: margins.$margin-md;
         }
+        
+        .daily-data-container {
+            position: absolute;
+            right: 0px
+        }
     }
 
     .graph-container .graphs-content {
