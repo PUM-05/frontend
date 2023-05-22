@@ -21,8 +21,11 @@ export default function CategoryButtonGroup (props) {
     setButtonData(data)
   }
 
-  useEffect(async () => {
-    await loadCategories()
+  useEffect(() => {
+    async function fetchData () {
+      await loadCategories()
+    }
+    fetchData()
   }, [])
 
   useEffect(() => {
