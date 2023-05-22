@@ -32,6 +32,8 @@ export default function Input () {
 
   const [inputStart, setInputStart] = useState()
 
+  const [formFillTime, setFormFillTime] = useState()
+
   async function submitData (e) {
     const inputTime = endInputTime()
     try {
@@ -118,6 +120,7 @@ export default function Input () {
     setInputStart(null)
 
     if (delta < 1000 * 120) {
+      setFormFillTime(delta / 1000)
       return delta
     }
 
@@ -189,7 +192,7 @@ export default function Input () {
               SKICKA
             </SubmitButton>
           </div>
-          <SuccesSnackbar show={showsuccesSnackbar} onClose={() => setsuccesShowSnackbar(false)} />
+          <SuccesSnackbar show={showsuccesSnackbar} onClose={() => setsuccesShowSnackbar(false)} formFillTime={formFillTime} />
           <ErrorSnackbar show={showerrorSnackbar} onClose={() => seterrorShowSnackbar(false)} />
         </div>
       </PageWrapper>
