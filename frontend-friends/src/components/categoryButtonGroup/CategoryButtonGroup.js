@@ -22,10 +22,7 @@ export default function CategoryButtonGroup (props) {
   }
 
   useEffect(() => {
-    async function fetchData () {
-      await loadCategories()
-    }
-    fetchData()
+    loadCategories().catch(console.error)
   }, [])
 
   useEffect(() => {
