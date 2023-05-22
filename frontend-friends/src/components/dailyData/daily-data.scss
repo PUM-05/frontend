@@ -5,12 +5,13 @@
         text-align: center;
     }
     width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
     .daily-data {
         height: 134px;
-        margin-bottom: 25px;
         width: 270px;
         border-radius: 6px;
-        margin-right: 20px;
 
         .data-title {
             position: relative;
@@ -46,13 +47,29 @@
 
     }
     .daily-total {
-        background-color: pink;
+        background-color: white;
     }
     .phone-data{
-        background-color: pink;
+        background-color: white;
     }
     .mail-data{
-        background-color: pink;
+        background-color: white;
         margin-bottom: 0px;
     }
+}
+
+@media screen and (max-width: 1200px){
+    .daily-data-container{
+        margin-top: 25px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        flex-grow: 1;
+    }
+    
+}
+
+@media screen and (max-width: 992px){
+
+
 }

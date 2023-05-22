@@ -35,9 +35,7 @@ export default function Dashboard () {
             <div className='graphs-content'>
               <PieChartGroup />
             </div>
-            <div className='daily-data-container'>
-              <DailyData />
-            </div>
+            <DailyData />
           </div>
         </div>
         <div className='dashboard-content list-container'>
