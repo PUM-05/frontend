@@ -43,7 +43,7 @@ export default function Input () {
         customer_time: parseInt(timeSpend),
         additional_time: parseInt(afterWorkTime),
         notes: freeText,
-        form_fill_time: inputTime
+        form_fill_time: inputTime / 1000
       }
       const command = await postData('/case', data)
       if (command.status === 201) {
