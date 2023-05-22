@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Popup from '../popup/Popup'
 import { editData } from '../../utils/request'
 import NotesIcon from '../../utils/icons/NotesIcon'
+import { getCategoryColor } from '../../utils/colors'
 
 /**
  * Creates and displays the list component of cases
@@ -95,19 +96,20 @@ export default function List (props) {
             <th>
               SKAPAT
             </th>
-            <th />
+            {props.hasPopup && <th />}
             <th />
           </tr>
         </thead>
         <tbody>
           {props.content.map((currCase, index) =>
-            <tr onClick={() => togglePopup(currCase, index)} key={currCase.id}>
+            <tr className={props.hasPopup ? 'editable' : ''} onClick={() => togglePopup(currCase, index)} key={currCase.id}>
               <td>{currCase.case_id !== null ? '#' : ''}{currCase.case_id}</td>
-              <td>{(currCase.category_name !== null ? currCase.category_name : 'Kategori saknas')}</td>
+              {console.log('text-' + getCategoryColor(currCase.category_id))}
+              <td className={'text-' + getCategoryColor(currCase.category_id) + ' bold-text'}>{(currCase.category_name !== null ? currCase.category_name : 'Kategori saknas')}</td>
               <td>{currCase.customer_time} min</td>
               <td>{currCase.additional_time} min</td>
               <td><div>{parseDate(currCase.created_at)}</div></td>
-              <td className='edit-field'>{props.hasPopup ? 'Redigera' : ''}</td>
+              {props.hasPopup && <td className='edit-field'>Redigera</td>}
               <td className='notes-icon'>
                 <div className='notes-icon-container'>
                   {/[a-z0-9$&+,:;=?@#|'<>.^*()%!-åäö]/i.test(currCase.notes) ? <NotesIcon /> : <></>}
