@@ -20,7 +20,7 @@ export default function PieChartGroup (props) {
       const endYear = today.getFullYear()
       const endMonth = today.getMonth() + 1
       const endDay = today.getDate()
-      let i = interval;
+      let i = interval-1;
       while(i > 0){
         if(startDay === 1){
             if(startMonth === 1){
@@ -65,16 +65,16 @@ export default function PieChartGroup (props) {
         setInterval(14)
         break
       case '4Week':
-        setInterval(4)
+        setInterval(28)
         break
       case 'year':
-        setInterval(1)
+        setInterval(365)
         break
       case 'week':
         setInterval(7)
         break
       default:
-        setInterval(100)
+        setInterval(1000)
         break
     }
   }
