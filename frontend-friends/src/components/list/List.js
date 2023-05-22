@@ -33,12 +33,13 @@ export default function List (props) {
    * @param {*} caseAdditionalTime - Additional time spent of the current case
    * @param {*} caseNotes - notes of the current case
    */
-  async function editCase (caseId, caseSpentTime, caseAdditionalTime, caseNotes, newCaseId) {
+  async function editCase (caseId, caseSpentTime, caseAdditionalTime, caseNotes, newCaseId, comMedium) {
     const data = {
       case_id: parseInt(newCaseId),
       customer_time: parseInt(caseSpentTime),
       additional_time: parseInt(caseAdditionalTime),
-      notes: caseNotes
+      notes: caseNotes,
+      medium: comMedium
     }
     const response = await editData('/case/' + String(caseId), data)
 
@@ -104,7 +105,6 @@ export default function List (props) {
           {props.content.map((currCase, index) =>
             <tr className={props.hasPopup ? 'editable' : ''} onClick={() => togglePopup(currCase, index)} key={currCase.id}>
               <td>{currCase.case_id !== null ? '#' : ''}{currCase.case_id}</td>
-              {console.log('text-' + getCategoryColor(currCase.category_id))}
               <td className={'text-' + getCategoryColor(currCase.category_id) + ' bold-text'}>{(currCase.category_name !== null ? currCase.category_name : 'Kategori saknas')}</td>
               <td>{currCase.customer_time} min</td>
               <td>{currCase.additional_time} min</td>

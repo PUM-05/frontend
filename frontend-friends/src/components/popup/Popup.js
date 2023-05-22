@@ -5,6 +5,7 @@ import CloseIcon from '../../utils/icons/CloseIcon'
 import TextArea from '../textArea/TextArea'
 import { useState } from 'react'
 import Arrow from '../../utils/icons/Arrow'
+import RadioButton from '../radioButton/RadioButton'
 
 /**
  * Creates and displays a propup for editing a case
@@ -16,6 +17,8 @@ export default function Popup (props) {
   const [newAdditionalTime, setNewAdditionalTime] = useState(props.data.additional_time)
   const [newNotes, setNewNotes] = useState(props.data.notes)
   const [newCaseId, setNewCaseId] = useState(props.data.case_id)
+  const [comMedium, setComMedium] = useState(props.data.medium)
+
 
   return (
     <>
@@ -61,8 +64,13 @@ export default function Popup (props) {
               value={props.data.notes}
               onChange={(e) => { setNewNotes(e.target.value) }}
             />
+            <p>Mottaget via:</p>
+            <div>
+              <RadioButton name='medium' medium='phone' checked={comMedium === 'phone'} onChange={(e) => setComMedium(e.target.value)}/>
+              <RadioButton name='medium' medium='email' checked={comMedium === 'email'} onChange={(e) => setComMedium(e.target.value)}/>
+            </div>
           </div>
-          <SubmitButton className='submit-button' onClick={() => props.editCase(props.data.id, newSpentTime, newAdditionalTime, newNotes, newCaseId)}>SPARA</SubmitButton>
+          <SubmitButton className='submit-button' onClick={() => props.editCase(props.data.id, newSpentTime, newAdditionalTime, newNotes, newCaseId, comMedium)}>SPARA</SubmitButton>
           <div className='switch-buttons'>
             <button className={`left ${props.disablePrev ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index - 1)}><Arrow /></button>
             <button className={`right ${props.disableNext ? 'disabled' : ''}`} onClick={() => props.switchCase(props.index + 1)}><Arrow /></button>
