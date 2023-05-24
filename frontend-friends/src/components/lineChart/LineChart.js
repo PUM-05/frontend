@@ -71,7 +71,7 @@ export default function lineChart (props) {
   }
 
   return (
-    <div className='pie-button-wrapper'>
+    <div className='bar-button-wrapper'>
       <Line data={data} options={options} />
 
     </div>
