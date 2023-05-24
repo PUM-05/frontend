@@ -73,7 +73,6 @@ export default function PieChartGroup (props) {
         break
       default:
         setInterval(1000)
-
         break
     }
   }
