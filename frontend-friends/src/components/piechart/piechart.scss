@@ -1,12 +1,21 @@
 @use '../../style/colors';
-.pie-button-wrapper{
-    width: 50%;
-    min-height: 250px;
+
+.dashboard {
+    .pie-button-wrapper{
+        width: 50%;
+        min-height: 250px;
+    }
 }
 
-@media screen and (max-width: 992px){
-    .pie-button-wrapper{
-        width: 100%;
-    }
+.pie-button-wrapper {
+    min-height: 200px;
+}
+
+@media screen and (max-width: 600px){
+    .dashboard {
+        .pie-button-wrapper{
+            width: 100%;
+        }
+    }   
     
 }
