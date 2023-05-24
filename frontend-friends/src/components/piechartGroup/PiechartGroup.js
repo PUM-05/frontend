@@ -7,14 +7,14 @@ import { getData } from '../../utils/request'
  * @param {*} props
  * @returns Component containing two pie charts
  */
-export default function PieChartGroup(props) {
+export default function PieChartGroup (props) {
   const [mediumData, setMediumData] = useState([])
   const [categoryData, setCategoryData] = useState([])
   const [categoryLabels, setCategoryLabels] = useState([])
   const [categoryColors, setCategoryColors] = useState([])
   const colors = ['#579CFB', '#20E2BA', '#FD5E80', '#F8D347', '#BC6C25', '#00C864', '#A259FF', '#9694FF']
   useEffect(() => {
-    async function getPieData() {
+    async function getPieData () {
       const today = new Date()
       let startYear = today.getFullYear()
       let startMonth = today.getMonth() + 1
