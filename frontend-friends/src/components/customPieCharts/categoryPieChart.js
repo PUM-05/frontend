@@ -11,6 +11,8 @@ import { getData } from '../../utils/request'
 export default function PieChartGroup (props) {
 const [categoryData, setCategoryData] = useState([])
 const [categoryLabels, setCategoryLabels] = useState([])
+const [categoryColors, setCategoryColors] = useState([])
+const colors = ['#579CFB', '#20E2BA', '#FD5E80', '#F8D347', '#BC6C25', '#00C864', '#A259FF', '#9694FF']
   const [interval, setInterval] = useState(100)
   useEffect(() => {
     async function getPieData () {
@@ -57,10 +59,13 @@ const [categoryLabels, setCategoryLabels] = useState([])
         const categoryArray = await categoryPromise
         const categoryData = []
         const categoryLabels = []
+        const categoryColors = []
         for (const element of categoryArray) {
+            categoryColors.push(colors[element.category_id % colors.length])
           categoryData.push(element.count)
           categoryLabels.push(element.category_name)
         }
+        setCategoryColors(categoryColors)
         setCategoryData(categoryData)
         setCategoryLabels(categoryLabels)
 
@@ -96,16 +101,7 @@ const [categoryLabels, setCategoryLabels] = useState([])
           {
             label: 'Antal Ärenden',
             data: categoryData,
-            backgroundColor: [
-              '#20E2BA',
-              '#FD5E80',
-              '#ffd43b',
-              '#BC6C25',
-              '#00C864',
-              '#A259FF',
-              '#b197fb',
-              '#579CFB'
-            ],
+            backgroundColor: categoryColors,
             borderColor: ['white'],
             borderWidth: 4
           }
