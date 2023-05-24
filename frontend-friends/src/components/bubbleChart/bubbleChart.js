@@ -70,17 +70,35 @@ export default function bubbleChart (props) {
         title: {
           display: true,
           text: 'Antal ärenden'
-        }
+        },
+        suggestedMin: 0
       },
       y: {
+        grace: '20%',
+        beginAtZero: true,
         title: {
           display: true,
           text: 'Genomsnittlig tid'
         },
-        stacked: true,
         ticks: {
-          beginAtZero: true,
-          stepSize: 1
+          beginAtZero: true
+          // stepSize: 2
+        },
+        suggestedMin: 0
+      }
+    },
+    elements: {
+      point: {
+        radius: function (context) {
+          const size = context.chart.width
+          const base = Math.abs(Math.sqrt(context.raw.x * context.raw.y)) / 150
+          let result = (size / 24) * base
+          if (result < 3) {
+            result = 5
+          } else if (result > 50) {
+            result = 50
+          }
+          return result
         }
       }
     }
