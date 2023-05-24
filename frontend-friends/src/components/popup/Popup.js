@@ -65,7 +65,7 @@ export default function Popup (props) {
               onChange={(e) => { setNewNotes(e.target.value) }}
             />
             <p>Mottaget via:</p>
-            <div>
+            <div className='radio-buttons-container'>
               <RadioButton name='medium' medium='phone' checked={comMedium === 'phone'} onChange={(e) => setComMedium(e.target.value)}/>
               <RadioButton name='medium' medium='email' checked={comMedium === 'email'} onChange={(e) => setComMedium(e.target.value)}/>
             </div>
