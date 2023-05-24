@@ -5,6 +5,7 @@ import NumOfCasesWeekBar from '../../components/customBarCharts/numOfCasesWeekBa
 import NumOfCasesHourBar from '../../components/customBarCharts/numOfCasesHourBar'
 import TimePerCategory from '../../components/customBarCharts/timePerCategoryBar'
 import MediumPieChart from '../../components/customPieCharts/mediumPieChart'
+import CategoryPieChart from '../../components/customPieCharts/categoryPieChart'
 import AverageTimeNumCasesChart from '../../components/averageTimeNumCasesChart/averageTimeNumCasesChart'
 /**
  * Component for displaying the statistics page.
@@ -33,6 +34,9 @@ export default function Statistics () {
           </div>
           <div className='barchart-container'>
             <MediumPieChart />
+          </div>
+          <div className='barchart-container'>
+            <CategoryPieChart />
           </div>
         </div>
       </PageWrapper>
