@@ -18,10 +18,11 @@ export default function DailyData (props) {
     async function getNumOfCasesDays () {
       const date = new Date()
       const yesterdayStart = new Date(date.getTime() - 24 * 60 * 60 * 1000)
+      const yesterdayEnd = new Date(date.getTime() - 24 * 60 * 60 * 1000)
       const todayStart = new Date(yesterdayStart.getTime() + 24 * 60 * 60 * 1000)
       const todayEnd = new Date(todayStart.getTime() + 24 * 60 * 60 * 1000)
 
-      const yesterday = await (await getData(`/stats/medium?start-time=${getISO(yesterdayStart)}&end-time=${getISO(todayStart)}`)).json()
+      const yesterday = await (await getData(`/stats/medium?start-time=${getISO(yesterdayStart)}&end-time=${getISO(yesterdayEnd, false)}`)).json()
       const today = await (await getData(`/stats/medium?start-time=${getISO(todayStart)}&end-time=${getISO(todayEnd)}`)).json()
 
       setTotalCases({ total: today.email + today.phone, increase: (today.email + today.phone - (yesterday.email + yesterday.phone)) / (yesterday.email + yesterday.phone), totalYesterday: (yesterday.email + yesterday.phone) })
@@ -29,8 +30,13 @@ export default function DailyData (props) {
       setPhoneCases({ total: today.phone, increase: (today.phone - yesterday.phone) / (yesterday.phone), totalYesterday: yesterday.phone })
     }
 
-    function getISO (date) {
-      return `${String(date.getFullYear()).padStart(4, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}T00:00:00`
+    function getISO (date, timeZero = true) {
+      let time = 'T00:00:00'
+
+      if (!timeZero) {
+        time = `T${String(date.getUTCHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:00`
+      }
+      return `${String(date.getFullYear()).padStart(4, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}${time}`
     }
 
     getNumOfCasesDays().catch(console.error)
