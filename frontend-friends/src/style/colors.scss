@@ -11,30 +11,19 @@ $grape: #9c36b5;
 $violet: #b197fb;
 $pink: #f883ac;
 $orange: #ff922a;
-$yellow: #ffd43b;
+$yellow: #FBBC05;
 /* Category colors from Figma */
 $category-blue: $primary-color;
-$category-blue-dark: $primary-dark;
 $category-cyan: #20E2BA;
-$category-cyan-dark: #169A7E;
 $category-red: $primary-red;
-$category-red-dark: #AC4057;
-$category-yellow: #F8D347;
-$category-yellow-dark: #A98F30;
+$category-yellow: #FBBC05;
 $category-brown: #BC6C25;
-$category-brown-dark: #804919;
 $category-green: #00C864;
-$category-green-dark: #008744;
 $category-purple: #A259FF;
-$category-purple-dark: #6E3DAD;
 $category-violet: #9694FF;
-$category-violet-dark: #6665AD;
 $category-gray: #B0C4B1;
-$category-gray-dark: #788578;
 $category-orange: #F68C37;
-$category-orange-dark: #A75F25;
 $category-darker-green: #0EAD69;
-$category-darker-green-dark: #0A7647;
 
 $category-text: rgba(0, 0, 0, 0.5);
 
@@ -52,3 +41,47 @@ $switch-button-background: #D1D9E1;
 $switch-button-hover: #C1C5C9;
 $switch-button-disabled-background: #E6E8E9;
 $switch-button-disabled-icon: #9C9FA0;
+
+.text-category-blue {
+    color: $category-blue;
+}
+
+.text-category-cyan {
+    color: $category-cyan;
+}
+
+.text-category-red {
+    color: $category-red;
+}
+
+.text-category-yellow {
+    color: $category-yellow;
+}
+
+.text-category-brown {
+    color: $category-brown;
+}
+
+.text-category-green {
+    color: $category-green;
+}
+
+.text-category-purple {
+    color: $category-purple;
+}
+
+.text-category-violet {
+    color: $category-violet;
+}
+
+.text-category-gray {
+    color: $category-gray;
+}
+
+.text-category-orange {
+    color: $category-orange;
+}
+
+.text-category-darker-green {
+    color: $category-darker-green;
+}

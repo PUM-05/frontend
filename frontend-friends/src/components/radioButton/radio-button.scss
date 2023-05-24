@@ -1,0 +1,52 @@
+@use "../../style/colors.scss";
+@use "../../style/fontsizes.scss";
+@use "../../style/margins.scss";
+
+.radio-button-input {
+    visibility: hidden;
+    margin: 0;
+    position: fixed;
+}
+
+.radio-button {
+    display: flex;
+    align-items: center;
+    font-size: fontsizes.$fontsz-sm;
+    cursor: pointer;
+
+    span {
+        height: 26px;
+        width: 26px;
+        display: flex;
+        border-radius: 100%;
+        margin-right: margins.$margin-sm / 2;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 0 1px inset colors.$text-field-stroke;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            display: none;
+        }
+    }
+}
+
+.phone-button-input:checked + span {
+    background-color: colors.$primary-color;
+    box-shadow: none;
+
+    svg {
+            display: block;
+        }
+}
+
+.email-button-input:checked + span {
+    background-color: colors.$green;
+    box-shadow: none;
+
+    svg {
+        display: block;
+    }
+}
+

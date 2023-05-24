@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Popup from '../popup/Popup'
 import { editData } from '../../utils/request'
 import NotesIcon from '../../utils/icons/NotesIcon'
+import { getCategoryColor } from '../../utils/colors'
 
 /**
  * Creates and displays the list component of cases
@@ -32,12 +33,13 @@ export default function List (props) {
    * @param {*} caseAdditionalTime - Additional time spent of the current case
    * @param {*} caseNotes - notes of the current case
    */
-  async function editCase (caseId, caseSpentTime, caseAdditionalTime, caseNotes, newCaseId) {
+  async function editCase (caseId, caseSpentTime, caseAdditionalTime, caseNotes, newCaseId, comMedium) {
     const data = {
       case_id: parseInt(newCaseId),
       customer_time: parseInt(caseSpentTime),
       additional_time: parseInt(caseAdditionalTime),
-      notes: caseNotes
+      notes: caseNotes,
+      medium: comMedium
     }
     const response = await editData('/case/' + String(caseId), data)
 
@@ -95,19 +97,19 @@ export default function List (props) {
             <th>
               SKAPAT
             </th>
-            <th />
+            {props.hasPopup && <th />}
             <th />
           </tr>
         </thead>
         <tbody>
           {props.content.map((currCase, index) =>
-            <tr onClick={() => togglePopup(currCase, index)} key={currCase.id}>
+            <tr className={props.hasPopup ? 'editable' : ''} onClick={() => togglePopup(currCase, index)} key={currCase.id}>
               <td>{currCase.case_id !== null ? '#' : ''}{currCase.case_id}</td>
-              <td>{(currCase.category_name !== null ? currCase.category_name : 'Kategori saknas')}</td>
+              <td className={'text-' + getCategoryColor(currCase.category_id) + ' bold-text'}>{(currCase.category_name !== null ? currCase.category_name : 'Kategori saknas')}</td>
               <td>{currCase.customer_time} min</td>
               <td>{currCase.additional_time} min</td>
               <td><div>{parseDate(currCase.created_at)}</div></td>
-              <td className='edit-field'>{props.hasPopup ? 'Redigera' : ''}</td>
+              {props.hasPopup && <td className='edit-field'>Redigera</td>}
               <td className='notes-icon'>
                 <div className='notes-icon-container'>
                   {/[a-z0-9$&+,:;=?@#|'<>.^*()%!-åäö]/i.test(currCase.notes) ? <NotesIcon /> : <></>}

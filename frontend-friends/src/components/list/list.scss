@@ -32,7 +32,6 @@ tr:last-child {
 
 td {
     overflow: hidden;
-    cursor: pointer;
 }
 
 .list-header {
@@ -68,4 +67,12 @@ td {
         width: 18px;
         height: 18px;
     }
+}
+
+.bold-text {
+    font-weight: 600;
+}
+
+.editable {
+    cursor: pointer;
 }
