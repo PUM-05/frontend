@@ -19,7 +19,6 @@ export default function Popup (props) {
   const [newCaseId, setNewCaseId] = useState(props.data.case_id)
   const [comMedium, setComMedium] = useState(props.data.medium)
 
-
   return (
     <>
       <div className='popup-container'>
@@ -66,8 +65,8 @@ export default function Popup (props) {
             />
             <p>Mottaget via:</p>
             <div className='radio-buttons-container'>
-              <RadioButton name='medium' medium='phone' checked={comMedium === 'phone'} onChange={(e) => setComMedium(e.target.value)}/>
-              <RadioButton name='medium' medium='email' checked={comMedium === 'email'} onChange={(e) => setComMedium(e.target.value)}/>
+              <RadioButton name='medium' medium='phone' checked={comMedium === 'phone'} onChange={(e) => setComMedium(e.target.value)} />
+              <RadioButton name='medium' medium='email' checked={comMedium === 'email'} onChange={(e) => setComMedium(e.target.value)} />
             </div>
           </div>
           <SubmitButton className='submit-button' onClick={() => props.editCase(props.data.id, newSpentTime, newAdditionalTime, newNotes, newCaseId, comMedium)}>SPARA</SubmitButton>
