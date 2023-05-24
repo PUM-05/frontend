@@ -54,6 +54,7 @@ export default function barChart (props) {
         stacked: true
       },
       y: {
+        grace: '2%',
         stacked: true,
         ticks: {
           beginAtZero: true,
