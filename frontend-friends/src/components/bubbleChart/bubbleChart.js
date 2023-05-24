@@ -82,7 +82,6 @@ export default function bubbleChart (props) {
         },
         ticks: {
           beginAtZero: true
-          // stepSize: 2
         },
         suggestedMin: 0
       }
