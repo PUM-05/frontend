@@ -1,0 +1,75 @@
+.daily-data-container {
+    p {
+        all: unset;
+        display: block;
+        text-align: center;
+    }
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    .daily-data {
+        height: 134px;
+        width: 270px;
+        border-radius: 6px;
+
+        .data-title {
+            position: relative;
+            text-align: center;
+            top: -50px;
+        }
+
+        .amount {
+            position: relative;
+            top: 30%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .errands-text {
+            position: relative;
+            top: 35px;
+            font-size: 14px;
+            color: #80888f;
+        }
+
+        .data-pic {
+            position: relative;
+            top: -85px;
+            text-align: center;
+        }
+        
+        .data-comparison {
+            position: relative;
+            top: 45px;
+            color: #80888f;
+        }
+
+    }
+    .daily-total {
+        background-color: white;
+    }
+    .phone-data{
+        background-color: white;
+    }
+    .mail-data{
+        background-color: white;
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .daily-data-container{
+        margin-top: 25px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        flex-grow: 1;
+    }
+    
+}
+
+@media screen and (max-width: 992px){
+
+
+}

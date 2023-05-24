@@ -2,10 +2,11 @@
 @use "../../style/margins.scss";
 
 .pie-chart-container{
-    width: 100%;
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
+    align-items: stretch;
+    display: flex;
     flex-wrap: wrap;
     background-color: white;
+    justify-content: stretch;
+    width: 100%;
+    padding: 20px;
 }

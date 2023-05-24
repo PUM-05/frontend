@@ -4,6 +4,7 @@ import './dashboard.scss'
 import { getData } from '../../utils/request'
 import { useEffect, useState } from 'react'
 import PieChartGroup from '../../components/piechartGroup/PiechartGroup'
+import DailyData from '../../components/dailyData/DailyData'
 
 /**
  *
@@ -30,8 +31,11 @@ export default function Dashboard () {
       <PageWrapper className='dashboard'>
         <h1>Dashboard</h1>
         <div className='dashboard-content graph-container'>
-          <div className='graphs-content'>
-            <PieChartGroup />
+          <div className='mid-content'>
+            <div className='graphs-content'>
+              <PieChartGroup />
+            </div>
+            <DailyData />
           </div>
         </div>
         <div className='dashboard-content list-container'>
